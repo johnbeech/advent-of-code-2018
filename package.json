@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run test && node run.js",
     "test": "npm run lint",
-    "create": "./copy-template.sh",
+    "create": "node copy-template",
     "lint": "standard --fix"
   },
   "author": "John Beech",
