@@ -1,7 +1,7 @@
 const path = require('path')
 const { read, position } = require('promise-path')
 const fromHere = position(__dirname)
-const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} ${__dirname.split(path.sep).pop()}]`, ...messages)
+const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
 async function run () {
   const input = await read(fromHere('input.txt'), 'utf8')
