@@ -1,5 +1,6 @@
 {
   "name": "advent-of-code-2018",
+  "logName": "Advent of Code 2018",
   "version": "1.0.0",
   "description": "My solutions for Advent of Code 2018, written in JavaScript using nodejs",
   "main": "start.js",

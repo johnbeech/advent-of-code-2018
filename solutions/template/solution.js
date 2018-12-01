@@ -1,16 +1,24 @@
 const path = require('path')
-const { read } = require('promise-path')
+const { read, position } = require('promise-path')
+const fromHere = position(__dirname)
+const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} ${__dirname.split(path.sep).pop()}]`, ...messages)
 
 async function run () {
-  const input = await read(path.join(__dirname, 'input.txt'), 'utf8')
-  let solution = 'UNSOLVED'
+  const input = (await read(fromHere('input.txt'), 'utf8')).trim()
 
-  report(input, solution)
+  await solveForFirstStar(input)
+  await solveForSecondStar(input)
 }
 
-function report (input, solution) {
-  const solutionName = __dirname.split(path.sep).pop()
-  console.log('Advent of Code 2018 :', solutionName, 'solution for', input, ':', solution)
+async function solveForFirstStar (input) {
+  let solution = 'UNSOLVED'
+  report('Input:', input)
+  report('Solution 1:', solution)
+}
+
+async function solveForSecondStar (input) {
+  let solution = 'UNSOLVED'
+  report('Solution 2:', solution)
 }
 
 run()
