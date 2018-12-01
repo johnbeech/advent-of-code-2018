@@ -15,8 +15,23 @@ async function solveForFirstStar (frequencies) {
 }
 
 async function solveForSecondStar (frequencies) {
-  const solution = 'UNSOLVED'
-  report(frequencies.length, solution)
+  let seenFrequencies = { 0: 1 }
+  let n = 0
+  let frequency = 0
+  let solution = null
+  while (solution === null) {
+    let delta = frequencies[n % frequencies.length]
+    frequency = frequency + delta
+    let frequencyCount = seenFrequencies[frequency] || 0
+    frequencyCount++
+    seenFrequencies[frequency] = frequencyCount
+    if (frequencyCount >= 2) {
+      console.log('Duplicate frequency:', frequency, 'Seen frequencies:', seenFrequencies)
+      solution = frequency
+    }
+    n++
+  }
+  console.log('Frequency deltas :', frequencies.length, 'Solution :', solution, ': iterations', n)
 }
 
 function report (input, solution) {
