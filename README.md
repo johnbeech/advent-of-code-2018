@@ -23,4 +23,4 @@ npm run create day1
 
 This will not overwrite existing solutions.
 
-Populate `input.txt` with your solution input, and then start implementing your solution in the 2017 folder.
+Populate `input.txt` with your solution input, and then start implementing your solution in the day's folder.
