@@ -1,7 +1,7 @@
 {
-  "name": "advent-of-code-2017",
+  "name": "advent-of-code-2018",
   "version": "1.0.0",
-  "description": "My solutions for Advent of Code 2017, written in JavaScript using nodejs",
+  "description": "My solutions for Advent of Code 2018, written in JavaScript using nodejs",
   "main": "start.js",
   "scripts": {
     "start": "npm run test && node run.js",
