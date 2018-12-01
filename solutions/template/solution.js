@@ -1,5 +1,5 @@
 const path = require('path')
-const {read} = require('promise-path')
+const { read } = require('promise-path')
 
 async function run () {
   const input = await read(path.join(__dirname, 'input.txt'), 'utf8')
