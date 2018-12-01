@@ -1,5 +1,6 @@
 const path = require('path')
 const { read } = require('promise-path')
+const report = (...messages) => console.log(`[Advent of Code 2018 ${__dirname.split(path.sep).pop()}]`, ...messages)
 
 async function run () {
   const input = await read(path.join(__dirname, 'input.txt'), 'utf8')
@@ -11,7 +12,7 @@ async function run () {
 
 async function solveForFirstStar (frequencies) {
   const solution = frequencies.reduce((acc, n) => acc + n, 0)
-  report(frequencies, solution)
+  report('Frequency deltas :', frequencies.length, 'Solution 1 :', solution)
 }
 
 async function solveForSecondStar (frequencies) {
@@ -26,17 +27,11 @@ async function solveForSecondStar (frequencies) {
     frequencyCount++
     seenFrequencies[frequency] = frequencyCount
     if (frequencyCount >= 2) {
-      console.log('Duplicate frequency:', frequency, 'Seen frequencies:', seenFrequencies)
       solution = frequency
     }
     n++
   }
-  console.log('Frequency deltas :', frequencies.length, 'Solution :', solution, ': iterations', n)
-}
-
-function report (input, solution) {
-  const solutionName = __dirname.split(path.sep).pop()
-  console.log('Advent of Code 2018 :', solutionName, 'solution for', input, ':', solution)
+  report('Frequency deltas :', frequencies.length, 'Solution 2 :', solution, ': iterations', n)
 }
 
 run()
