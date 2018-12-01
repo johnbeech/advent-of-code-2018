@@ -5,9 +5,18 @@ async function run () {
   const input = await read(path.join(__dirname, 'input.txt'), 'utf8')
   const frequencies = input.split('\n').filter(n => n).map(n => Number.parseInt(n))
 
-  const solution = frequencies.reduce((acc, n) => acc + n, 0)
+  await solveForFirstStar(frequencies)
+  await solveForSecondStar(frequencies)
+}
 
-  report(input, solution)
+async function solveForFirstStar (frequencies) {
+  const solution = frequencies.reduce((acc, n) => acc + n, 0)
+  report(frequencies, solution)
+}
+
+async function solveForSecondStar (frequencies) {
+  const solution = 'UNSOLVED'
+  report(frequencies.length, solution)
 }
 
 function report (input, solution) {
