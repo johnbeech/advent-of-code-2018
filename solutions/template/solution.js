@@ -10,7 +10,7 @@ async function run () {
 
 function report (input, solution) {
   const solutionName = __dirname.split(path.sep).pop()
-  console.log('Advent of Code 2017 :', solutionName, 'solution for', input, ':', solution)
+  console.log('Advent of Code 2018 :', solutionName, 'solution for', input, ':', solution)
 }
 
 run()
