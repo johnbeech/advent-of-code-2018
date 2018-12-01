@@ -1,0 +1,20 @@
+{
+  "name": "advent-of-code-2017",
+  "version": "1.0.0",
+  "description": "My solutions for Advent of Code 2017, written in JavaScript using nodejs",
+  "main": "start.js",
+  "scripts": {
+    "start": "npm run test && node run.js",
+    "test": "npm run lint",
+    "create": "./copy-template.sh",
+    "lint": "standard --fix"
+  },
+  "author": "John Beech",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "pre-push": "*",
+    "promise-path": "*",
+    "standard": "*",
+    "stats-lite": "*"
+  }
+}
