@@ -1,9 +1,10 @@
 const path = require('path')
-const { read } = require('promise-path')
-const report = (...messages) => console.log(`[Advent of Code 2018 ${__dirname.split(path.sep).pop()}]`, ...messages)
+const { read, position } = require('promise-path')
+const fromHere = position(__dirname)
+const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} ${__dirname.split(path.sep).pop()}]`, ...messages)
 
 async function run () {
-  const input = await read(path.join(__dirname, 'input.txt'), 'utf8')
+  const input = await read(fromHere('input.txt'), 'utf8')
   const frequencies = input.split('\n').filter(n => n).map(n => Number.parseInt(n))
 
   await solveForFirstStar(frequencies)
