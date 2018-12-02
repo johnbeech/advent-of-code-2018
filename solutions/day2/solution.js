@@ -46,8 +46,41 @@ function countSymbols (line) {
 }
 
 async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
+  const lines = input.split('\n').map(n => n.trim()).filter(n => n)
+
+  const matches = []
+  lines.forEach(firstLine => {
+    lines.forEach(secondLine => {
+      if (firstLine === secondLine) {
+        return
+      }
+      const nearlyMatchingString = findNearlyMatchingStrings(firstLine, secondLine)
+      if (nearlyMatchingString) {
+        matches.push(nearlyMatchingString)
+      }
+    })
+  })
+
+  const solution = matches[0]
   report('Solution 2:', solution)
+}
+
+function findNearlyMatchingStrings (str1, str2) {
+  let diff = 0
+  let matchingChars = ''
+  let p = 0
+  while (p < str1.length) {
+    if (str1.charAt(p) !== str2.charAt(p)) {
+      diff++
+    } else {
+      matchingChars += str1.charAt(p)
+    }
+    p++
+  }
+  if (diff === 1) {
+    return matchingChars
+  }
+  return false
 }
 
 run()
