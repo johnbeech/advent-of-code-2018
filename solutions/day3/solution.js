@@ -7,8 +7,8 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
   const claims = parseClaims(input)
 
-  await solveForFirstStar(claims)
-  await solveForSecondStar(claims)
+  const claimedTiles = await solveForFirstStar(claims)
+  await solveForSecondStar(claims, claimedTiles)
 }
 
 function parseClaims (input) {
@@ -25,20 +25,23 @@ function parseClaimLine (line) {
     left: parseInt(parts[2]),
     top: parseInt(parts[3]),
     width: parseInt(parts[4]),
-    height: parseInt(parts[5])
+    height: parseInt(parts[5]),
+    conflicted: false
   }
 }
 
 async function solveForFirstStar (claims) {
-  report('Claims:', claims)
+  // report('Claims:', claims)
 
   const claimedTiles = claims.reduce(claimArea, {})
 
-  report('Claimed tiles:', claimedTiles)
+  // report('Claimed tiles:', claimedTiles)
 
   const solution = Object.entries(claimedTiles).reduce(countOverlappingClaims, 0)
 
   report('Solution 1:', solution)
+
+  return claimedTiles
 }
 
 function claimArea (area, coords) {
@@ -60,9 +63,23 @@ function countOverlappingClaims (acc, kvp) {
   return acc
 }
 
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
+async function solveForSecondStar (claims, claimedTiles) {
+  claims.forEach(claim => checkForConflict(claim, claimedTiles))
+
+  const solution = claims.filter(claim => !claim.conflicted)
   report('Solution 2:', solution)
+}
+
+function checkForConflict (coords, area) {
+  let key
+  for (let y = 0; y < coords.height; y++) {
+    for (let x = 0; x < coords.width; x++) {
+      key = (coords.left + x) + ',' + (coords.top + y)
+      if (area[key] > 1) {
+        coords.conflicted = true
+      }
+    }
+  }
 }
 
 run()
