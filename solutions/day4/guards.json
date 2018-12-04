@@ -1,57 +1,3083 @@
 {
-  "10": {
-    "guardId": 10,
+  "97": {
+    "guardId": 97,
     "days": {
-      "1518-11-01": {
+      "1518-03-16": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:49"
+      },
+      "1518-03-17": {
         "events": [
-          "00:05",
-          "00:25",
-          "00:30",
+          "00:04",
+          "00:26",
+          "00:42",
+          "00:44"
+        ],
+        "minutesAsleep": 24
+      },
+      "1518-06-09": {
+        "events": [
+          "00:54",
           "00:55"
         ],
-        "minutesAsleep": 45,
+        "minutesAsleep": 1,
+        "beganShift": "00:03"
+      },
+      "1518-06-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-06-25": {
+        "events": [
+          "00:27",
+          "00:46"
+        ],
+        "minutesAsleep": 19
+      },
+      "1518-08-13": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-08-14": {
+        "events": [
+          "00:30",
+          "00:58"
+        ],
+        "minutesAsleep": 28
+      },
+      "1518-08-28": {
+        "events": [
+          "00:10",
+          "00:12",
+          "00:18",
+          "00:34"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:03"
+      },
+      "1518-09-03": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-09-04": {
+        "events": [
+          "00:03",
+          "00:22",
+          "00:45",
+          "00:49"
+        ],
+        "minutesAsleep": 23
+      },
+      "1518-09-16": {
+        "events": [
+          "00:16",
+          "00:27",
+          "00:38",
+          "00:45",
+          "00:49",
+          "00:59"
+        ],
+        "minutesAsleep": 28,
         "beganShift": "00:00"
       },
-      "1518-11-03": {
+      "1518-09-21": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-09-22": {
         "events": [
-          "00:24",
-          "00:29"
+          "00:14",
+          "00:41"
         ],
-        "minutesAsleep": 5,
-        "beganShift": "00:05"
+        "minutesAsleep": 27
       }
     }
   },
-  "99": {
-    "guardId": 99,
+  "191": {
+    "guardId": 191,
     "days": {
-      "1518-11-01": {
+      "1518-02-28": {
+        "events": [
+          "00:29",
+          "00:55"
+        ],
+        "minutesAsleep": 26,
+        "beganShift": "00:03"
+      },
+      "1518-03-12": {
+        "events": [
+          "00:57",
+          "00:59"
+        ],
+        "minutesAsleep": 2,
+        "beganShift": "00:03"
+      },
+      "1518-04-03": {
+        "events": [
+          "00:26",
+          "00:29"
+        ],
+        "minutesAsleep": 3,
+        "beganShift": "00:02"
+      },
+      "1518-04-11": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-04-12": {
+        "events": [
+          "00:22",
+          "00:38"
+        ],
+        "minutesAsleep": 16
+      },
+      "1518-04-19": {
+        "events": [
+          "00:36",
+          "00:49",
+          "00:52",
+          "00:59"
+        ],
+        "minutesAsleep": 20,
+        "beganShift": "00:00"
+      },
+      "1518-05-05": {
+        "events": [
+          "00:27",
+          "00:57"
+        ],
+        "minutesAsleep": 30,
+        "beganShift": "00:01"
+      },
+      "1518-06-18": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-06-19": {
+        "events": [
+          "00:07",
+          "00:19",
+          "00:30",
+          "00:35"
+        ],
+        "minutesAsleep": 17
+      },
+      "1518-06-27": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-06-28": {
+        "events": [
+          "00:07",
+          "00:09"
+        ],
+        "minutesAsleep": 2
+      },
+      "1518-07-09": {
+        "events": [
+          "00:21",
+          "00:53"
+        ],
+        "minutesAsleep": 32,
+        "beganShift": "00:00"
+      },
+      "1518-09-06": {
+        "events": [
+          "00:46",
+          "00:50"
+        ],
+        "minutesAsleep": 4,
+        "beganShift": "00:02"
+      },
+      "1518-09-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-09-25": {
+        "events": [
+          "00:25",
+          "00:33",
+          "00:51",
+          "00:59"
+        ],
+        "minutesAsleep": 16,
+        "beganShift": "23:57"
+      },
+      "1518-09-26": {
+        "events": [
+          "00:53",
+          "00:56"
+        ],
+        "minutesAsleep": 3
+      },
+      "1518-10-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-10-07": {
+        "events": [
+          "00:41",
+          "00:50",
+          "00:55",
+          "00:59"
+        ],
+        "minutesAsleep": 13
+      },
+      "1518-10-16": {
+        "events": [
+          "00:21",
+          "00:40",
+          "00:49",
+          "00:59"
+        ],
+        "minutesAsleep": 29,
+        "beganShift": "00:00"
+      },
+      "1518-10-20": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-10-21": {
+        "events": [
+          "00:40",
+          "00:52"
+        ],
+        "minutesAsleep": 12
+      },
+      "1518-10-29": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:52"
+      },
+      "1518-10-30": {
+        "events": [
+          "00:01",
+          "00:33"
+        ],
+        "minutesAsleep": 32
+      }
+    }
+  },
+  "683": {
+    "guardId": 683,
+    "days": {
+      "1518-03-01": {
         "events": [],
         "minutesAsleep": 0,
         "beganShift": "23:58"
       },
+      "1518-03-02": {
+        "events": [
+          "00:11",
+          "00:32"
+        ],
+        "minutesAsleep": 21
+      },
+      "1518-07-31": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:49"
+      },
+      "1518-08-01": {
+        "events": [
+          "00:02",
+          "00:11",
+          "00:40",
+          "00:58"
+        ],
+        "minutesAsleep": 27
+      },
+      "1518-08-02": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-08-03": {
+        "events": [
+          "00:07",
+          "00:55"
+        ],
+        "minutesAsleep": 48
+      },
+      "1518-08-09": {
+        "events": [
+          "00:06",
+          "00:40",
+          "00:46",
+          "00:59"
+        ],
+        "minutesAsleep": 47,
+        "beganShift": "00:03"
+      },
+      "1518-08-19": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-08-20": {
+        "events": [
+          "00:04",
+          "00:26",
+          "00:36",
+          "00:42",
+          "00:51",
+          "00:58"
+        ],
+        "minutesAsleep": 35
+      },
+      "1518-11-01": {
+        "events": [
+          "00:22",
+          "00:26",
+          "00:34",
+          "00:43"
+        ],
+        "minutesAsleep": 13,
+        "beganShift": "00:02"
+      },
       "1518-11-02": {
         "events": [
-          "00:40",
-          "00:50"
+          "00:16",
+          "00:35",
+          "00:45",
+          "00:47"
         ],
-        "minutesAsleep": 10
+        "minutesAsleep": 21,
+        "beganShift": "00:00"
       },
       "1518-11-04": {
         "events": [
+          "00:13",
+          "00:23",
+          "00:27",
+          "00:59"
+        ],
+        "minutesAsleep": 42,
+        "beganShift": "00:02"
+      }
+    }
+  },
+  "769": {
+    "guardId": 769,
+    "days": {
+      "1518-02-26": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-02-27": {
+        "events": [
+          "00:11",
+          "00:13",
+          "00:37",
+          "00:53"
+        ],
+        "minutesAsleep": 18
+      },
+      "1518-03-09": {
+        "events": [
+          "00:19",
+          "00:51"
+        ],
+        "minutesAsleep": 32,
+        "beganShift": "00:04"
+      },
+      "1518-03-13": {
+        "events": [
+          "00:24",
+          "00:50",
+          "00:55",
+          "00:58"
+        ],
+        "minutesAsleep": 29,
+        "beganShift": "00:01"
+      },
+      "1518-04-08": {
+        "events": [
+          "00:14",
+          "00:50"
+        ],
+        "minutesAsleep": 36,
+        "beganShift": "00:02"
+      },
+      "1518-04-14": {
+        "events": [
+          "00:35",
+          "00:41",
+          "00:44",
+          "00:53"
+        ],
+        "minutesAsleep": 15,
+        "beganShift": "00:01"
+      },
+      "1518-04-28": {
+        "events": [
+          "00:14",
+          "00:29",
           "00:36",
-          "00:46"
+          "00:53"
+        ],
+        "minutesAsleep": 32,
+        "beganShift": "00:02"
+      },
+      "1518-05-26": {
+        "events": [
+          "00:06",
+          "00:37"
+        ],
+        "minutesAsleep": 31,
+        "beganShift": "00:00"
+      },
+      "1518-06-06": {
+        "events": [
+          "00:27",
+          "00:59"
+        ],
+        "minutesAsleep": 32,
+        "beganShift": "00:02"
+      },
+      "1518-06-15": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-06-16": {
+        "events": [
+          "00:12",
+          "00:48",
+          "00:56",
+          "00:57"
+        ],
+        "minutesAsleep": 37
+      },
+      "1518-06-29": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:46"
+      },
+      "1518-06-30": {
+        "events": [
+          "00:01",
+          "00:51"
+        ],
+        "minutesAsleep": 50
+      },
+      "1518-07-02": {
+        "events": [
+          "00:16",
+          "00:44"
+        ],
+        "minutesAsleep": 28,
+        "beganShift": "00:03"
+      },
+      "1518-07-04": {
+        "events": [
+          "00:21",
+          "00:42"
+        ],
+        "minutesAsleep": 21,
+        "beganShift": "00:00"
+      },
+      "1518-08-10": {
+        "events": [
+          "00:33",
+          "00:55"
+        ],
+        "minutesAsleep": 22,
+        "beganShift": "00:03"
+      },
+      "1518-08-14": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-08-15": {
+        "events": [
+          "00:06",
+          "00:32",
+          "00:35",
+          "00:36",
+          "00:49",
+          "00:56"
+        ],
+        "minutesAsleep": 34
+      },
+      "1518-09-10": {
+        "events": [
+          "00:34",
+          "00:43"
+        ],
+        "minutesAsleep": 9,
+        "beganShift": "00:00"
+      },
+      "1518-09-19": {
+        "events": [
+          "00:41",
+          "00:54"
+        ],
+        "minutesAsleep": 13,
+        "beganShift": "00:01"
+      },
+      "1518-10-03": {
+        "events": [
+          "00:09",
+          "00:19",
+          "00:47",
+          "00:49",
+          "00:53",
+          "00:55"
+        ],
+        "minutesAsleep": 14,
+        "beganShift": "00:01"
+      },
+      "1518-10-25": {
+        "events": [
+          "00:13",
+          "00:28"
+        ],
+        "minutesAsleep": 15,
+        "beganShift": "00:03"
+      },
+      "1518-11-23": {
+        "events": [
+          "00:16",
+          "00:49"
+        ],
+        "minutesAsleep": 33,
+        "beganShift": "00:02"
+      }
+    }
+  },
+  "773": {
+    "guardId": 773,
+    "days": {
+      "1518-03-04": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-03-05": {
+        "events": [
+          "00:08",
+          "00:21",
+          "00:41",
+          "00:43"
+        ],
+        "minutesAsleep": 15
+      },
+      "1518-04-19": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:48"
+      },
+      "1518-04-20": {
+        "events": [
+          "00:02",
+          "00:31"
+        ],
+        "minutesAsleep": 29
+      },
+      "1518-04-28": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:53"
+      },
+      "1518-04-29": {
+        "events": [
+          "00:03",
+          "00:04",
+          "00:40",
+          "00:56"
+        ],
+        "minutesAsleep": 17
+      },
+      "1518-05-07": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-05-08": {
+        "events": [
+          "00:12",
+          "00:55"
+        ],
+        "minutesAsleep": 43
+      },
+      "1518-05-17": {
+        "events": [
+          "00:23",
+          "00:41",
+          "00:53",
+          "00:58"
+        ],
+        "minutesAsleep": 23,
+        "beganShift": "00:00"
+      },
+      "1518-09-14": {
+        "events": [
+          "00:15",
+          "00:53"
+        ],
+        "minutesAsleep": 38,
+        "beganShift": "00:02"
+      },
+      "1518-10-23": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:46"
+      },
+      "1518-10-24": {
+        "events": [
+          "00:01",
+          "00:02",
+          "00:52",
+          "00:57"
+        ],
+        "minutesAsleep": 6
+      }
+    }
+  },
+  "991": {
+    "guardId": 991,
+    "days": {
+      "1518-03-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:47"
+      },
+      "1518-03-25": {
+        "events": [
+          "00:00",
+          "00:36",
+          "00:42",
+          "00:50"
+        ],
+        "minutesAsleep": 44
+      },
+      "1518-05-17": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-05-18": {
+        "events": [
+          "00:20",
+          "00:47"
+        ],
+        "minutesAsleep": 27
+      },
+      "1518-07-09": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:49"
+      },
+      "1518-07-10": {
+        "events": [
+          "00:01",
+          "00:15",
+          "00:41",
+          "00:50"
+        ],
+        "minutesAsleep": 23
+      },
+      "1518-08-11": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-08-12": {
+        "events": [
+          "00:51",
+          "00:55"
+        ],
+        "minutesAsleep": 4
+      },
+      "1518-09-12": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-09-13": {
+        "events": [
+          "00:21",
+          "00:36"
+        ],
+        "minutesAsleep": 15
+      },
+      "1518-09-19": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:48"
+      },
+      "1518-09-20": {
+        "events": [
+          "00:01",
+          "00:05",
+          "00:25",
+          "00:39"
+        ],
+        "minutesAsleep": 18
+      },
+      "1518-09-22": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:47"
+      },
+      "1518-09-23": {
+        "events": [
+          "00:05",
+          "00:06",
+          "00:16",
+          "00:47"
+        ],
+        "minutesAsleep": 32
+      }
+    }
+  },
+  "1049": {
+    "guardId": 1049,
+    "days": {
+      "1518-03-22": {
+        "events": [
+          "00:06",
+          "00:57"
+        ],
+        "minutesAsleep": 51,
+        "beganShift": "00:00"
+      },
+      "1518-04-01": {
+        "events": [
+          "00:34",
+          "00:56"
+        ],
+        "minutesAsleep": 22,
+        "beganShift": "00:01"
+      },
+      "1518-04-15": {
+        "events": [
+          "00:25",
+          "00:30",
+          "00:37",
+          "00:39"
+        ],
+        "minutesAsleep": 7,
+        "beganShift": "00:00"
+      },
+      "1518-04-18": {
+        "events": [
+          "00:10",
+          "00:21",
+          "00:35",
+          "00:58"
+        ],
+        "minutesAsleep": 34,
+        "beganShift": "00:00"
+      },
+      "1518-04-24": {
+        "events": [
+          "00:31",
+          "00:41"
         ],
         "minutesAsleep": 10,
         "beganShift": "00:02"
       },
+      "1518-05-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-05-07": {
+        "events": [
+          "00:17",
+          "00:22"
+        ],
+        "minutesAsleep": 5
+      },
+      "1518-05-09": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-05-10": {
+        "events": [
+          "00:33",
+          "00:34",
+          "00:40",
+          "00:58"
+        ],
+        "minutesAsleep": 19
+      },
+      "1518-05-11": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:47"
+      },
+      "1518-05-12": {
+        "events": [
+          "00:00",
+          "00:56"
+        ],
+        "minutesAsleep": 56
+      },
+      "1518-06-08": {
+        "events": [
+          "00:10",
+          "00:51",
+          "00:56",
+          "00:58"
+        ],
+        "minutesAsleep": 43,
+        "beganShift": "00:04"
+      },
+      "1518-06-10": {
+        "events": [
+          "00:12",
+          "00:51"
+        ],
+        "minutesAsleep": 39,
+        "beganShift": "00:03"
+      },
+      "1518-06-11": {
+        "events": [
+          "00:25",
+          "00:52"
+        ],
+        "minutesAsleep": 27,
+        "beganShift": "00:01"
+      },
+      "1518-06-21": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-06-22": {
+        "events": [
+          "00:05",
+          "00:41"
+        ],
+        "minutesAsleep": 36
+      },
+      "1518-06-25": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-06-26": {
+        "events": [
+          "00:02",
+          "00:29",
+          "00:37",
+          "00:58"
+        ],
+        "minutesAsleep": 48
+      },
+      "1518-07-18": {
+        "events": [
+          "00:29",
+          "00:54"
+        ],
+        "minutesAsleep": 25,
+        "beganShift": "00:00"
+      },
+      "1518-08-04": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-08-05": {
+        "events": [
+          "00:32",
+          "00:53"
+        ],
+        "minutesAsleep": 21
+      },
+      "1518-08-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-08-07": {
+        "events": [
+          "00:22",
+          "00:49",
+          "00:52",
+          "00:56"
+        ],
+        "minutesAsleep": 31
+      },
+      "1518-08-29": {
+        "events": [
+          "00:41",
+          "00:59"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:03"
+      },
+      "1518-09-05": {
+        "events": [
+          "00:14",
+          "00:51"
+        ],
+        "minutesAsleep": 37,
+        "beganShift": "00:02"
+      },
+      "1518-09-30": {
+        "events": [
+          "00:07",
+          "00:08",
+          "00:12",
+          "00:43",
+          "00:49",
+          "00:51"
+        ],
+        "minutesAsleep": 34,
+        "beganShift": "00:01"
+      },
+      "1518-11-18": {
+        "events": [
+          "00:24",
+          "00:38",
+          "00:50",
+          "00:51"
+        ],
+        "minutesAsleep": 15,
+        "beganShift": "00:02"
+      }
+    }
+  },
+  "1187": {
+    "guardId": 1187,
+    "days": {
+      "1518-05-15": {
+        "events": [
+          "00:47",
+          "00:51"
+        ],
+        "minutesAsleep": 4,
+        "beganShift": "00:04"
+      },
+      "1518-06-13": {
+        "events": [
+          "00:39",
+          "00:57"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:02"
+      },
+      "1518-07-26": {
+        "events": [
+          "00:17",
+          "00:40"
+        ],
+        "minutesAsleep": 23,
+        "beganShift": "00:00"
+      },
+      "1518-08-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-08-25": {
+        "events": [
+          "00:05",
+          "00:06",
+          "00:48",
+          "00:50",
+          "00:55",
+          "00:57"
+        ],
+        "minutesAsleep": 5
+      },
+      "1518-09-26": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-09-27": {
+        "events": [
+          "00:13",
+          "00:54"
+        ],
+        "minutesAsleep": 41
+      },
+      "1518-10-12": {
+        "events": [
+          "00:24",
+          "00:41"
+        ],
+        "minutesAsleep": 17,
+        "beganShift": "00:01"
+      },
+      "1518-10-28": {
+        "events": [
+          "00:40",
+          "00:50"
+        ],
+        "minutesAsleep": 10,
+        "beganShift": "00:04"
+      },
+      "1518-10-29": {
+        "events": [
+          "00:27",
+          "00:44",
+          "00:51",
+          "00:55"
+        ],
+        "minutesAsleep": 21,
+        "beganShift": "00:00"
+      }
+    }
+  },
+  "1213": {
+    "guardId": 1213,
+    "days": {
+      "1518-03-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-03-07": {
+        "events": [
+          "00:37",
+          "00:53"
+        ],
+        "minutesAsleep": 16
+      },
+      "1518-05-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:46"
+      },
+      "1518-05-11": {
+        "events": [
+          "00:05",
+          "00:41",
+          "00:49",
+          "00:56"
+        ],
+        "minutesAsleep": 43
+      },
+      "1518-05-31": {
+        "events": [
+          "00:13",
+          "00:20",
+          "00:23",
+          "00:31"
+        ],
+        "minutesAsleep": 15,
+        "beganShift": "00:04"
+      },
+      "1518-07-04": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-07-05": {
+        "events": [
+          "00:53",
+          "00:58"
+        ],
+        "minutesAsleep": 5
+      },
+      "1518-07-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-07-07": {
+        "events": [
+          "00:12",
+          "00:41"
+        ],
+        "minutesAsleep": 29
+      },
+      "1518-07-11": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-07-12": {
+        "events": [
+          "00:23",
+          "00:48",
+          "00:54",
+          "00:55"
+        ],
+        "minutesAsleep": 26
+      },
+      "1518-07-15": {
+        "events": [
+          "00:38",
+          "00:56"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:01"
+      },
+      "1518-07-28": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-07-29": {
+        "events": [
+          "00:12",
+          "00:19",
+          "00:24",
+          "00:25"
+        ],
+        "minutesAsleep": 8
+      },
+      "1518-08-04": {
+        "events": [
+          "00:25",
+          "00:38",
+          "00:48",
+          "00:56"
+        ],
+        "minutesAsleep": 21,
+        "beganShift": "00:04"
+      },
+      "1518-08-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-08-11": {
+        "events": [
+          "00:28",
+          "00:59"
+        ],
+        "minutesAsleep": 31
+      },
+      "1518-08-24": {
+        "events": [
+          "00:12",
+          "00:16",
+          "00:33",
+          "00:41"
+        ],
+        "minutesAsleep": 12,
+        "beganShift": "00:03"
+      },
+      "1518-08-29": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-08-30": {
+        "events": [
+          "00:23",
+          "00:28",
+          "00:31",
+          "00:41"
+        ],
+        "minutesAsleep": 15
+      },
+      "1518-10-19": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-10-20": {
+        "events": [
+          "00:21",
+          "00:25",
+          "00:33",
+          "00:44"
+        ],
+        "minutesAsleep": 15
+      },
+      "1518-11-20": {
+        "events": [
+          "00:38",
+          "00:44"
+        ],
+        "minutesAsleep": 6,
+        "beganShift": "00:01"
+      }
+    }
+  },
+  "1277": {
+    "guardId": 1277,
+    "days": {
+      "1518-03-24": {
+        "events": [
+          "00:32",
+          "00:38"
+        ],
+        "minutesAsleep": 6,
+        "beganShift": "00:01"
+      },
+      "1518-03-29": {
+        "events": [
+          "00:30",
+          "00:54"
+        ],
+        "minutesAsleep": 24,
+        "beganShift": "00:02"
+      },
+      "1518-04-23": {
+        "events": [
+          "00:26",
+          "00:43"
+        ],
+        "minutesAsleep": 17,
+        "beganShift": "00:00"
+      },
+      "1518-05-09": {
+        "events": [
+          "00:13",
+          "00:37",
+          "00:48",
+          "00:55"
+        ],
+        "minutesAsleep": 31,
+        "beganShift": "00:00"
+      },
+      "1518-05-14": {
+        "events": [
+          "00:13",
+          "00:14",
+          "00:27",
+          "00:50"
+        ],
+        "minutesAsleep": 24,
+        "beganShift": "00:02"
+      },
+      "1518-05-21": {
+        "events": [
+          "00:51",
+          "00:52",
+          "00:56",
+          "00:58"
+        ],
+        "minutesAsleep": 3,
+        "beganShift": "00:00"
+      },
+      "1518-05-23": {
+        "events": [
+          "00:31",
+          "00:37",
+          "00:47",
+          "00:59"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:04"
+      },
+      "1518-06-01": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-06-02": {
+        "events": [
+          "00:36",
+          "00:56"
+        ],
+        "minutesAsleep": 20
+      },
+      "1518-06-04": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-06-05": {
+        "events": [
+          "00:15",
+          "00:55"
+        ],
+        "minutesAsleep": 40
+      },
+      "1518-06-26": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-06-27": {
+        "events": [
+          "00:20",
+          "00:57"
+        ],
+        "minutesAsleep": 37
+      },
+      "1518-07-03": {
+        "events": [
+          "00:25",
+          "00:35",
+          "00:47",
+          "00:54"
+        ],
+        "minutesAsleep": 17,
+        "beganShift": "00:04"
+      },
+      "1518-07-12": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-07-13": {
+        "events": [
+          "00:20",
+          "00:51"
+        ],
+        "minutesAsleep": 31
+      },
+      "1518-07-22": {
+        "events": [
+          "00:16",
+          "00:28",
+          "00:33",
+          "00:43",
+          "00:46",
+          "00:52"
+        ],
+        "minutesAsleep": 28,
+        "beganShift": "00:02"
+      },
+      "1518-08-15": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-08-16": {
+        "events": [
+          "00:00",
+          "00:54"
+        ],
+        "minutesAsleep": 54
+      },
+      "1518-08-22": {
+        "events": [
+          "00:09",
+          "00:29",
+          "00:32",
+          "00:45"
+        ],
+        "minutesAsleep": 33,
+        "beganShift": "00:01"
+      },
+      "1518-08-23": {
+        "events": [
+          "00:45",
+          "00:50"
+        ],
+        "minutesAsleep": 5,
+        "beganShift": "00:01"
+      },
+      "1518-10-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-10-11": {
+        "events": [
+          "00:13",
+          "00:35"
+        ],
+        "minutesAsleep": 22
+      }
+    }
+  },
+  "1381": {
+    "guardId": 1381,
+    "days": {
+      "1518-06-03": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "00:00"
+      },
+      "1518-07-28": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "00:00"
+      },
+      "1518-11-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      }
+    }
+  },
+  "1493": {
+    "guardId": 1493,
+    "days": {
+      "1518-03-20": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-03-21": {
+        "events": [
+          "00:31",
+          "00:51"
+        ],
+        "minutesAsleep": 20
+      },
+      "1518-04-25": {
+        "events": [
+          "00:07",
+          "00:26",
+          "00:35",
+          "00:37"
+        ],
+        "minutesAsleep": 21,
+        "beganShift": "00:01"
+      },
+      "1518-04-27": {
+        "events": [
+          "00:13",
+          "00:35",
+          "00:40",
+          "00:53"
+        ],
+        "minutesAsleep": 35,
+        "beganShift": "00:03"
+      },
+      "1518-05-12": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-05-13": {
+        "events": [
+          "00:44",
+          "00:53",
+          "00:57",
+          "00:58"
+        ],
+        "minutesAsleep": 10
+      },
+      "1518-06-28": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:51"
+      },
+      "1518-06-29": {
+        "events": [
+          "00:01",
+          "00:07",
+          "00:15",
+          "00:25",
+          "00:53",
+          "00:57"
+        ],
+        "minutesAsleep": 20
+      },
+      "1518-07-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-07-25": {
+        "events": [
+          "00:18",
+          "00:39"
+        ],
+        "minutesAsleep": 21
+      },
+      "1518-07-30": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-07-31": {
+        "events": [
+          "00:10",
+          "00:40",
+          "00:49",
+          "00:58"
+        ],
+        "minutesAsleep": 39
+      },
+      "1518-09-07": {
+        "events": [
+          "00:35",
+          "00:50"
+        ],
+        "minutesAsleep": 15,
+        "beganShift": "00:01"
+      },
+      "1518-09-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-09-11": {
+        "events": [
+          "00:31",
+          "00:48"
+        ],
+        "minutesAsleep": 17
+      },
+      "1518-09-14": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-09-15": {
+        "events": [
+          "00:16",
+          "00:56"
+        ],
+        "minutesAsleep": 40
+      },
+      "1518-11-14": {
+        "events": [
+          "00:11",
+          "00:33",
+          "00:42",
+          "00:59"
+        ],
+        "minutesAsleep": 39,
+        "beganShift": "00:02"
+      },
+      "1518-11-16": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-11-17": {
+        "events": [
+          "00:01",
+          "00:23"
+        ],
+        "minutesAsleep": 22
+      }
+    }
+  },
+  "1721": {
+    "guardId": 1721,
+    "days": {
+      "1518-03-03": {
+        "events": [
+          "00:19",
+          "00:48"
+        ],
+        "minutesAsleep": 29,
+        "beganShift": "00:00"
+      },
+      "1518-04-05": {
+        "events": [
+          "00:14",
+          "00:30"
+        ],
+        "minutesAsleep": 16,
+        "beganShift": "00:03"
+      },
+      "1518-04-17": {
+        "events": [
+          "00:16",
+          "00:17",
+          "00:32",
+          "00:43"
+        ],
+        "minutesAsleep": 12,
+        "beganShift": "00:03"
+      },
+      "1518-05-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-05-25": {
+        "events": [
+          "00:26",
+          "00:40",
+          "00:43",
+          "00:52"
+        ],
+        "minutesAsleep": 23
+      },
+      "1518-06-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-06-07": {
+        "events": [
+          "00:05",
+          "00:36",
+          "00:41",
+          "00:43",
+          "00:48",
+          "00:51"
+        ],
+        "minutesAsleep": 36
+      },
+      "1518-06-20": {
+        "events": [
+          "00:33",
+          "00:45",
+          "00:54",
+          "00:55"
+        ],
+        "minutesAsleep": 13,
+        "beganShift": "00:00"
+      },
+      "1518-07-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-07-11": {
+        "events": [
+          "00:28",
+          "00:45"
+        ],
+        "minutesAsleep": 17
+      },
+      "1518-08-31": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-09-01": {
+        "events": [
+          "00:25",
+          "00:58"
+        ],
+        "minutesAsleep": 33,
+        "beganShift": "23:59"
+      },
+      "1518-09-02": {
+        "events": [
+          "00:10",
+          "00:59"
+        ],
+        "minutesAsleep": 49
+      },
+      "1518-09-11": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:48"
+      },
+      "1518-09-12": {
+        "events": [
+          "00:01",
+          "00:18",
+          "00:23",
+          "00:27",
+          "00:56",
+          "00:58"
+        ],
+        "minutesAsleep": 23
+      },
+      "1518-10-03": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-10-04": {
+        "events": [
+          "00:41",
+          "00:57"
+        ],
+        "minutesAsleep": 16
+      },
+      "1518-11-07": {
+        "events": [
+          "00:23",
+          "00:56"
+        ],
+        "minutesAsleep": 33,
+        "beganShift": "00:01"
+      }
+    }
+  },
+  "1907": {
+    "guardId": 1907,
+    "days": {
+      "1518-03-13": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-03-14": {
+        "events": [
+          "00:08",
+          "00:47",
+          "00:53",
+          "00:55"
+        ],
+        "minutesAsleep": 41
+      },
+      "1518-03-16": {
+        "events": [
+          "00:07",
+          "00:47"
+        ],
+        "minutesAsleep": 40,
+        "beganShift": "00:02"
+      },
+      "1518-03-30": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-03-31": {
+        "events": [
+          "00:31",
+          "00:34",
+          "00:49",
+          "00:55"
+        ],
+        "minutesAsleep": 9
+      },
+      "1518-04-05": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:53"
+      },
+      "1518-04-06": {
+        "events": [
+          "00:02",
+          "00:12",
+          "00:32",
+          "00:42",
+          "00:47",
+          "00:53"
+        ],
+        "minutesAsleep": 26
+      },
+      "1518-04-11": {
+        "events": [
+          "00:29",
+          "00:54"
+        ],
+        "minutesAsleep": 25,
+        "beganShift": "00:01"
+      },
+      "1518-05-22": {
+        "events": [
+          "00:31",
+          "00:38",
+          "00:55",
+          "00:57"
+        ],
+        "minutesAsleep": 9,
+        "beganShift": "00:02"
+      },
+      "1518-06-04": {
+        "events": [
+          "00:37",
+          "00:44",
+          "00:55",
+          "00:56"
+        ],
+        "minutesAsleep": 8,
+        "beganShift": "00:02"
+      },
+      "1518-06-14": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-06-15": {
+        "events": [
+          "00:37",
+          "00:57"
+        ],
+        "minutesAsleep": 20
+      },
+      "1518-07-17": {
+        "events": [
+          "00:38",
+          "00:39",
+          "00:44",
+          "00:56"
+        ],
+        "minutesAsleep": 13,
+        "beganShift": "00:01"
+      },
+      "1518-07-27": {
+        "events": [
+          "00:52",
+          "00:56"
+        ],
+        "minutesAsleep": 4,
+        "beganShift": "00:03"
+      },
+      "1518-08-31": {
+        "events": [
+          "00:39",
+          "00:57"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:00"
+      },
+      "1518-09-23": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:47"
+      },
+      "1518-09-24": {
+        "events": [
+          "00:02",
+          "00:35",
+          "00:46",
+          "00:48",
+          "00:51",
+          "00:56"
+        ],
+        "minutesAsleep": 40
+      },
+      "1518-10-23": {
+        "events": [
+          "00:09",
+          "00:39",
+          "00:52",
+          "00:59"
+        ],
+        "minutesAsleep": 37,
+        "beganShift": "00:00"
+      },
+      "1518-11-07": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-11-08": {
+        "events": [
+          "00:07",
+          "00:22",
+          "00:39",
+          "00:54"
+        ],
+        "minutesAsleep": 30
+      }
+    }
+  },
+  "2113": {
+    "guardId": 2113,
+    "days": {
+      "1518-04-13": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "00:00"
+      },
+      "1518-05-27": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-11-20": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      }
+    }
+  },
+  "2141": {
+    "guardId": 2141,
+    "days": {
+      "1518-02-18": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-02-19": {
+        "events": [
+          "00:24",
+          "00:58"
+        ],
+        "minutesAsleep": 34
+      },
+      "1518-02-24": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-02-25": {
+        "events": [
+          "00:42",
+          "00:53"
+        ],
+        "minutesAsleep": 11
+      },
+      "1518-03-09": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:48"
+      },
+      "1518-03-10": {
+        "events": [
+          "00:03",
+          "00:11"
+        ],
+        "minutesAsleep": 8
+      },
+      "1518-03-26": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-03-27": {
+        "events": [
+          "00:25",
+          "00:57"
+        ],
+        "minutesAsleep": 32
+      },
+      "1518-05-01": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-05-02": {
+        "events": [
+          "00:22",
+          "00:26",
+          "00:32",
+          "00:54"
+        ],
+        "minutesAsleep": 26
+      },
+      "1518-05-30": {
+        "events": [
+          "00:38",
+          "00:51"
+        ],
+        "minutesAsleep": 13,
+        "beganShift": "00:00"
+      },
+      "1518-06-24": {
+        "events": [
+          "00:42",
+          "00:54"
+        ],
+        "minutesAsleep": 12,
+        "beganShift": "00:02"
+      },
+      "1518-07-29": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-07-30": {
+        "events": [
+          "00:40",
+          "00:57"
+        ],
+        "minutesAsleep": 17
+      },
+      "1518-08-16": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-08-17": {
+        "events": [
+          "00:33",
+          "00:54"
+        ],
+        "minutesAsleep": 21
+      },
+      "1518-08-20": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-08-21": {
+        "events": [
+          "00:11",
+          "00:19",
+          "00:40",
+          "00:45",
+          "00:55",
+          "00:57"
+        ],
+        "minutesAsleep": 15
+      },
+      "1518-08-26": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-08-27": {
+        "events": [
+          "00:24",
+          "00:46",
+          "00:54",
+          "00:59"
+        ],
+        "minutesAsleep": 27
+      },
+      "1518-11-09": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-11-10": {
+        "events": [
+          "00:22",
+          "00:55"
+        ],
+        "minutesAsleep": 33
+      },
+      "1518-11-21": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-11-22": {
+        "events": [
+          "00:42",
+          "00:53"
+        ],
+        "minutesAsleep": 11
+      }
+    }
+  },
+  "2711": {
+    "guardId": 2711,
+    "days": {
+      "1518-03-30": {
+        "events": [
+          "00:52",
+          "00:53",
+          "00:57",
+          "00:59"
+        ],
+        "minutesAsleep": 3,
+        "beganShift": "00:00"
+      },
+      "1518-04-04": {
+        "events": [
+          "00:14",
+          "00:32",
+          "00:47",
+          "00:57"
+        ],
+        "minutesAsleep": 28,
+        "beganShift": "00:00"
+      },
+      "1518-04-09": {
+        "events": [
+          "00:23",
+          "00:59"
+        ],
+        "minutesAsleep": 36,
+        "beganShift": "00:02"
+      },
+      "1518-04-10": {
+        "events": [
+          "00:14",
+          "00:33",
+          "00:49",
+          "00:53"
+        ],
+        "minutesAsleep": 23,
+        "beganShift": "00:02"
+      },
+      "1518-04-30": {
+        "events": [
+          "00:14",
+          "00:20"
+        ],
+        "minutesAsleep": 6,
+        "beganShift": "23:57"
+      },
+      "1518-05-01": {
+        "events": [
+          "00:43",
+          "00:51"
+        ],
+        "minutesAsleep": 8
+      },
+      "1518-06-16": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-06-17": {
+        "events": [
+          "00:06",
+          "00:52"
+        ],
+        "minutesAsleep": 46
+      },
+      "1518-06-21": {
+        "events": [
+          "00:27",
+          "00:52"
+        ],
+        "minutesAsleep": 25,
+        "beganShift": "00:01"
+      },
+      "1518-07-08": {
+        "events": [
+          "00:22",
+          "00:42"
+        ],
+        "minutesAsleep": 20,
+        "beganShift": "00:00"
+      },
+      "1518-07-15": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-07-16": {
+        "events": [
+          "00:17",
+          "00:27"
+        ],
+        "minutesAsleep": 10
+      },
+      "1518-08-19": {
+        "events": [
+          "00:26",
+          "00:32",
+          "00:37",
+          "00:51"
+        ],
+        "minutesAsleep": 20,
+        "beganShift": "00:03"
+      },
+      "1518-10-12": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-10-13": {
+        "events": [
+          "00:33",
+          "00:52"
+        ],
+        "minutesAsleep": 19
+      },
+      "1518-10-19": {
+        "events": [
+          "00:14",
+          "00:55"
+        ],
+        "minutesAsleep": 41,
+        "beganShift": "00:03"
+      },
+      "1518-10-25": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:54"
+      },
+      "1518-10-26": {
+        "events": [
+          "00:03",
+          "00:45",
+          "00:49",
+          "00:59"
+        ],
+        "minutesAsleep": 52
+      },
+      "1518-10-30": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:53"
+      },
+      "1518-10-31": {
+        "events": [
+          "00:00",
+          "00:12",
+          "00:50",
+          "00:52"
+        ],
+        "minutesAsleep": 14
+      },
       "1518-11-05": {
+        "events": [
+          "00:45",
+          "00:48",
+          "00:51",
+          "00:52"
+        ],
+        "minutesAsleep": 4,
+        "beganShift": "00:00"
+      }
+    }
+  },
+  "2713": {
+    "guardId": 2713,
+    "days": {
+      "1518-03-28": {
+        "events": [
+          "00:06",
+          "00:21",
+          "00:50",
+          "00:52",
+          "00:57",
+          "00:58"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:00"
+      },
+      "1518-05-29": {
+        "events": [
+          "00:15",
+          "00:51"
+        ],
+        "minutesAsleep": 36,
+        "beganShift": "00:00"
+      },
+      "1518-06-30": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:53"
+      },
+      "1518-07-01": {
+        "events": [
+          "00:02",
+          "00:25",
+          "00:35",
+          "00:45"
+        ],
+        "minutesAsleep": 33
+      },
+      "1518-07-19": {
+        "events": [
+          "00:15",
+          "00:33",
+          "00:51",
+          "00:56"
+        ],
+        "minutesAsleep": 23,
+        "beganShift": "00:00"
+      },
+      "1518-07-20": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-07-21": {
+        "events": [
+          "00:24",
+          "00:56"
+        ],
+        "minutesAsleep": 32
+      },
+      "1518-07-22": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-07-23": {
+        "events": [
+          "00:23",
+          "00:47"
+        ],
+        "minutesAsleep": 24
+      },
+      "1518-08-02": {
+        "events": [
+          "00:07",
+          "00:55"
+        ],
+        "minutesAsleep": 48,
+        "beganShift": "00:00"
+      }
+    }
+  },
+  "2749": {
+    "guardId": 2749,
+    "days": {
+      "1518-02-21": {
+        "events": [
+          "00:09",
+          "00:49"
+        ],
+        "minutesAsleep": 40,
+        "beganShift": "23:58"
+      },
+      "1518-02-22": {
+        "events": [
+          "00:48",
+          "00:59"
+        ],
+        "minutesAsleep": 11
+      },
+      "1518-02-23": {
+        "events": [
+          "00:31",
+          "00:48",
+          "00:52",
+          "00:53"
+        ],
+        "minutesAsleep": 18,
+        "beganShift": "00:01"
+      },
+      "1518-03-08": {
+        "events": [
+          "00:29",
+          "00:55"
+        ],
+        "minutesAsleep": 26,
+        "beganShift": "00:00"
+      },
+      "1518-03-18": {
+        "events": [
+          "00:42",
+          "00:47"
+        ],
+        "minutesAsleep": 5,
+        "beganShift": "00:00"
+      },
+      "1518-03-26": {
+        "events": [
+          "00:09",
+          "00:27",
+          "00:37",
+          "00:48",
+          "00:51",
+          "00:58"
+        ],
+        "minutesAsleep": 36,
+        "beganShift": "00:00"
+      },
+      "1518-04-06": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-04-07": {
+        "events": [
+          "00:25",
+          "00:35",
+          "00:42",
+          "00:54"
+        ],
+        "minutesAsleep": 22
+      },
+      "1518-05-19": {
+        "events": [
+          "00:36",
+          "00:46",
+          "00:49",
+          "00:53"
+        ],
+        "minutesAsleep": 14,
+        "beganShift": "00:02"
+      },
+      "1518-06-11": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-06-12": {
+        "events": [
+          "00:29",
+          "00:53"
+        ],
+        "minutesAsleep": 24
+      },
+      "1518-07-24": {
+        "events": [
+          "00:10",
+          "00:59"
+        ],
+        "minutesAsleep": 49,
+        "beganShift": "00:02"
+      },
+      "1518-09-17": {
+        "events": [
+          "00:11",
+          "00:48"
+        ],
+        "minutesAsleep": 37,
+        "beganShift": "00:00"
+      },
+      "1518-10-01": {
+        "events": [
+          "00:39",
+          "00:41",
+          "00:44",
+          "00:48"
+        ],
+        "minutesAsleep": 6,
+        "beganShift": "00:00"
+      },
+      "1518-10-06": {
+        "events": [
+          "00:45",
+          "00:46"
+        ],
+        "minutesAsleep": 1,
+        "beganShift": "00:00"
+      },
+      "1518-10-08": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-10-09": {
+        "events": [
+          "00:43",
+          "00:47"
+        ],
+        "minutesAsleep": 4
+      },
+      "1518-10-26": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-10-27": {
+        "events": [
+          "00:18",
+          "00:23",
+          "00:28",
+          "00:46",
+          "00:49",
+          "00:54"
+        ],
+        "minutesAsleep": 28
+      }
+    }
+  },
+  "2777": {
+    "guardId": 2777,
+    "days": {
+      "1518-02-20": {
+        "events": [
+          "00:16",
+          "00:20",
+          "00:46",
+          "00:53"
+        ],
+        "minutesAsleep": 11,
+        "beganShift": "00:01"
+      },
+      "1518-03-05": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-03-06": {
+        "events": [
+          "00:24",
+          "00:44",
+          "00:50",
+          "00:56"
+        ],
+        "minutesAsleep": 26
+      },
+      "1518-03-10": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-03-11": {
+        "events": [
+          "00:10",
+          "00:52"
+        ],
+        "minutesAsleep": 42
+      },
+      "1518-03-20": {
+        "events": [
+          "00:31",
+          "00:35"
+        ],
+        "minutesAsleep": 4,
+        "beganShift": "00:00"
+      },
+      "1518-04-16": {
+        "events": [
+          "00:12",
+          "00:23",
+          "00:47",
+          "00:59"
+        ],
+        "minutesAsleep": 23,
+        "beganShift": "00:02"
+      },
+      "1518-04-20": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-04-21": {
+        "events": [
+          "00:25",
+          "00:52"
+        ],
+        "minutesAsleep": 27
+      },
+      "1518-05-23": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-05-24": {
+        "events": [
+          "00:45",
+          "00:53"
+        ],
+        "minutesAsleep": 8
+      },
+      "1518-05-27": {
+        "events": [
+          "00:17",
+          "00:19",
+          "00:37",
+          "00:58"
+        ],
+        "minutesAsleep": 23,
+        "beganShift": "00:04"
+      },
+      "1518-06-22": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-06-23": {
+        "events": [
+          "00:27",
+          "00:34"
+        ],
+        "minutesAsleep": 7
+      },
+      "1518-07-06": {
+        "events": [
+          "00:25",
+          "00:38"
+        ],
+        "minutesAsleep": 13,
+        "beganShift": "00:00"
+      },
+      "1518-07-19": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-07-20": {
+        "events": [
+          "00:07",
+          "00:19",
+          "00:42",
+          "00:49",
+          "00:55",
+          "00:56"
+        ],
+        "minutesAsleep": 20
+      },
+      "1518-08-13": {
+        "events": [
+          "00:23",
+          "00:57"
+        ],
+        "minutesAsleep": 34,
+        "beganShift": "00:02"
+      },
+      "1518-09-08": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:47"
+      },
+      "1518-09-09": {
+        "events": [
+          "00:05",
+          "00:23",
+          "00:38",
+          "00:57"
+        ],
+        "minutesAsleep": 37
+      },
+      "1518-09-18": {
+        "events": [
+          "00:26",
+          "00:58"
+        ],
+        "minutesAsleep": 32,
+        "beganShift": "00:00"
+      },
+      "1518-09-28": {
+        "events": [
+          "00:13",
+          "00:44",
+          "00:48",
+          "00:57"
+        ],
+        "minutesAsleep": 40,
+        "beganShift": "00:03"
+      },
+      "1518-11-15": {
+        "events": [
+          "00:11",
+          "00:24",
+          "00:51",
+          "00:52",
+          "00:55",
+          "00:56"
+        ],
+        "minutesAsleep": 15,
+        "beganShift": "00:03"
+      }
+    }
+  },
+  "2879": {
+    "guardId": 2879,
+    "days": {
+      "1518-02-24": {
+        "events": [
+          "00:22",
+          "00:32",
+          "00:41",
+          "00:55"
+        ],
+        "minutesAsleep": 24,
+        "beganShift": "00:02"
+      },
+      "1518-02-25": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:50"
+      },
+      "1518-02-26": {
+        "events": [
+          "00:04",
+          "00:31",
+          "00:39",
+          "00:41",
+          "00:49",
+          "00:54"
+        ],
+        "minutesAsleep": 34
+      },
+      "1518-02-28": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-03-01": {
+        "events": [
+          "00:16",
+          "00:35",
+          "00:48",
+          "00:51"
+        ],
+        "minutesAsleep": 22
+      },
+      "1518-03-04": {
+        "events": [
+          "00:46",
+          "00:51"
+        ],
+        "minutesAsleep": 5,
+        "beganShift": "00:01"
+      },
+      "1518-03-14": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-03-15": {
+        "events": [
+          "00:27",
+          "00:53"
+        ],
+        "minutesAsleep": 26
+      },
+      "1518-03-19": {
+        "events": [
+          "00:10",
+          "00:59"
+        ],
+        "minutesAsleep": 49,
+        "beganShift": "00:03"
+      },
+      "1518-03-23": {
+        "events": [
+          "00:48",
+          "00:53"
+        ],
+        "minutesAsleep": 5,
+        "beganShift": "00:00"
+      },
+      "1518-04-02": {
+        "events": [
+          "00:27",
+          "00:29",
+          "00:46",
+          "00:58"
+        ],
+        "minutesAsleep": 14,
+        "beganShift": "00:01"
+      },
+      "1518-04-26": {
+        "events": [
+          "00:50",
+          "00:54"
+        ],
+        "minutesAsleep": 4,
+        "beganShift": "00:03"
+      },
+      "1518-05-03": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-05-04": {
+        "events": [
+          "00:45",
+          "00:50",
+          "00:53",
+          "00:59"
+        ],
+        "minutesAsleep": 11
+      },
+      "1518-05-15": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-05-16": {
+        "events": [
+          "00:08",
+          "00:34",
+          "00:39",
+          "00:54"
+        ],
+        "minutesAsleep": 41
+      },
+      "1518-05-31": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:54"
+      },
+      "1518-06-01": {
+        "events": [
+          "00:05",
+          "00:11",
+          "00:33",
+          "00:55"
+        ],
+        "minutesAsleep": 28
+      },
+      "1518-06-14": {
+        "events": [
+          "00:31",
+          "00:56"
+        ],
+        "minutesAsleep": 25,
+        "beganShift": "00:02"
+      },
+      "1518-06-18": {
+        "events": [
+          "00:21",
+          "00:58"
+        ],
+        "minutesAsleep": 37,
+        "beganShift": "00:01"
+      },
+      "1518-08-08": {
+        "events": [
+          "00:45",
+          "00:52"
+        ],
+        "minutesAsleep": 7,
+        "beganShift": "00:03"
+      },
+      "1518-09-08": {
+        "events": [
+          "00:49",
+          "00:54"
+        ],
+        "minutesAsleep": 5,
+        "beganShift": "00:00"
+      },
+      "1518-10-02": {
+        "events": [
+          "00:08",
+          "00:14",
+          "00:53",
+          "00:54"
+        ],
+        "minutesAsleep": 7,
+        "beganShift": "00:01"
+      },
+      "1518-10-17": {
+        "events": [
+          "00:12",
+          "00:50"
+        ],
+        "minutesAsleep": 38,
+        "beganShift": "00:00"
+      },
+      "1518-10-18": {
+        "events": [
+          "00:28",
+          "00:56"
+        ],
+        "minutesAsleep": 28,
+        "beganShift": "00:03"
+      },
+      "1518-11-05": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-11-06": {
+        "events": [
+          "00:16",
+          "00:22",
+          "00:46",
+          "00:55"
+        ],
+        "minutesAsleep": 15
+      },
+      "1518-11-12": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-11-13": {
+        "events": [
+          "00:47",
+          "00:52",
+          "00:55",
+          "00:56"
+        ],
+        "minutesAsleep": 6
+      },
+      "1518-11-16": {
+        "events": [
+          "00:11",
+          "00:53"
+        ],
+        "minutesAsleep": 42,
+        "beganShift": "00:00"
+      },
+      "1518-11-18": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-11-19": {
+        "events": [
+          "00:42",
+          "00:57"
+        ],
+        "minutesAsleep": 15
+      }
+    }
+  },
+  "2917": {
+    "guardId": 2917,
+    "days": {
+      "1518-04-22": {
+        "events": [
+          "00:18",
+          "00:48"
+        ],
+        "minutesAsleep": 30,
+        "beganShift": "00:02"
+      },
+      "1518-05-02": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:58"
+      },
+      "1518-05-03": {
+        "events": [
+          "00:22",
+          "00:38",
+          "00:53",
+          "00:54"
+        ],
+        "minutesAsleep": 17
+      },
+      "1518-05-05": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-05-06": {
+        "events": [
+          "00:11",
+          "00:36"
+        ],
+        "minutesAsleep": 25
+      },
+      "1518-05-19": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:51"
+      },
+      "1518-05-20": {
+        "events": [
+          "00:03",
+          "00:26",
+          "00:33",
+          "00:59"
+        ],
+        "minutesAsleep": 49
+      },
+      "1518-07-14": {
+        "events": [
+          "00:21",
+          "00:45",
+          "00:55",
+          "00:57"
+        ],
+        "minutesAsleep": 26,
+        "beganShift": "00:03"
+      },
+      "1518-08-05": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:59"
+      },
+      "1518-08-06": {
+        "events": [
+          "00:39",
+          "00:59"
+        ],
+        "minutesAsleep": 20
+      },
+      "1518-08-17": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-08-18": {
+        "events": [
+          "00:12",
+          "00:14",
+          "00:35",
+          "00:45"
+        ],
+        "minutesAsleep": 12
+      },
+      "1518-08-26": {
+        "events": [
+          "00:13",
+          "00:41"
+        ],
+        "minutesAsleep": 28,
+        "beganShift": "00:00"
+      },
+      "1518-09-03": {
+        "events": [
+          "00:20",
+          "00:53"
+        ],
+        "minutesAsleep": 33,
+        "beganShift": "00:01"
+      },
+      "1518-09-21": {
+        "events": [
+          "00:19",
+          "00:51"
+        ],
+        "minutesAsleep": 32,
+        "beganShift": "00:04"
+      },
+      "1518-09-28": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:54"
+      },
+      "1518-09-29": {
+        "events": [
+          "00:01",
+          "00:22",
+          "00:34",
+          "00:50"
+        ],
+        "minutesAsleep": 37
+      },
+      "1518-10-05": {
+        "events": [
+          "00:21",
+          "00:41"
+        ],
+        "minutesAsleep": 20,
+        "beganShift": "00:04"
+      },
+      "1518-10-07": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:57"
+      },
+      "1518-10-08": {
+        "events": [
+          "00:27",
+          "00:58"
+        ],
+        "minutesAsleep": 31
+      },
+      "1518-10-10": {
+        "events": [
+          "00:28",
+          "00:30",
+          "00:39",
+          "00:56"
+        ],
+        "minutesAsleep": 19,
+        "beganShift": "00:03"
+      },
+      "1518-10-14": {
         "events": [
           "00:45",
           "00:55"
         ],
         "minutesAsleep": 10,
-        "beganShift": "00:03"
+        "beganShift": "00:01"
+      },
+      "1518-10-15": {
+        "events": [
+          "00:23",
+          "00:39"
+        ],
+        "minutesAsleep": 16,
+        "beganShift": "00:04"
+      },
+      "1518-10-22": {
+        "events": [
+          "00:20",
+          "00:54"
+        ],
+        "minutesAsleep": 34,
+        "beganShift": "00:02"
+      },
+      "1518-11-02": {
+        "events": [],
+        "minutesAsleep": 0,
+        "beganShift": "23:56"
+      },
+      "1518-11-03": {
+        "events": [
+          "00:11",
+          "00:43"
+        ],
+        "minutesAsleep": 32
+      },
+      "1518-11-09": {
+        "events": [
+          "00:39",
+          "00:41",
+          "00:48",
+          "00:52"
+        ],
+        "minutesAsleep": 6,
+        "beganShift": "00:04"
+      },
+      "1518-11-12": {
+        "events": [
+          "00:21",
+          "00:41"
+        ],
+        "minutesAsleep": 20,
+        "beganShift": "00:00"
       }
     }
   }
