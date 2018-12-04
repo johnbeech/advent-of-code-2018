@@ -89,16 +89,16 @@ async function solveForFirstStar (guards) {
   const sleepiestGuard = guards[sleepingGuards.sort((a, b) => b.minutesAsleep - a.minutesAsleep)[0].guardId]
   report('Sleepiest guard', sleepiestGuard)
 
-  const sleepiestMinute = findSleepiestMinute(sleepiestGuard)
+  const sleepiestMinute = findSleepiestMinute(sleepiestGuard)[0]
 
   report('Sleepiest Guard Id', sleepiestGuard.guardId, 'Sleepiest Minute', sleepiestMinute)
 
-  let solution = sleepiestGuard.guardId * sleepiestMinute
+  let solution = sleepiestGuard.guardId * Number.parseInt(sleepiestMinute[0])
   report('Solution 1:', solution)
 }
 
-function findSleepiestMinute (guard) {
-  const minuteMap = Object.values(guard.days).reduce((map, day) => {
+function generateMinuteMapForGuard (guard) {
+  return Object.values(guard.days).reduce((map, day) => {
     if (!day.events.length) {
       return map
     }
@@ -112,13 +112,34 @@ function findSleepiestMinute (guard) {
     }
     return map
   }, {})
-  report('Sleepiest minutes', minuteMap)
-  const sortedMinutes = Object.entries(minuteMap).sort((a, b) => b[1] - a[1])
-  return sortedMinutes[0][0]
 }
 
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
+function findSleepiestMinute (guard) {
+  const minuteMap = generateMinuteMapForGuard(guard)
+
+  report('Sleepiest minutes', minuteMap, 'Guard Id', guard.guardId)
+  const sortedMinutes = Object.entries(minuteMap).sort((a, b) => b[1] - a[1])
+  if (sortedMinutes.length) {
+    return sortedMinutes[0]
+  } else {
+    return [0, 0]
+  }
+}
+
+async function solveForSecondStar (guards) {
+  const sleepiestMinuteGuards = Object.values(guards).map(guard => {
+    const minuteMap = generateMinuteMapForGuard(guard)
+    return {
+      guardId: guard.guardId,
+      sleepiestMinute: findSleepiestMinute(guard),
+      minuteMap
+    }
+  }).sort((a, b) => b.sleepiestMinute[1] - a.sleepiestMinute[1])
+
+  await write(fromHere('sleepiest-minute-guards.json'), JSON.stringify(sleepiestMinuteGuards, null, 2), 'utf8')
+
+  const sleepiestGuardByMinute = sleepiestMinuteGuards[0]
+  let solution = sleepiestGuardByMinute.guardId * Number.parseInt(sleepiestGuardByMinute.sleepiestMinute[0])
   report('Solution 2:', solution)
 }
 
