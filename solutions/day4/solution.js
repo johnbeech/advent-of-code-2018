@@ -4,7 +4,7 @@ const fromHere = position(__dirname)
 const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
 async function run () {
-  const input = (await read(fromHere('input.txt'), 'utf8')).trim()
+  const input = (await read(fromHere('sample.txt'), 'utf8')).trim()
 
   const events = input.split('\n').filter(n => n).map(parseEventLine).sort(sortOnTime)
   const guards = events.reduce(identifyGuardsFromEvents, {})
@@ -51,16 +51,16 @@ function identifyGuardsFromEvents (guards, event) {
     report('Unexpected event without an assigned guard:', event)
   }
   // otherwise keep last used guard
-  let day = guard.days[event.date] || { minutesAsleep: 0 }
+  let day = guard.days[event.date] || { events: [], minutesAsleep: 0 }
   if (event.beginsShift) {
-    day.begin = event.time
+    day.beganShift = event.time
   }
   if (event.fallsAsleep) {
-    day.sleep = event.time
+    day.events.push(event.time)
   }
   if (event.wakesUp) {
-    day.wakeUp = event.time
-    day.minutesAsleep = parseMinutes(day.wakeUp) - parseMinutes(day.sleep)
+    day.events.push(event.time)
+    day.minutesAsleep += parseMinutes(day.events[day.events.length - 1]) - parseMinutes(day.events[day.events.length - 2])
   }
   guard.days[event.date] = day
   guards[guard.guardId] = guard
@@ -91,26 +91,30 @@ async function solveForFirstStar (guards) {
 
   const sleepiestMinute = findSleepiestMinute(sleepiestGuard)
 
+  report('Sleepiest Guard Id', sleepiestGuard.guardId, 'Sleepiest Minute', sleepiestMinute)
+
   let solution = sleepiestGuard.guardId * sleepiestMinute
   report('Solution 1:', solution)
 }
 
 function findSleepiestMinute (guard) {
   const minuteMap = Object.values(guard.days).reduce((map, day) => {
-    if (!day.sleep || !day.wakeUp) {
+    if (!day.events.length) {
       return map
     }
-    let sleep = parseMinutes(day.sleep)
-    let wakeUp = parseMinutes(day.wakeUp)
-    for (let t = sleep; t < wakeUp; t++) {
-      map[t] = map[t] || 0
-      map[t]++
+    for (let n = 0; n < day.events.length; n += 2) {
+      let sleep = parseMinutes(day.events[n])
+      let wakeUp = parseMinutes(day.events[n + 1])
+      for (let t = sleep; t < wakeUp; t++) {
+        map[t] = map[t] || 0
+        map[t]++
+      }
     }
     return map
   }, {})
   report('Sleepiest minutes', minuteMap)
   const sortedMinutes = Object.entries(minuteMap).sort((a, b) => b[1] - a[1])
-  return sortedMinutes[0][1]
+  return sortedMinutes[0][0]
 }
 
 async function solveForSecondStar (input) {
