@@ -1,10 +1,90 @@
 [
   {
-    "guardId": 10,
-    "minutesAsleep": 50
+    "guardId": 97,
+    "minutesAsleep": 168
   },
   {
-    "guardId": 99,
-    "minutesAsleep": 30
+    "guardId": 191,
+    "minutesAsleep": 257
+  },
+  {
+    "guardId": 683,
+    "minutesAsleep": 254
+  },
+  {
+    "guardId": 769,
+    "minutesAsleep": 501
+  },
+  {
+    "guardId": 773,
+    "minutesAsleep": 171
+  },
+  {
+    "guardId": 991,
+    "minutesAsleep": 163
+  },
+  {
+    "guardId": 1049,
+    "minutesAsleep": 578
+  },
+  {
+    "guardId": 1187,
+    "minutesAsleep": 139
+  },
+  {
+    "guardId": 1213,
+    "minutesAsleep": 260
+  },
+  {
+    "guardId": 1277,
+    "minutesAsleep": 410
+  },
+  {
+    "guardId": 1381,
+    "minutesAsleep": 0
+  },
+  {
+    "guardId": 1493,
+    "minutesAsleep": 299
+  },
+  {
+    "guardId": 1721,
+    "minutesAsleep": 300
+  },
+  {
+    "guardId": 1907,
+    "minutesAsleep": 320
+  },
+  {
+    "guardId": 2113,
+    "minutesAsleep": 0
+  },
+  {
+    "guardId": 2141,
+    "minutesAsleep": 260
+  },
+  {
+    "guardId": 2711,
+    "minutesAsleep": 355
+  },
+  {
+    "guardId": 2713,
+    "minutesAsleep": 214
+  },
+  {
+    "guardId": 2749,
+    "minutesAsleep": 321
+  },
+  {
+    "guardId": 2777,
+    "minutesAsleep": 362
+  },
+  {
+    "guardId": 2879,
+    "minutesAsleep": 488
+  },
+  {
+    "guardId": 2917,
+    "minutesAsleep": 497
   }
 ]

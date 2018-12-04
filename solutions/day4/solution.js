@@ -4,7 +4,7 @@ const fromHere = position(__dirname)
 const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
 async function run () {
-  const input = (await read(fromHere('sample.txt'), 'utf8')).trim()
+  const input = (await read(fromHere('input.txt'), 'utf8')).trim()
 
   const events = input.split('\n').filter(n => n).map(parseEventLine).sort(sortOnTime)
   const guards = events.reduce(identifyGuardsFromEvents, {})
