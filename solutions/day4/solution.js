@@ -1,5 +1,5 @@
 const path = require('path')
-const { read, position } = require('promise-path')
+const { read, position, write } = require('promise-path')
 const fromHere = position(__dirname)
 const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
@@ -7,9 +7,12 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
 
   const events = input.split('\n').filter(n => n).map(parseEventLine).sort(sortOnTime)
+  const guards = events.reduce(identifyGuardsFromEvents, {})
 
-  await solveForFirstStar(events)
-  await solveForSecondStar(events)
+  await write(fromHere('guards.json'), JSON.stringify(guards, null, 2), 'utf8')
+
+  await solveForFirstStar(guards)
+  await solveForSecondStar(guards)
 }
 
 // [1518-09-05 00:51] wakes up
@@ -37,6 +40,31 @@ function parseEventLine (line) {
 
 function sortOnTime (ea, eb) {
   return ea.timeStamp - eb.timeStamp
+}
+
+let guard
+function identifyGuardsFromEvents (guards, event) {
+  if (event.guardId) {
+    guard = guards[event.guardId] || { guardId: event.guardId, days: {} }
+  }
+  if (!guard) {
+    report('Unexpected event without an assigned guard:', event)
+  }
+  // otherwise keep last used guard
+  let day = guard.days[event.date] || {}
+  if (event.beginsShift) {
+    day.begin = event.time
+  }
+  if (event.fallsAsleep) {
+    day.sleep = event.time
+  }
+  if (event.wakesUp) {
+    day.wakeUp = event.time
+  }
+  guard.days[event.date] = day
+  guards[guard.guardId] = guard
+
+  return guards
 }
 
 async function solveForFirstStar (input) {
