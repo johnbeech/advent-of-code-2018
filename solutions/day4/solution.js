@@ -6,7 +6,7 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
 
-  const events = input.split('\n').filter(n => n).map(parseEventLine)
+  const events = input.split('\n').filter(n => n).map(parseEventLine).sort(sortOnTime)
 
   await solveForFirstStar(events)
   await solveForSecondStar(events)
@@ -26,13 +26,17 @@ function parseEventLine (line) {
   }
 
   event.timeStamp = (new Date(event.date + ' ' + event.time)).getTime()
-  event.wakeUp = event.message === 'wakes up'
+  event.wakesUp = event.message === 'wakes up'
   event.fallsAsleep = event.message === 'falls asleep'
   if (guardBeginsShiftRegex.test(event.message)) {
     event.beginsShift = true
     event.guardId = event.message.match(guardBeginsShiftRegex)[1]
   }
   return event
+}
+
+function sortOnTime (ea, eb) {
+  return ea.timeStamp - eb.timeStamp
 }
 
 async function solveForFirstStar (input) {
