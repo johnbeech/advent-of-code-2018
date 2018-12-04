@@ -33,7 +33,7 @@ function parseEventLine (line) {
   event.fallsAsleep = event.message === 'falls asleep'
   if (guardBeginsShiftRegex.test(event.message)) {
     event.beginsShift = true
-    event.guardId = event.message.match(guardBeginsShiftRegex)[1]
+    event.guardId = Number.parseInt(event.message.match(guardBeginsShiftRegex)[1])
   }
   return event
 }
@@ -51,7 +51,7 @@ function identifyGuardsFromEvents (guards, event) {
     report('Unexpected event without an assigned guard:', event)
   }
   // otherwise keep last used guard
-  let day = guard.days[event.date] || {}
+  let day = guard.days[event.date] || { minutesAsleep: 0 }
   if (event.beginsShift) {
     day.begin = event.time
   }
@@ -60,6 +60,7 @@ function identifyGuardsFromEvents (guards, event) {
   }
   if (event.wakesUp) {
     day.wakeUp = event.time
+    day.minutesAsleep = parseMinutes(day.wakeUp) - parseMinutes(day.sleep)
   }
   guard.days[event.date] = day
   guards[guard.guardId] = guard
@@ -67,10 +68,49 @@ function identifyGuardsFromEvents (guards, event) {
   return guards
 }
 
-async function solveForFirstStar (input) {
-  let solution = 'UNSOLVED'
-  report('Input:', input)
+function parseMinutes (time) {
+  return parseInt(time.split(':')[1])
+}
+
+function measureGuardSleepingPatterns (guards) {
+  return Object.values(guards).map(guard => {
+    const minutesAsleep = Object.values(guard.days).reduce((acc, day) => acc + day.minutesAsleep, 0)
+    return {
+      guardId: guard.guardId,
+      minutesAsleep
+    }
+  })
+}
+
+async function solveForFirstStar (guards) {
+  const sleepingGuards = measureGuardSleepingPatterns(guards)
+  await write(fromHere('sleeping-guards.json'), JSON.stringify(sleepingGuards, null, 2), 'utf8')
+
+  const sleepiestGuard = guards[sleepingGuards.sort((a, b) => b.minutesAsleep - a.minutesAsleep)[0].guardId]
+  report('Sleepiest guard', sleepiestGuard)
+
+  const sleepiestMinute = findSleepiestMinute(sleepiestGuard)
+
+  let solution = sleepiestGuard.guardId * sleepiestMinute
   report('Solution 1:', solution)
+}
+
+function findSleepiestMinute (guard) {
+  const minuteMap = Object.values(guard.days).reduce((map, day) => {
+    if (!day.sleep || !day.wakeUp) {
+      return map
+    }
+    let sleep = parseMinutes(day.sleep)
+    let wakeUp = parseMinutes(day.wakeUp)
+    for (let t = sleep; t < wakeUp; t++) {
+      map[t] = map[t] || 0
+      map[t]++
+    }
+    return map
+  }, {})
+  report('Sleepiest minutes', minuteMap)
+  const sortedMinutes = Object.entries(minuteMap).sort((a, b) => b[1] - a[1])
+  return sortedMinutes[0][1]
 }
 
 async function solveForSecondStar (input) {

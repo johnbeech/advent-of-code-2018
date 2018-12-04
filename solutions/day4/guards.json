@@ -1,205 +1,253 @@
 {
   "97": {
-    "guardId": "97",
+    "guardId": 97,
     "days": {
       "1518-03-16": {
+        "minutesAsleep": 0,
         "begin": "23:49"
       },
       "1518-03-17": {
+        "minutesAsleep": 2,
         "sleep": "00:42",
         "wakeUp": "00:44"
       },
       "1518-06-09": {
+        "minutesAsleep": 1,
         "begin": "00:03",
         "sleep": "00:54",
         "wakeUp": "00:55"
       },
       "1518-06-24": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-06-25": {
+        "minutesAsleep": 19,
         "sleep": "00:27",
         "wakeUp": "00:46"
       },
       "1518-08-13": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-08-14": {
+        "minutesAsleep": 28,
         "sleep": "00:30",
         "wakeUp": "00:58"
       },
       "1518-08-28": {
+        "minutesAsleep": 16,
         "begin": "00:03",
         "sleep": "00:18",
         "wakeUp": "00:34"
       },
       "1518-09-03": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-09-04": {
+        "minutesAsleep": 4,
         "sleep": "00:45",
         "wakeUp": "00:49"
       },
       "1518-09-16": {
+        "minutesAsleep": 10,
         "begin": "00:00",
         "sleep": "00:49",
         "wakeUp": "00:59"
       },
       "1518-09-21": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-09-22": {
+        "minutesAsleep": 27,
         "sleep": "00:14",
         "wakeUp": "00:41"
       }
     }
   },
   "191": {
-    "guardId": "191",
+    "guardId": 191,
     "days": {
       "1518-02-28": {
+        "minutesAsleep": 26,
         "begin": "00:03",
         "sleep": "00:29",
         "wakeUp": "00:55"
       },
       "1518-03-12": {
+        "minutesAsleep": 2,
         "begin": "00:03",
         "sleep": "00:57",
         "wakeUp": "00:59"
       },
       "1518-04-03": {
+        "minutesAsleep": 3,
         "begin": "00:02",
         "sleep": "00:26",
         "wakeUp": "00:29"
       },
       "1518-04-11": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-04-12": {
+        "minutesAsleep": 16,
         "sleep": "00:22",
         "wakeUp": "00:38"
       },
       "1518-04-19": {
+        "minutesAsleep": 7,
         "begin": "00:00",
         "sleep": "00:52",
         "wakeUp": "00:59"
       },
       "1518-05-05": {
+        "minutesAsleep": 30,
         "begin": "00:01",
         "sleep": "00:27",
         "wakeUp": "00:57"
       },
       "1518-06-18": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-06-19": {
+        "minutesAsleep": 5,
         "sleep": "00:30",
         "wakeUp": "00:35"
       },
       "1518-06-27": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-06-28": {
+        "minutesAsleep": 2,
         "sleep": "00:07",
         "wakeUp": "00:09"
       },
       "1518-07-09": {
+        "minutesAsleep": 32,
         "begin": "00:00",
         "sleep": "00:21",
         "wakeUp": "00:53"
       },
       "1518-09-06": {
+        "minutesAsleep": 4,
         "begin": "00:02",
         "sleep": "00:46",
         "wakeUp": "00:50"
       },
       "1518-09-24": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-09-25": {
+        "minutesAsleep": 8,
         "sleep": "00:51",
         "wakeUp": "00:59",
         "begin": "23:57"
       },
       "1518-09-26": {
+        "minutesAsleep": 3,
         "sleep": "00:53",
         "wakeUp": "00:56"
       },
       "1518-10-06": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-10-07": {
+        "minutesAsleep": 4,
         "sleep": "00:55",
         "wakeUp": "00:59"
       },
       "1518-10-16": {
+        "minutesAsleep": 10,
         "begin": "00:00",
         "sleep": "00:49",
         "wakeUp": "00:59"
       },
       "1518-10-20": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-10-21": {
+        "minutesAsleep": 12,
         "sleep": "00:40",
         "wakeUp": "00:52"
       },
       "1518-10-29": {
+        "minutesAsleep": 0,
         "begin": "23:52"
       },
       "1518-10-30": {
+        "minutesAsleep": 32,
         "sleep": "00:01",
         "wakeUp": "00:33"
       }
     }
   },
   "683": {
-    "guardId": "683",
+    "guardId": 683,
     "days": {
       "1518-03-01": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-03-02": {
+        "minutesAsleep": 21,
         "sleep": "00:11",
         "wakeUp": "00:32"
       },
       "1518-07-31": {
+        "minutesAsleep": 0,
         "begin": "23:49"
       },
       "1518-08-01": {
+        "minutesAsleep": 18,
         "sleep": "00:40",
         "wakeUp": "00:58"
       },
       "1518-08-02": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-08-03": {
+        "minutesAsleep": 48,
         "sleep": "00:07",
         "wakeUp": "00:55"
       },
       "1518-08-09": {
+        "minutesAsleep": 13,
         "begin": "00:03",
         "sleep": "00:46",
         "wakeUp": "00:59"
       },
       "1518-08-19": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-08-20": {
+        "minutesAsleep": 7,
         "sleep": "00:51",
         "wakeUp": "00:58"
       },
       "1518-11-01": {
+        "minutesAsleep": 9,
         "begin": "00:02",
         "sleep": "00:34",
         "wakeUp": "00:43"
       },
       "1518-11-02": {
+        "minutesAsleep": 2,
         "begin": "00:00",
         "sleep": "00:45",
         "wakeUp": "00:47"
       },
       "1518-11-04": {
+        "minutesAsleep": 32,
         "begin": "00:02",
         "sleep": "00:27",
         "wakeUp": "00:59"
@@ -207,107 +255,130 @@
     }
   },
   "769": {
-    "guardId": "769",
+    "guardId": 769,
     "days": {
       "1518-02-26": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-02-27": {
+        "minutesAsleep": 16,
         "sleep": "00:37",
         "wakeUp": "00:53"
       },
       "1518-03-09": {
+        "minutesAsleep": 32,
         "begin": "00:04",
         "sleep": "00:19",
         "wakeUp": "00:51"
       },
       "1518-03-13": {
+        "minutesAsleep": 3,
         "begin": "00:01",
         "sleep": "00:55",
         "wakeUp": "00:58"
       },
       "1518-04-08": {
+        "minutesAsleep": 36,
         "begin": "00:02",
         "sleep": "00:14",
         "wakeUp": "00:50"
       },
       "1518-04-14": {
+        "minutesAsleep": 9,
         "begin": "00:01",
         "sleep": "00:44",
         "wakeUp": "00:53"
       },
       "1518-04-28": {
+        "minutesAsleep": 17,
         "begin": "00:02",
         "sleep": "00:36",
         "wakeUp": "00:53"
       },
       "1518-05-26": {
+        "minutesAsleep": 31,
         "begin": "00:00",
         "sleep": "00:06",
         "wakeUp": "00:37"
       },
       "1518-06-06": {
+        "minutesAsleep": 32,
         "begin": "00:02",
         "sleep": "00:27",
         "wakeUp": "00:59"
       },
       "1518-06-15": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-06-16": {
+        "minutesAsleep": 1,
         "sleep": "00:56",
         "wakeUp": "00:57"
       },
       "1518-06-29": {
+        "minutesAsleep": 0,
         "begin": "23:46"
       },
       "1518-06-30": {
+        "minutesAsleep": 50,
         "sleep": "00:01",
         "wakeUp": "00:51"
       },
       "1518-07-02": {
+        "minutesAsleep": 28,
         "begin": "00:03",
         "sleep": "00:16",
         "wakeUp": "00:44"
       },
       "1518-07-04": {
+        "minutesAsleep": 21,
         "begin": "00:00",
         "sleep": "00:21",
         "wakeUp": "00:42"
       },
       "1518-08-10": {
+        "minutesAsleep": 22,
         "begin": "00:03",
         "sleep": "00:33",
         "wakeUp": "00:55"
       },
       "1518-08-14": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-08-15": {
+        "minutesAsleep": 7,
         "sleep": "00:49",
         "wakeUp": "00:56"
       },
       "1518-09-10": {
+        "minutesAsleep": 9,
         "begin": "00:00",
         "sleep": "00:34",
         "wakeUp": "00:43"
       },
       "1518-09-19": {
+        "minutesAsleep": 13,
         "begin": "00:01",
         "sleep": "00:41",
         "wakeUp": "00:54"
       },
       "1518-10-03": {
+        "minutesAsleep": 2,
         "begin": "00:01",
         "sleep": "00:53",
         "wakeUp": "00:55"
       },
       "1518-10-25": {
+        "minutesAsleep": 15,
         "begin": "00:03",
         "sleep": "00:13",
         "wakeUp": "00:28"
       },
       "1518-11-23": {
+        "minutesAsleep": 33,
         "begin": "00:02",
         "sleep": "00:16",
         "wakeUp": "00:49"
@@ -315,222 +386,275 @@
     }
   },
   "773": {
-    "guardId": "773",
+    "guardId": 773,
     "days": {
       "1518-03-04": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-03-05": {
+        "minutesAsleep": 2,
         "sleep": "00:41",
         "wakeUp": "00:43"
       },
       "1518-04-19": {
+        "minutesAsleep": 0,
         "begin": "23:48"
       },
       "1518-04-20": {
+        "minutesAsleep": 29,
         "sleep": "00:02",
         "wakeUp": "00:31"
       },
       "1518-04-28": {
+        "minutesAsleep": 0,
         "begin": "23:53"
       },
       "1518-04-29": {
+        "minutesAsleep": 16,
         "sleep": "00:40",
         "wakeUp": "00:56"
       },
       "1518-05-07": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-05-08": {
+        "minutesAsleep": 43,
         "sleep": "00:12",
         "wakeUp": "00:55"
       },
       "1518-05-17": {
+        "minutesAsleep": 5,
         "begin": "00:00",
         "sleep": "00:53",
         "wakeUp": "00:58"
       },
       "1518-09-14": {
+        "minutesAsleep": 38,
         "begin": "00:02",
         "sleep": "00:15",
         "wakeUp": "00:53"
       },
       "1518-10-23": {
+        "minutesAsleep": 0,
         "begin": "23:46"
       },
       "1518-10-24": {
+        "minutesAsleep": 5,
         "sleep": "00:52",
         "wakeUp": "00:57"
       }
     }
   },
   "991": {
-    "guardId": "991",
+    "guardId": 991,
     "days": {
       "1518-03-24": {
+        "minutesAsleep": 0,
         "begin": "23:47"
       },
       "1518-03-25": {
+        "minutesAsleep": 8,
         "sleep": "00:42",
         "wakeUp": "00:50"
       },
       "1518-05-17": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-05-18": {
+        "minutesAsleep": 27,
         "sleep": "00:20",
         "wakeUp": "00:47"
       },
       "1518-07-09": {
+        "minutesAsleep": 0,
         "begin": "23:49"
       },
       "1518-07-10": {
+        "minutesAsleep": 9,
         "sleep": "00:41",
         "wakeUp": "00:50"
       },
       "1518-08-11": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-08-12": {
+        "minutesAsleep": 4,
         "sleep": "00:51",
         "wakeUp": "00:55"
       },
       "1518-09-12": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-09-13": {
+        "minutesAsleep": 15,
         "sleep": "00:21",
         "wakeUp": "00:36"
       },
       "1518-09-19": {
+        "minutesAsleep": 0,
         "begin": "23:48"
       },
       "1518-09-20": {
+        "minutesAsleep": 14,
         "sleep": "00:25",
         "wakeUp": "00:39"
       },
       "1518-09-22": {
+        "minutesAsleep": 0,
         "begin": "23:47"
       },
       "1518-09-23": {
+        "minutesAsleep": 31,
         "sleep": "00:16",
         "wakeUp": "00:47"
       }
     }
   },
   "1049": {
-    "guardId": "1049",
+    "guardId": 1049,
     "days": {
       "1518-03-22": {
+        "minutesAsleep": 51,
         "begin": "00:00",
         "sleep": "00:06",
         "wakeUp": "00:57"
       },
       "1518-04-01": {
+        "minutesAsleep": 22,
         "begin": "00:01",
         "sleep": "00:34",
         "wakeUp": "00:56"
       },
       "1518-04-15": {
+        "minutesAsleep": 2,
         "begin": "00:00",
         "sleep": "00:37",
         "wakeUp": "00:39"
       },
       "1518-04-18": {
+        "minutesAsleep": 23,
         "begin": "00:00",
         "sleep": "00:35",
         "wakeUp": "00:58"
       },
       "1518-04-24": {
+        "minutesAsleep": 10,
         "begin": "00:02",
         "sleep": "00:31",
         "wakeUp": "00:41"
       },
       "1518-05-06": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-05-07": {
+        "minutesAsleep": 5,
         "sleep": "00:17",
         "wakeUp": "00:22"
       },
       "1518-05-09": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-05-10": {
+        "minutesAsleep": 18,
         "sleep": "00:40",
         "wakeUp": "00:58"
       },
       "1518-05-11": {
+        "minutesAsleep": 0,
         "begin": "23:47"
       },
       "1518-05-12": {
+        "minutesAsleep": 56,
         "sleep": "00:00",
         "wakeUp": "00:56"
       },
       "1518-06-08": {
+        "minutesAsleep": 2,
         "begin": "00:04",
         "sleep": "00:56",
         "wakeUp": "00:58"
       },
       "1518-06-10": {
+        "minutesAsleep": 39,
         "begin": "00:03",
         "sleep": "00:12",
         "wakeUp": "00:51"
       },
       "1518-06-11": {
+        "minutesAsleep": 27,
         "begin": "00:01",
         "sleep": "00:25",
         "wakeUp": "00:52"
       },
       "1518-06-21": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-06-22": {
+        "minutesAsleep": 36,
         "sleep": "00:05",
         "wakeUp": "00:41"
       },
       "1518-06-25": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-06-26": {
+        "minutesAsleep": 21,
         "sleep": "00:37",
         "wakeUp": "00:58"
       },
       "1518-07-18": {
+        "minutesAsleep": 25,
         "begin": "00:00",
         "sleep": "00:29",
         "wakeUp": "00:54"
       },
       "1518-08-04": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-08-05": {
+        "minutesAsleep": 21,
         "sleep": "00:32",
         "wakeUp": "00:53"
       },
       "1518-08-06": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-08-07": {
+        "minutesAsleep": 4,
         "sleep": "00:52",
         "wakeUp": "00:56"
       },
       "1518-08-29": {
+        "minutesAsleep": 18,
         "begin": "00:03",
         "sleep": "00:41",
         "wakeUp": "00:59"
       },
       "1518-09-05": {
+        "minutesAsleep": 37,
         "begin": "00:02",
         "sleep": "00:14",
         "wakeUp": "00:51"
       },
       "1518-09-30": {
+        "minutesAsleep": 2,
         "begin": "00:01",
         "sleep": "00:49",
         "wakeUp": "00:51"
       },
       "1518-11-18": {
+        "minutesAsleep": 1,
         "begin": "00:02",
         "sleep": "00:50",
         "wakeUp": "00:51"
@@ -538,48 +662,58 @@
     }
   },
   "1187": {
-    "guardId": "1187",
+    "guardId": 1187,
     "days": {
       "1518-05-15": {
+        "minutesAsleep": 4,
         "begin": "00:04",
         "sleep": "00:47",
         "wakeUp": "00:51"
       },
       "1518-06-13": {
+        "minutesAsleep": 18,
         "begin": "00:02",
         "sleep": "00:39",
         "wakeUp": "00:57"
       },
       "1518-07-26": {
+        "minutesAsleep": 23,
         "begin": "00:00",
         "sleep": "00:17",
         "wakeUp": "00:40"
       },
       "1518-08-24": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-08-25": {
+        "minutesAsleep": 2,
         "sleep": "00:55",
         "wakeUp": "00:57"
       },
       "1518-09-26": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-09-27": {
+        "minutesAsleep": 41,
         "sleep": "00:13",
         "wakeUp": "00:54"
       },
       "1518-10-12": {
+        "minutesAsleep": 17,
         "begin": "00:01",
         "sleep": "00:24",
         "wakeUp": "00:41"
       },
       "1518-10-28": {
+        "minutesAsleep": 10,
         "begin": "00:04",
         "sleep": "00:40",
         "wakeUp": "00:50"
       },
       "1518-10-29": {
+        "minutesAsleep": 4,
         "begin": "00:00",
         "sleep": "00:51",
         "wakeUp": "00:55"
@@ -587,92 +721,115 @@
     }
   },
   "1213": {
-    "guardId": "1213",
+    "guardId": 1213,
     "days": {
       "1518-03-06": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-03-07": {
+        "minutesAsleep": 16,
         "sleep": "00:37",
         "wakeUp": "00:53"
       },
       "1518-05-10": {
+        "minutesAsleep": 0,
         "begin": "23:46"
       },
       "1518-05-11": {
+        "minutesAsleep": 7,
         "sleep": "00:49",
         "wakeUp": "00:56"
       },
       "1518-05-31": {
+        "minutesAsleep": 8,
         "begin": "00:04",
         "sleep": "00:23",
         "wakeUp": "00:31"
       },
       "1518-07-04": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-07-05": {
+        "minutesAsleep": 5,
         "sleep": "00:53",
         "wakeUp": "00:58"
       },
       "1518-07-06": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-07-07": {
+        "minutesAsleep": 29,
         "sleep": "00:12",
         "wakeUp": "00:41"
       },
       "1518-07-11": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-07-12": {
+        "minutesAsleep": 1,
         "sleep": "00:54",
         "wakeUp": "00:55"
       },
       "1518-07-15": {
+        "minutesAsleep": 18,
         "begin": "00:01",
         "sleep": "00:38",
         "wakeUp": "00:56"
       },
       "1518-07-28": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-07-29": {
+        "minutesAsleep": 1,
         "sleep": "00:24",
         "wakeUp": "00:25"
       },
       "1518-08-04": {
+        "minutesAsleep": 8,
         "begin": "00:04",
         "sleep": "00:48",
         "wakeUp": "00:56"
       },
       "1518-08-10": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-08-11": {
+        "minutesAsleep": 31,
         "sleep": "00:28",
         "wakeUp": "00:59"
       },
       "1518-08-24": {
+        "minutesAsleep": 8,
         "begin": "00:03",
         "sleep": "00:33",
         "wakeUp": "00:41"
       },
       "1518-08-29": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-08-30": {
+        "minutesAsleep": 10,
         "sleep": "00:31",
         "wakeUp": "00:41"
       },
       "1518-10-19": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-10-20": {
+        "minutesAsleep": 11,
         "sleep": "00:33",
         "wakeUp": "00:44"
       },
       "1518-11-20": {
+        "minutesAsleep": 6,
         "begin": "00:01",
         "sleep": "00:38",
         "wakeUp": "00:44"
@@ -680,273 +837,337 @@
     }
   },
   "1277": {
-    "guardId": "1277",
+    "guardId": 1277,
     "days": {
       "1518-03-24": {
+        "minutesAsleep": 6,
         "begin": "00:01",
         "sleep": "00:32",
         "wakeUp": "00:38"
       },
       "1518-03-29": {
+        "minutesAsleep": 24,
         "begin": "00:02",
         "sleep": "00:30",
         "wakeUp": "00:54"
       },
       "1518-04-23": {
+        "minutesAsleep": 17,
         "begin": "00:00",
         "sleep": "00:26",
         "wakeUp": "00:43"
       },
       "1518-05-09": {
+        "minutesAsleep": 7,
         "begin": "00:00",
         "sleep": "00:48",
         "wakeUp": "00:55"
       },
       "1518-05-14": {
+        "minutesAsleep": 23,
         "begin": "00:02",
         "sleep": "00:27",
         "wakeUp": "00:50"
       },
       "1518-05-21": {
+        "minutesAsleep": 2,
         "begin": "00:00",
         "sleep": "00:56",
         "wakeUp": "00:58"
       },
       "1518-05-23": {
+        "minutesAsleep": 12,
         "begin": "00:04",
         "sleep": "00:47",
         "wakeUp": "00:59"
       },
       "1518-06-01": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-06-02": {
+        "minutesAsleep": 20,
         "sleep": "00:36",
         "wakeUp": "00:56"
       },
       "1518-06-04": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-06-05": {
+        "minutesAsleep": 40,
         "sleep": "00:15",
         "wakeUp": "00:55"
       },
       "1518-06-26": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-06-27": {
+        "minutesAsleep": 37,
         "sleep": "00:20",
         "wakeUp": "00:57"
       },
       "1518-07-03": {
+        "minutesAsleep": 7,
         "begin": "00:04",
         "sleep": "00:47",
         "wakeUp": "00:54"
       },
       "1518-07-12": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-07-13": {
+        "minutesAsleep": 31,
         "sleep": "00:20",
         "wakeUp": "00:51"
       },
       "1518-07-22": {
+        "minutesAsleep": 6,
         "begin": "00:02",
         "sleep": "00:46",
         "wakeUp": "00:52"
       },
       "1518-08-15": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-08-16": {
+        "minutesAsleep": 54,
         "sleep": "00:00",
         "wakeUp": "00:54"
       },
       "1518-08-22": {
+        "minutesAsleep": 13,
         "begin": "00:01",
         "sleep": "00:32",
         "wakeUp": "00:45"
       },
       "1518-08-23": {
+        "minutesAsleep": 5,
         "begin": "00:01",
         "sleep": "00:45",
         "wakeUp": "00:50"
       },
       "1518-10-10": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-10-11": {
+        "minutesAsleep": 22,
         "sleep": "00:13",
         "wakeUp": "00:35"
       }
     }
   },
   "1381": {
-    "guardId": "1381",
+    "guardId": 1381,
     "days": {
       "1518-06-03": {
+        "minutesAsleep": 0,
         "begin": "00:00"
       },
       "1518-07-28": {
+        "minutesAsleep": 0,
         "begin": "00:00"
       },
       "1518-11-10": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       }
     }
   },
   "1493": {
-    "guardId": "1493",
+    "guardId": 1493,
     "days": {
       "1518-03-20": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-03-21": {
+        "minutesAsleep": 20,
         "sleep": "00:31",
         "wakeUp": "00:51"
       },
       "1518-04-25": {
+        "minutesAsleep": 2,
         "begin": "00:01",
         "sleep": "00:35",
         "wakeUp": "00:37"
       },
       "1518-04-27": {
+        "minutesAsleep": 13,
         "begin": "00:03",
         "sleep": "00:40",
         "wakeUp": "00:53"
       },
       "1518-05-12": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-05-13": {
+        "minutesAsleep": 1,
         "sleep": "00:57",
         "wakeUp": "00:58"
       },
       "1518-06-28": {
+        "minutesAsleep": 0,
         "begin": "23:51"
       },
       "1518-06-29": {
+        "minutesAsleep": 4,
         "sleep": "00:53",
         "wakeUp": "00:57"
       },
       "1518-07-24": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-07-25": {
+        "minutesAsleep": 21,
         "sleep": "00:18",
         "wakeUp": "00:39"
       },
       "1518-07-30": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-07-31": {
+        "minutesAsleep": 9,
         "sleep": "00:49",
         "wakeUp": "00:58"
       },
       "1518-09-07": {
+        "minutesAsleep": 15,
         "begin": "00:01",
         "sleep": "00:35",
         "wakeUp": "00:50"
       },
       "1518-09-10": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-09-11": {
+        "minutesAsleep": 17,
         "sleep": "00:31",
         "wakeUp": "00:48"
       },
       "1518-09-14": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-09-15": {
+        "minutesAsleep": 40,
         "sleep": "00:16",
         "wakeUp": "00:56"
       },
       "1518-11-14": {
+        "minutesAsleep": 17,
         "begin": "00:02",
         "sleep": "00:42",
         "wakeUp": "00:59"
       },
       "1518-11-16": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-11-17": {
+        "minutesAsleep": 22,
         "sleep": "00:01",
         "wakeUp": "00:23"
       }
     }
   },
   "1721": {
-    "guardId": "1721",
+    "guardId": 1721,
     "days": {
       "1518-03-03": {
+        "minutesAsleep": 29,
         "begin": "00:00",
         "sleep": "00:19",
         "wakeUp": "00:48"
       },
       "1518-04-05": {
+        "minutesAsleep": 16,
         "begin": "00:03",
         "sleep": "00:14",
         "wakeUp": "00:30"
       },
       "1518-04-17": {
+        "minutesAsleep": 11,
         "begin": "00:03",
         "sleep": "00:32",
         "wakeUp": "00:43"
       },
       "1518-05-24": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-05-25": {
+        "minutesAsleep": 9,
         "sleep": "00:43",
         "wakeUp": "00:52"
       },
       "1518-06-06": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-06-07": {
+        "minutesAsleep": 3,
         "sleep": "00:48",
         "wakeUp": "00:51"
       },
       "1518-06-20": {
+        "minutesAsleep": 1,
         "begin": "00:00",
         "sleep": "00:54",
         "wakeUp": "00:55"
       },
       "1518-07-10": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-07-11": {
+        "minutesAsleep": 17,
         "sleep": "00:28",
         "wakeUp": "00:45"
       },
       "1518-08-31": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-09-01": {
+        "minutesAsleep": 33,
         "sleep": "00:25",
         "wakeUp": "00:58",
         "begin": "23:59"
       },
       "1518-09-02": {
+        "minutesAsleep": 49,
         "sleep": "00:10",
         "wakeUp": "00:59"
       },
       "1518-09-11": {
+        "minutesAsleep": 0,
         "begin": "23:48"
       },
       "1518-09-12": {
+        "minutesAsleep": 2,
         "sleep": "00:56",
         "wakeUp": "00:58"
       },
       "1518-10-03": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-10-04": {
+        "minutesAsleep": 16,
         "sleep": "00:41",
         "wakeUp": "00:57"
       },
       "1518-11-07": {
+        "minutesAsleep": 33,
         "begin": "00:01",
         "sleep": "00:23",
         "wakeUp": "00:56"
@@ -954,286 +1175,354 @@
     }
   },
   "1907": {
-    "guardId": "1907",
+    "guardId": 1907,
     "days": {
       "1518-03-13": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-03-14": {
+        "minutesAsleep": 2,
         "sleep": "00:53",
         "wakeUp": "00:55"
       },
       "1518-03-16": {
+        "minutesAsleep": 40,
         "begin": "00:02",
         "sleep": "00:07",
         "wakeUp": "00:47"
       },
       "1518-03-30": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-03-31": {
+        "minutesAsleep": 6,
         "sleep": "00:49",
         "wakeUp": "00:55"
       },
       "1518-04-05": {
+        "minutesAsleep": 0,
         "begin": "23:53"
       },
       "1518-04-06": {
+        "minutesAsleep": 6,
         "sleep": "00:47",
         "wakeUp": "00:53"
       },
       "1518-04-11": {
+        "minutesAsleep": 25,
         "begin": "00:01",
         "sleep": "00:29",
         "wakeUp": "00:54"
       },
       "1518-05-22": {
+        "minutesAsleep": 2,
         "begin": "00:02",
         "sleep": "00:55",
         "wakeUp": "00:57"
       },
       "1518-06-04": {
+        "minutesAsleep": 1,
         "begin": "00:02",
         "sleep": "00:55",
         "wakeUp": "00:56"
       },
       "1518-06-14": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-06-15": {
+        "minutesAsleep": 20,
         "sleep": "00:37",
         "wakeUp": "00:57"
       },
       "1518-07-17": {
+        "minutesAsleep": 12,
         "begin": "00:01",
         "sleep": "00:44",
         "wakeUp": "00:56"
       },
       "1518-07-27": {
+        "minutesAsleep": 4,
         "begin": "00:03",
         "sleep": "00:52",
         "wakeUp": "00:56"
       },
       "1518-08-31": {
+        "minutesAsleep": 18,
         "begin": "00:00",
         "sleep": "00:39",
         "wakeUp": "00:57"
       },
       "1518-09-23": {
+        "minutesAsleep": 0,
         "begin": "23:47"
       },
       "1518-09-24": {
+        "minutesAsleep": 5,
         "sleep": "00:51",
         "wakeUp": "00:56"
       },
       "1518-10-23": {
+        "minutesAsleep": 7,
         "begin": "00:00",
         "sleep": "00:52",
         "wakeUp": "00:59"
       },
       "1518-11-07": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-11-08": {
+        "minutesAsleep": 15,
         "sleep": "00:39",
         "wakeUp": "00:54"
       }
     }
   },
   "2113": {
-    "guardId": "2113",
+    "guardId": 2113,
     "days": {
       "1518-04-13": {
+        "minutesAsleep": 0,
         "begin": "00:00"
       },
       "1518-05-27": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-11-20": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       }
     }
   },
   "2141": {
-    "guardId": "2141",
+    "guardId": 2141,
     "days": {
       "1518-02-18": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-02-19": {
+        "minutesAsleep": 34,
         "sleep": "00:24",
         "wakeUp": "00:58"
       },
       "1518-02-24": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-02-25": {
+        "minutesAsleep": 11,
         "sleep": "00:42",
         "wakeUp": "00:53"
       },
       "1518-03-09": {
+        "minutesAsleep": 0,
         "begin": "23:48"
       },
       "1518-03-10": {
+        "minutesAsleep": 8,
         "sleep": "00:03",
         "wakeUp": "00:11"
       },
       "1518-03-26": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-03-27": {
+        "minutesAsleep": 32,
         "sleep": "00:25",
         "wakeUp": "00:57"
       },
       "1518-05-01": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-05-02": {
+        "minutesAsleep": 22,
         "sleep": "00:32",
         "wakeUp": "00:54"
       },
       "1518-05-30": {
+        "minutesAsleep": 13,
         "begin": "00:00",
         "sleep": "00:38",
         "wakeUp": "00:51"
       },
       "1518-06-24": {
+        "minutesAsleep": 12,
         "begin": "00:02",
         "sleep": "00:42",
         "wakeUp": "00:54"
       },
       "1518-07-29": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-07-30": {
+        "minutesAsleep": 17,
         "sleep": "00:40",
         "wakeUp": "00:57"
       },
       "1518-08-16": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-08-17": {
+        "minutesAsleep": 21,
         "sleep": "00:33",
         "wakeUp": "00:54"
       },
       "1518-08-20": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-08-21": {
+        "minutesAsleep": 2,
         "sleep": "00:55",
         "wakeUp": "00:57"
       },
       "1518-08-26": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-08-27": {
+        "minutesAsleep": 5,
         "sleep": "00:54",
         "wakeUp": "00:59"
       },
       "1518-11-09": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-11-10": {
+        "minutesAsleep": 33,
         "sleep": "00:22",
         "wakeUp": "00:55"
       },
       "1518-11-21": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-11-22": {
+        "minutesAsleep": 11,
         "sleep": "00:42",
         "wakeUp": "00:53"
       }
     }
   },
   "2711": {
-    "guardId": "2711",
+    "guardId": 2711,
     "days": {
       "1518-03-30": {
+        "minutesAsleep": 2,
         "begin": "00:00",
         "sleep": "00:57",
         "wakeUp": "00:59"
       },
       "1518-04-04": {
+        "minutesAsleep": 10,
         "begin": "00:00",
         "sleep": "00:47",
         "wakeUp": "00:57"
       },
       "1518-04-09": {
+        "minutesAsleep": 36,
         "begin": "00:02",
         "sleep": "00:23",
         "wakeUp": "00:59"
       },
       "1518-04-10": {
+        "minutesAsleep": 4,
         "begin": "00:02",
         "sleep": "00:49",
         "wakeUp": "00:53"
       },
       "1518-04-30": {
+        "minutesAsleep": 6,
         "begin": "23:57",
         "sleep": "00:14",
         "wakeUp": "00:20"
       },
       "1518-05-01": {
+        "minutesAsleep": 8,
         "sleep": "00:43",
         "wakeUp": "00:51"
       },
       "1518-06-16": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-06-17": {
+        "minutesAsleep": 46,
         "sleep": "00:06",
         "wakeUp": "00:52"
       },
       "1518-06-21": {
+        "minutesAsleep": 25,
         "begin": "00:01",
         "sleep": "00:27",
         "wakeUp": "00:52"
       },
       "1518-07-08": {
+        "minutesAsleep": 20,
         "begin": "00:00",
         "sleep": "00:22",
         "wakeUp": "00:42"
       },
       "1518-07-15": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-07-16": {
+        "minutesAsleep": 10,
         "sleep": "00:17",
         "wakeUp": "00:27"
       },
       "1518-08-19": {
+        "minutesAsleep": 14,
         "begin": "00:03",
         "sleep": "00:37",
         "wakeUp": "00:51"
       },
       "1518-10-12": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-10-13": {
+        "minutesAsleep": 19,
         "sleep": "00:33",
         "wakeUp": "00:52"
       },
       "1518-10-19": {
+        "minutesAsleep": 41,
         "begin": "00:03",
         "sleep": "00:14",
         "wakeUp": "00:55"
       },
       "1518-10-25": {
+        "minutesAsleep": 0,
         "begin": "23:54"
       },
       "1518-10-26": {
+        "minutesAsleep": 10,
         "sleep": "00:49",
         "wakeUp": "00:59"
       },
       "1518-10-30": {
+        "minutesAsleep": 0,
         "begin": "23:53"
       },
       "1518-10-31": {
+        "minutesAsleep": 2,
         "sleep": "00:50",
         "wakeUp": "00:52"
       },
       "1518-11-05": {
+        "minutesAsleep": 1,
         "begin": "00:00",
         "sleep": "00:51",
         "wakeUp": "00:52"
@@ -1241,45 +1530,55 @@
     }
   },
   "2713": {
-    "guardId": "2713",
+    "guardId": 2713,
     "days": {
       "1518-03-28": {
+        "minutesAsleep": 1,
         "begin": "00:00",
         "sleep": "00:57",
         "wakeUp": "00:58"
       },
       "1518-05-29": {
+        "minutesAsleep": 36,
         "begin": "00:00",
         "sleep": "00:15",
         "wakeUp": "00:51"
       },
       "1518-06-30": {
+        "minutesAsleep": 0,
         "begin": "23:53"
       },
       "1518-07-01": {
+        "minutesAsleep": 10,
         "sleep": "00:35",
         "wakeUp": "00:45"
       },
       "1518-07-19": {
+        "minutesAsleep": 5,
         "begin": "00:00",
         "sleep": "00:51",
         "wakeUp": "00:56"
       },
       "1518-07-20": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-07-21": {
+        "minutesAsleep": 32,
         "sleep": "00:24",
         "wakeUp": "00:56"
       },
       "1518-07-22": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-07-23": {
+        "minutesAsleep": 24,
         "sleep": "00:23",
         "wakeUp": "00:47"
       },
       "1518-08-02": {
+        "minutesAsleep": 48,
         "begin": "00:00",
         "sleep": "00:07",
         "wakeUp": "00:55"
@@ -1287,185 +1586,227 @@
     }
   },
   "2749": {
-    "guardId": "2749",
+    "guardId": 2749,
     "days": {
       "1518-02-21": {
+        "minutesAsleep": 40,
         "begin": "23:58",
         "sleep": "00:09",
         "wakeUp": "00:49"
       },
       "1518-02-22": {
+        "minutesAsleep": 11,
         "sleep": "00:48",
         "wakeUp": "00:59"
       },
       "1518-02-23": {
+        "minutesAsleep": 1,
         "begin": "00:01",
         "sleep": "00:52",
         "wakeUp": "00:53"
       },
       "1518-03-08": {
+        "minutesAsleep": 26,
         "begin": "00:00",
         "sleep": "00:29",
         "wakeUp": "00:55"
       },
       "1518-03-18": {
+        "minutesAsleep": 5,
         "begin": "00:00",
         "sleep": "00:42",
         "wakeUp": "00:47"
       },
       "1518-03-26": {
+        "minutesAsleep": 7,
         "begin": "00:00",
         "sleep": "00:51",
         "wakeUp": "00:58"
       },
       "1518-04-06": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-04-07": {
+        "minutesAsleep": 12,
         "sleep": "00:42",
         "wakeUp": "00:54"
       },
       "1518-05-19": {
+        "minutesAsleep": 4,
         "begin": "00:02",
         "sleep": "00:49",
         "wakeUp": "00:53"
       },
       "1518-06-11": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-06-12": {
+        "minutesAsleep": 24,
         "sleep": "00:29",
         "wakeUp": "00:53"
       },
       "1518-07-24": {
+        "minutesAsleep": 49,
         "begin": "00:02",
         "sleep": "00:10",
         "wakeUp": "00:59"
       },
       "1518-09-17": {
+        "minutesAsleep": 37,
         "begin": "00:00",
         "sleep": "00:11",
         "wakeUp": "00:48"
       },
       "1518-10-01": {
+        "minutesAsleep": 4,
         "begin": "00:00",
         "sleep": "00:44",
         "wakeUp": "00:48"
       },
       "1518-10-06": {
+        "minutesAsleep": 1,
         "begin": "00:00",
         "sleep": "00:45",
         "wakeUp": "00:46"
       },
       "1518-10-08": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-10-09": {
+        "minutesAsleep": 4,
         "sleep": "00:43",
         "wakeUp": "00:47"
       },
       "1518-10-26": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-10-27": {
+        "minutesAsleep": 5,
         "sleep": "00:49",
         "wakeUp": "00:54"
       }
     }
   },
   "2777": {
-    "guardId": "2777",
+    "guardId": 2777,
     "days": {
       "1518-02-20": {
+        "minutesAsleep": 7,
         "begin": "00:01",
         "sleep": "00:46",
         "wakeUp": "00:53"
       },
       "1518-03-05": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-03-06": {
+        "minutesAsleep": 6,
         "sleep": "00:50",
         "wakeUp": "00:56"
       },
       "1518-03-10": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-03-11": {
+        "minutesAsleep": 42,
         "sleep": "00:10",
         "wakeUp": "00:52"
       },
       "1518-03-20": {
+        "minutesAsleep": 4,
         "begin": "00:00",
         "sleep": "00:31",
         "wakeUp": "00:35"
       },
       "1518-04-16": {
+        "minutesAsleep": 12,
         "begin": "00:02",
         "sleep": "00:47",
         "wakeUp": "00:59"
       },
       "1518-04-20": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-04-21": {
+        "minutesAsleep": 27,
         "sleep": "00:25",
         "wakeUp": "00:52"
       },
       "1518-05-23": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-05-24": {
+        "minutesAsleep": 8,
         "sleep": "00:45",
         "wakeUp": "00:53"
       },
       "1518-05-27": {
+        "minutesAsleep": 21,
         "begin": "00:04",
         "sleep": "00:37",
         "wakeUp": "00:58"
       },
       "1518-06-22": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-06-23": {
+        "minutesAsleep": 7,
         "sleep": "00:27",
         "wakeUp": "00:34"
       },
       "1518-07-06": {
+        "minutesAsleep": 13,
         "begin": "00:00",
         "sleep": "00:25",
         "wakeUp": "00:38"
       },
       "1518-07-19": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-07-20": {
+        "minutesAsleep": 1,
         "sleep": "00:55",
         "wakeUp": "00:56"
       },
       "1518-08-13": {
+        "minutesAsleep": 34,
         "begin": "00:02",
         "sleep": "00:23",
         "wakeUp": "00:57"
       },
       "1518-09-08": {
+        "minutesAsleep": 0,
         "begin": "23:47"
       },
       "1518-09-09": {
+        "minutesAsleep": 19,
         "sleep": "00:38",
         "wakeUp": "00:57"
       },
       "1518-09-18": {
+        "minutesAsleep": 32,
         "begin": "00:00",
         "sleep": "00:26",
         "wakeUp": "00:58"
       },
       "1518-09-28": {
+        "minutesAsleep": 9,
         "begin": "00:03",
         "sleep": "00:48",
         "wakeUp": "00:57"
       },
       "1518-11-15": {
+        "minutesAsleep": 1,
         "begin": "00:03",
         "sleep": "00:55",
         "wakeUp": "00:56"
@@ -1473,258 +1814,318 @@
     }
   },
   "2879": {
-    "guardId": "2879",
+    "guardId": 2879,
     "days": {
       "1518-02-24": {
+        "minutesAsleep": 14,
         "begin": "00:02",
         "sleep": "00:41",
         "wakeUp": "00:55"
       },
       "1518-02-25": {
+        "minutesAsleep": 0,
         "begin": "23:50"
       },
       "1518-02-26": {
+        "minutesAsleep": 5,
         "sleep": "00:49",
         "wakeUp": "00:54"
       },
       "1518-02-28": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-03-01": {
+        "minutesAsleep": 3,
         "sleep": "00:48",
         "wakeUp": "00:51"
       },
       "1518-03-04": {
+        "minutesAsleep": 5,
         "begin": "00:01",
         "sleep": "00:46",
         "wakeUp": "00:51"
       },
       "1518-03-14": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-03-15": {
+        "minutesAsleep": 26,
         "sleep": "00:27",
         "wakeUp": "00:53"
       },
       "1518-03-19": {
+        "minutesAsleep": 49,
         "begin": "00:03",
         "sleep": "00:10",
         "wakeUp": "00:59"
       },
       "1518-03-23": {
+        "minutesAsleep": 5,
         "begin": "00:00",
         "sleep": "00:48",
         "wakeUp": "00:53"
       },
       "1518-04-02": {
+        "minutesAsleep": 12,
         "begin": "00:01",
         "sleep": "00:46",
         "wakeUp": "00:58"
       },
       "1518-04-26": {
+        "minutesAsleep": 4,
         "begin": "00:03",
         "sleep": "00:50",
         "wakeUp": "00:54"
       },
       "1518-05-03": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-05-04": {
+        "minutesAsleep": 6,
         "sleep": "00:53",
         "wakeUp": "00:59"
       },
       "1518-05-15": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-05-16": {
+        "minutesAsleep": 15,
         "sleep": "00:39",
         "wakeUp": "00:54"
       },
       "1518-05-31": {
+        "minutesAsleep": 0,
         "begin": "23:54"
       },
       "1518-06-01": {
+        "minutesAsleep": 22,
         "sleep": "00:33",
         "wakeUp": "00:55"
       },
       "1518-06-14": {
+        "minutesAsleep": 25,
         "begin": "00:02",
         "sleep": "00:31",
         "wakeUp": "00:56"
       },
       "1518-06-18": {
+        "minutesAsleep": 37,
         "begin": "00:01",
         "sleep": "00:21",
         "wakeUp": "00:58"
       },
       "1518-08-08": {
+        "minutesAsleep": 7,
         "begin": "00:03",
         "sleep": "00:45",
         "wakeUp": "00:52"
       },
       "1518-09-08": {
+        "minutesAsleep": 5,
         "begin": "00:00",
         "sleep": "00:49",
         "wakeUp": "00:54"
       },
       "1518-10-02": {
+        "minutesAsleep": 1,
         "begin": "00:01",
         "sleep": "00:53",
         "wakeUp": "00:54"
       },
       "1518-10-17": {
+        "minutesAsleep": 38,
         "begin": "00:00",
         "sleep": "00:12",
         "wakeUp": "00:50"
       },
       "1518-10-18": {
+        "minutesAsleep": 28,
         "begin": "00:03",
         "sleep": "00:28",
         "wakeUp": "00:56"
       },
       "1518-11-05": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-11-06": {
+        "minutesAsleep": 9,
         "sleep": "00:46",
         "wakeUp": "00:55"
       },
       "1518-11-12": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-11-13": {
+        "minutesAsleep": 1,
         "sleep": "00:55",
         "wakeUp": "00:56"
       },
       "1518-11-16": {
+        "minutesAsleep": 42,
         "begin": "00:00",
         "sleep": "00:11",
         "wakeUp": "00:53"
       },
       "1518-11-18": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-11-19": {
+        "minutesAsleep": 15,
         "sleep": "00:42",
         "wakeUp": "00:57"
       }
     }
   },
   "2917": {
-    "guardId": "2917",
+    "guardId": 2917,
     "days": {
       "1518-04-22": {
+        "minutesAsleep": 30,
         "begin": "00:02",
         "sleep": "00:18",
         "wakeUp": "00:48"
       },
       "1518-05-02": {
+        "minutesAsleep": 0,
         "begin": "23:58"
       },
       "1518-05-03": {
+        "minutesAsleep": 1,
         "sleep": "00:53",
         "wakeUp": "00:54"
       },
       "1518-05-05": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-05-06": {
+        "minutesAsleep": 25,
         "sleep": "00:11",
         "wakeUp": "00:36"
       },
       "1518-05-19": {
+        "minutesAsleep": 0,
         "begin": "23:51"
       },
       "1518-05-20": {
+        "minutesAsleep": 26,
         "sleep": "00:33",
         "wakeUp": "00:59"
       },
       "1518-07-14": {
+        "minutesAsleep": 2,
         "begin": "00:03",
         "sleep": "00:55",
         "wakeUp": "00:57"
       },
       "1518-08-05": {
+        "minutesAsleep": 0,
         "begin": "23:59"
       },
       "1518-08-06": {
+        "minutesAsleep": 20,
         "sleep": "00:39",
         "wakeUp": "00:59"
       },
       "1518-08-17": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-08-18": {
+        "minutesAsleep": 10,
         "sleep": "00:35",
         "wakeUp": "00:45"
       },
       "1518-08-26": {
+        "minutesAsleep": 28,
         "begin": "00:00",
         "sleep": "00:13",
         "wakeUp": "00:41"
       },
       "1518-09-03": {
+        "minutesAsleep": 33,
         "begin": "00:01",
         "sleep": "00:20",
         "wakeUp": "00:53"
       },
       "1518-09-21": {
+        "minutesAsleep": 32,
         "begin": "00:04",
         "sleep": "00:19",
         "wakeUp": "00:51"
       },
       "1518-09-28": {
+        "minutesAsleep": 0,
         "begin": "23:54"
       },
       "1518-09-29": {
+        "minutesAsleep": 16,
         "sleep": "00:34",
         "wakeUp": "00:50"
       },
       "1518-10-05": {
+        "minutesAsleep": 20,
         "begin": "00:04",
         "sleep": "00:21",
         "wakeUp": "00:41"
       },
       "1518-10-07": {
+        "minutesAsleep": 0,
         "begin": "23:57"
       },
       "1518-10-08": {
+        "minutesAsleep": 31,
         "sleep": "00:27",
         "wakeUp": "00:58"
       },
       "1518-10-10": {
+        "minutesAsleep": 17,
         "begin": "00:03",
         "sleep": "00:39",
         "wakeUp": "00:56"
       },
       "1518-10-14": {
+        "minutesAsleep": 10,
         "begin": "00:01",
         "sleep": "00:45",
         "wakeUp": "00:55"
       },
       "1518-10-15": {
+        "minutesAsleep": 16,
         "begin": "00:04",
         "sleep": "00:23",
         "wakeUp": "00:39"
       },
       "1518-10-22": {
+        "minutesAsleep": 34,
         "begin": "00:02",
         "sleep": "00:20",
         "wakeUp": "00:54"
       },
       "1518-11-02": {
+        "minutesAsleep": 0,
         "begin": "23:56"
       },
       "1518-11-03": {
+        "minutesAsleep": 32,
         "sleep": "00:11",
         "wakeUp": "00:43"
       },
       "1518-11-09": {
+        "minutesAsleep": 4,
         "begin": "00:04",
         "sleep": "00:48",
         "wakeUp": "00:52"
       },
       "1518-11-12": {
+        "minutesAsleep": 20,
         "begin": "00:00",
         "sleep": "00:21",
         "wakeUp": "00:41"
