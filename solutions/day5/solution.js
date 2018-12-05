@@ -12,7 +12,15 @@ async function run () {
 
 async function solveForFirstStar (input) {
 
-  let polymer = input.split('')
+  const reactedPolymer = fullyReactPolymer(input)
+
+  let solution = reactedPolymer.length
+  report('Final polymer:', reactedPolymer)
+  report('Solution 1:', solution)
+}
+
+function fullyReactPolymer(polymerString) {
+  let polymer = polymerString.split('')
 
   function reactPolymer(list) {
     let filterNext = false
@@ -35,16 +43,30 @@ async function solveForFirstStar (input) {
   }
 
   do {
-     report('Polymer length:', polymer.length)
+     // report('Polymer length:', polymer.length)
   } while (reactPolymer(polymer))
 
-  let solution = polymer.length
-  report('Final polymer:', polymer.join(''))
-  report('Solution 1:', solution)
+  return polymer.join('')
 }
 
 async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
+  const uniqueCharacters = [...new Set(input.toLowerCase().split(''))]
+  report('Unique Characters', uniqueCharacters.join(' '))
+
+  const sequences = uniqueCharacters.map(char => {
+    return {
+      char,
+      polymer: input.split('').filter(c => c.toLowerCase() !== char).join('')
+    }
+  }).map(sequence => {
+    sequence.reactedPolymer = fullyReactPolymer(sequence.polymer)
+    return sequence
+  })
+
+  const shortestPolymer = sequences.sort((a, b) => a.reactedPolymer.length - b.reactedPolymer.length)[0]
+  let solution = shortestPolymer.reactedPolymer.length
+
+  report('Shorted polymer', shortestPolymer)
   report('Solution 2:', solution)
 }
 
