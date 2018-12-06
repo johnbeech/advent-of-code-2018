@@ -39,7 +39,7 @@ function findBoundary (boundary, coordinate) {
   boundary.top = boundary.top ? Math.min(boundary.top, coordinate.y) : coordinate.y
   boundary.left = boundary.left ? Math.min(boundary.left, coordinate.x) : coordinate.x
   boundary.bottom = boundary.bottom ? Math.max(boundary.bottom, coordinate.y) : coordinate.y
-  boundary.right = boundary.right ? Math.min(boundary.right, coordinate.x) : coordinate.x
+  boundary.right = boundary.right ? Math.max(boundary.right, coordinate.x) : coordinate.x
   return boundary
 }
 
