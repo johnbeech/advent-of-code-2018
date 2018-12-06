@@ -5,18 +5,30 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
+  const coordinates = input
+    .split('\n')
+    .filter(n => n)
+    .map(n => {
+      return n.split(',')
+        .map(x => {
+          return Number.parseInt(x.trim())
+        })
+    })
+    .map(n => {
+      return { x: n[0], y: n[1] }
+    })
 
-  await solveForFirstStar(input)
-  await solveForSecondStar(input)
+  await solveForFirstStar(coordinates)
+  await solveForSecondStar(coordinates)
 }
 
-async function solveForFirstStar (input) {
+async function solveForFirstStar (coordinates) {
   let solution = 'UNSOLVED'
-  report('Input:', input)
+  report('Coordinates:', coordinates)
   report('Solution 1:', solution)
 }
 
-async function solveForSecondStar (input) {
+async function solveForSecondStar (coordinates) {
   let solution = 'UNSOLVED'
   report('Solution 2:', solution)
 }
