@@ -11,7 +11,6 @@ async function run () {
 }
 
 async function solveForFirstStar (input) {
-
   const reactedPolymer = fullyReactPolymer(input)
 
   let solution = reactedPolymer.length
@@ -19,18 +18,17 @@ async function solveForFirstStar (input) {
   report('Solution 1:', solution)
 }
 
-function fullyReactPolymer(polymerString) {
+function fullyReactPolymer (polymerString) {
   let polymer = polymerString.split('')
 
-  function reactPolymer(list) {
+  function reactPolymer (list) {
     let filterNext = false
     const startLength = list.length
     polymer = list.filter((char, index) => {
       if (filterNext) {
         filterNext = false
         return false
-      }
-      else {
+      } else {
         let next = list[index + 1] || ''
         if (char !== next && char.toLowerCase() === next.toLowerCase()) {
           filterNext = true
@@ -43,7 +41,7 @@ function fullyReactPolymer(polymerString) {
   }
 
   do {
-     // report('Polymer length:', polymer.length)
+    // report('Polymer length:', polymer.length)
   } while (reactPolymer(polymer))
 
   return polymer.join('')
