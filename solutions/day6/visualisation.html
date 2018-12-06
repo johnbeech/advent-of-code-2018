@@ -25,7 +25,12 @@ $.get('visualisation.json', (data) => {
     $(`<div class="boundary point bottom right" style="${plotStyle(boundary.right, boundary.bottom)}"></div>`)
   ]
 
+  $coordinatePoints = coordinates.map(coordinate => {
+    return $(`<div class="coordinate point" style="${plotStyle(coordinate.x, coordinate.y)}"></div>`)
+  })
+
   $chart.append($boundaryPoints)
+  $chart.append($coordinatePoints)
   $('body').append($chart)
 })
 </script>
@@ -42,15 +47,22 @@ $.get('visualisation.json', (data) => {
     display: block;
     position: absolute;
     zoom: 2.0;
-    background: #AAA;
+    background: #EEE;
     padding: 0 1px 1px 0;
   }
-  div.boundary {
+  div.boundary.point {
     display: block;
     position: absolute;
     width: 1px;
     height: 1px;
     background: black;
+  }
+  div.coordinate.point {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: red;
   }
 </style>
 </body>
