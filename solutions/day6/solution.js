@@ -35,7 +35,7 @@ async function solveForFirstStar (coordinates) {
 
   await write(fromHere('visualisation.json'), JSON.stringify({ boundary, coordinates, positions }, null, 2), 'utf8')
 
-  let solution = coordinates.sort((a, b) => a.zone.length - b.zone.length)[0].zone.length
+  let solution = coordinates.sort((a, b) => a.zone.length - b.zone.length)[0].zone.length + 1
   report('Solution 1:', solution)
 }
 
