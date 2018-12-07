@@ -5,7 +5,13 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
-  const coordinates = input
+
+  await solveForFirstStar(parseCoordinates(input))
+  await solveForSecondStar(parseCoordinates(input))
+}
+
+function parseCoordinates (input) {
+  return input
     .split('\n')
     .filter(n => n)
     .map(n => {
@@ -17,9 +23,6 @@ async function run () {
     .map(n => {
       return { x: n[0], y: n[1], zone: [] }
     })
-
-  await solveForFirstStar(coordinates)
-  await solveForSecondStar(coordinates)
 }
 
 async function solveForFirstStar (coordinates) {
@@ -29,13 +32,13 @@ async function solveForFirstStar (coordinates) {
 
   report('Boundary:', boundary)
 
-  const positions = generateEmptyPositions(boundary, coordinates)
+  const positions = generateEmptyPositions(boundary, [])
 
   positions.forEach(position => associateNearestCoordinate(position, coordinates))
 
   await write(fromHere('visualisation.json'), JSON.stringify({ boundary, coordinates, positions }, null, 2), 'utf8')
 
-  let solution = coordinates.sort((a, b) => b.zone.length - a.zone.length)[0].zone.length + 1
+  let solution = coordinates.sort((a, b) => b.zone.length - a.zone.length)[0].zone.length
   report('Solution 1:', solution)
 }
 
@@ -77,8 +80,34 @@ function associateNearestCoordinate (position, coordinates) {
 }
 
 async function solveForSecondStar (coordinates) {
-  let solution = 'UNSOLVED'
+  const boundary = coordinates.reduce(findBoundary, {})
+
+  report('Boundary:', boundary)
+
+  const positions = generateEmptyPositions(boundary, [])
+
+  const withinRegion = positions.filter(position => checkIfWithinRegion(position, coordinates, 10000))
+
+  await write(fromHere('withinRegion.json'), JSON.stringify({ boundary, coordinates, withinRegion }, null, 2), 'utf8')
+
+  let solution = withinRegion.length
   report('Solution 2:', solution)
+}
+
+function checkIfWithinRegion (position, coordinates, maximumRange) {
+  const distances = coordinates.map(coordinate => {
+    let distance = Math.abs(position.x - coordinate.x) + Math.abs(position.y - coordinate.y)
+    return {
+      coordinate,
+      distance
+    }
+  })
+  const totalDistance = distances.reduce((acc, n) => acc + n.distance, 0)
+  if (totalDistance < maximumRange) {
+    return true
+  } else {
+    return false
+  }
 }
 
 run()
