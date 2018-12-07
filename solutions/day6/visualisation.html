@@ -10,7 +10,7 @@
 <h1>Visualisation</h1>
 <script>
 $.get('visualisation.json', (data) => {
-  const { boundary, coordinates } = data
+  const { boundary, coordinates, positions } = data
   $chart = $(`<div class="chart" style="width: ${boundary.right - boundary.left}px; height: ${boundary.bottom - boundary.top}px; top: "></div>`)
 
   function plotStyle(x, y) {
@@ -31,6 +31,11 @@ $.get('visualisation.json', (data) => {
 
   $chart.append($boundaryPoints)
   $chart.append($coordinatePoints)
+
+  positions.forEach(position => {
+    $chart.append(`<div class="position point" style="${plotStyle(position.x, position.y)}"></div>`)
+  })
+
   $('body').append($chart)
 })
 </script>
@@ -50,19 +55,20 @@ $.get('visualisation.json', (data) => {
     background: #EEE;
     padding: 0 1px 1px 0;
   }
-  div.boundary.point {
+  div.point {
     display: block;
     position: absolute;
     width: 1px;
     height: 1px;
+  }
+  div.boundary.point {
     background: black;
   }
   div.coordinate.point {
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
     background: red;
+  }
+  div.position.point {
+    background: #EEF;
   }
 </style>
 </body>

@@ -29,7 +29,9 @@ async function solveForFirstStar (coordinates) {
 
   report('Boundary:', boundary)
 
-  await write(fromHere('visualisation.json'), JSON.stringify({ boundary, coordinates }, null, 2), 'utf8')
+  const positions = generateEmptyPositions(boundary, coordinates)
+
+  await write(fromHere('visualisation.json'), JSON.stringify({ boundary, coordinates, positions }, null, 2), 'utf8')
 
   let solution = 'UNSOLVED'
   report('Solution 1:', solution)
@@ -41,6 +43,20 @@ function findBoundary (boundary, coordinate) {
   boundary.bottom = boundary.bottom ? Math.max(boundary.bottom, coordinate.y) : coordinate.y
   boundary.right = boundary.right ? Math.max(boundary.right, coordinate.x) : coordinate.x
   return boundary
+}
+
+function generateEmptyPositions (boundary, coordinates) {
+  let positions = []
+  const coordStrings = coordinates.map(n => n.x + ',' + n.y)
+  for (let j = boundary.top; j <= boundary.bottom; j++) {
+    for (let i = boundary.left; i <= boundary.right; i++) {
+      positions.push({ x: i, y: j, key: `${i},${j}` })
+    }
+  }
+
+  positions = positions.filter(n => !coordStrings.includes(n.key))
+
+  return positions
 }
 
 async function solveForSecondStar (coordinates) {
