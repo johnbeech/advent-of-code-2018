@@ -1,0 +1,623 @@
+{
+  "dependencies": [
+    {
+      "step": "B",
+      "dependsOn": "X",
+      "requiredSteps": []
+    },
+    {
+      "step": "V",
+      "dependsOn": "F",
+      "requiredSteps": []
+    },
+    {
+      "step": "K",
+      "dependsOn": "C",
+      "requiredSteps": []
+    },
+    {
+      "step": "S",
+      "dependsOn": "D",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "A",
+      "requiredSteps": []
+    },
+    {
+      "step": "H",
+      "dependsOn": "X",
+      "requiredSteps": []
+    },
+    {
+      "step": "Q",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "X",
+      "dependsOn": "F",
+      "requiredSteps": []
+    },
+    {
+      "step": "J",
+      "dependsOn": "R",
+      "requiredSteps": []
+    },
+    {
+      "step": "D",
+      "dependsOn": "O",
+      "requiredSteps": []
+    },
+    {
+      "step": "F",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "M",
+      "dependsOn": "Z",
+      "requiredSteps": []
+    },
+    {
+      "step": "R",
+      "dependsOn": "I",
+      "requiredSteps": []
+    },
+    {
+      "step": "Y",
+      "dependsOn": "O",
+      "requiredSteps": []
+    },
+    {
+      "step": "G",
+      "dependsOn": "Z",
+      "requiredSteps": []
+    },
+    {
+      "step": "Z",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "O",
+      "dependsOn": "L",
+      "requiredSteps": []
+    },
+    {
+      "step": "A",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "U",
+      "dependsOn": "L",
+      "requiredSteps": []
+    },
+    {
+      "step": "L",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "P",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "I",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "E",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "W",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "T",
+      "dependsOn": "N",
+      "requiredSteps": [
+        "A",
+        "E",
+        "I",
+        "K",
+        "O",
+        "U",
+        "W",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "step": "G",
+      "dependsOn": "E",
+      "requiredSteps": []
+    },
+    {
+      "step": "K",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "I",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "V",
+      "dependsOn": "H",
+      "requiredSteps": []
+    },
+    {
+      "step": "W",
+      "dependsOn": "T",
+      "requiredSteps": [
+        "A",
+        "C",
+        "E",
+        "I",
+        "K",
+        "L",
+        "P",
+        "Q",
+        "S"
+      ]
+    },
+    {
+      "step": "M",
+      "dependsOn": "A",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "B",
+      "dependsOn": "Y",
+      "requiredSteps": []
+    },
+    {
+      "step": "Y",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "L",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "M",
+      "dependsOn": "R",
+      "requiredSteps": []
+    },
+    {
+      "step": "L",
+      "dependsOn": "I",
+      "requiredSteps": [
+        "D",
+        "K",
+        "O",
+        "R",
+        "U",
+        "Y"
+      ]
+    },
+    {
+      "step": "J",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "K",
+      "dependsOn": "M",
+      "requiredSteps": []
+    },
+    {
+      "step": "O",
+      "dependsOn": "U",
+      "requiredSteps": []
+    },
+    {
+      "step": "P",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "Y",
+      "dependsOn": "I",
+      "requiredSteps": []
+    },
+    {
+      "step": "V",
+      "dependsOn": "Q",
+      "requiredSteps": []
+    },
+    {
+      "step": "H",
+      "dependsOn": "R",
+      "requiredSteps": [
+        "C",
+        "V"
+      ]
+    },
+    {
+      "step": "M",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "K",
+      "dependsOn": "L",
+      "requiredSteps": []
+    },
+    {
+      "step": "J",
+      "dependsOn": "A",
+      "requiredSteps": []
+    },
+    {
+      "step": "D",
+      "dependsOn": "F",
+      "requiredSteps": []
+    },
+    {
+      "step": "Q",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "H",
+      "requiredSteps": []
+    },
+    {
+      "step": "U",
+      "dependsOn": "I",
+      "requiredSteps": []
+    },
+    {
+      "step": "A",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "U",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "O",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "O",
+      "dependsOn": "I",
+      "requiredSteps": []
+    },
+    {
+      "step": "S",
+      "dependsOn": "I",
+      "requiredSteps": []
+    },
+    {
+      "step": "Z",
+      "dependsOn": "E",
+      "requiredSteps": []
+    },
+    {
+      "step": "Y",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "K",
+      "dependsOn": "O",
+      "requiredSteps": []
+    },
+    {
+      "step": "O",
+      "dependsOn": "A",
+      "requiredSteps": [
+        "D",
+        "F",
+        "J",
+        "K",
+        "M",
+        "Q",
+        "R",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "step": "Z",
+      "dependsOn": "T",
+      "requiredSteps": []
+    },
+    {
+      "step": "Z",
+      "dependsOn": "U",
+      "requiredSteps": []
+    },
+    {
+      "step": "U",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "P",
+      "dependsOn": "I",
+      "requiredSteps": [
+        "A",
+        "C",
+        "F",
+        "G",
+        "M",
+        "Q",
+        "S",
+        "U",
+        "Z"
+      ]
+    },
+    {
+      "step": "S",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "S",
+      "dependsOn": "P",
+      "requiredSteps": []
+    },
+    {
+      "step": "S",
+      "dependsOn": "Q",
+      "requiredSteps": [
+        "K"
+      ]
+    },
+    {
+      "step": "C",
+      "dependsOn": "E",
+      "requiredSteps": []
+    },
+    {
+      "step": "G",
+      "dependsOn": "U",
+      "requiredSteps": []
+    },
+    {
+      "step": "D",
+      "dependsOn": "L",
+      "requiredSteps": [
+        "S"
+      ]
+    },
+    {
+      "step": "K",
+      "dependsOn": "S",
+      "requiredSteps": []
+    },
+    {
+      "step": "R",
+      "dependsOn": "O",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "G",
+      "requiredSteps": []
+    },
+    {
+      "step": "V",
+      "dependsOn": "G",
+      "requiredSteps": []
+    },
+    {
+      "step": "A",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "Z",
+      "dependsOn": "O",
+      "requiredSteps": []
+    },
+    {
+      "step": "J",
+      "dependsOn": "O",
+      "requiredSteps": [
+        "C"
+      ]
+    },
+    {
+      "step": "F",
+      "dependsOn": "E",
+      "requiredSteps": []
+    },
+    {
+      "step": "U",
+      "dependsOn": "E",
+      "requiredSteps": [
+        "C",
+        "G",
+        "O",
+        "Z"
+      ]
+    },
+    {
+      "step": "E",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "M",
+      "dependsOn": "O",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "U",
+      "requiredSteps": []
+    },
+    {
+      "step": "G",
+      "dependsOn": "P",
+      "requiredSteps": [
+        "C",
+        "V"
+      ]
+    },
+    {
+      "step": "C",
+      "dependsOn": "I",
+      "requiredSteps": []
+    },
+    {
+      "step": "Z",
+      "dependsOn": "A",
+      "requiredSteps": []
+    },
+    {
+      "step": "C",
+      "dependsOn": "J",
+      "requiredSteps": [
+        "K"
+      ]
+    },
+    {
+      "step": "Q",
+      "dependsOn": "R",
+      "requiredSteps": []
+    },
+    {
+      "step": "E",
+      "dependsOn": "T",
+      "requiredSteps": [
+        "A",
+        "C",
+        "F",
+        "G",
+        "I",
+        "U",
+        "X",
+        "Z"
+      ]
+    },
+    {
+      "step": "F",
+      "dependsOn": "Y",
+      "requiredSteps": []
+    },
+    {
+      "step": "Z",
+      "dependsOn": "N",
+      "requiredSteps": [
+        "G",
+        "M"
+      ]
+    },
+    {
+      "step": "I",
+      "dependsOn": "N",
+      "requiredSteps": []
+    },
+    {
+      "step": "X",
+      "dependsOn": "E",
+      "requiredSteps": [
+        "B",
+        "H"
+      ]
+    },
+    {
+      "step": "I",
+      "dependsOn": "E",
+      "requiredSteps": [
+        "C",
+        "L",
+        "M",
+        "O",
+        "P",
+        "R",
+        "S",
+        "U",
+        "Y"
+      ]
+    },
+    {
+      "step": "Q",
+      "dependsOn": "O",
+      "requiredSteps": [
+        "S",
+        "V"
+      ]
+    },
+    {
+      "step": "R",
+      "dependsOn": "L",
+      "requiredSteps": [
+        "H",
+        "J",
+        "M",
+        "Q"
+      ]
+    },
+    {
+      "step": "K",
+      "dependsOn": "W",
+      "requiredSteps": []
+    },
+    {
+      "step": "Y",
+      "dependsOn": "L",
+      "requiredSteps": [
+        "B",
+        "F"
+      ]
+    },
+    {
+      "step": "M",
+      "dependsOn": "I",
+      "requiredSteps": [
+        "K"
+      ]
+    },
+    {
+      "step": "F",
+      "dependsOn": "O",
+      "requiredSteps": [
+        "D",
+        "V",
+        "X"
+      ]
+    },
+    {
+      "step": "A",
+      "dependsOn": "E",
+      "requiredSteps": [
+        "C",
+        "J",
+        "M",
+        "O",
+        "Z"
+      ]
+    }
+  ]
+}

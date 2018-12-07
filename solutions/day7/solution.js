@@ -1,5 +1,5 @@
 const path = require('path')
-const { read, position } = require('promise-path')
+const { read, write, position } = require('promise-path')
 const fromHere = position(__dirname)
 const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
@@ -23,7 +23,31 @@ function parseInstruction (line) {
 }
 
 async function solveForFirstStar (dependencies) {
+  const dependencyIndex = dependencies.reduce((acc, item) => {
+    acc[item.step] = item
+    item.requiredSteps = []
+    return acc
+  }, {})
+
+  dependencies.forEach(item => {
+    let parent = dependencyIndex[item.dependsOn]
+    if (!parent) {
+      dependencyIndex[item.dependsOn] = {
+        step: item.dependsOn,
+        dependsOn: false,
+        requiredSteps: []
+      }
+      parent = dependencyIndex[item.dependsOn]
+      report('Found start node:', parent)
+    }
+    parent.requiredSteps.push(item.step)
+    parent.requiredSteps = parent.requiredSteps.sort()
+  })
+
+  await write(fromHere('dependencies.json'), JSON.stringify({ dependencies }, null, 2), 'utf8')
+
   let solution = 'UNSOLVED'
+
   report('Dependencies:', dependencies)
   report('Solution 1:', solution)
 }
