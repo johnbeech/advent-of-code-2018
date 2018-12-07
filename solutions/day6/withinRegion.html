@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualisation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Visualisation</h1>
+<script>
+$.get('withinRegion.json', (data) => {
+  const { boundary, coordinates, withinRegion } = data
+  $chart = $(`<div class="chart" style="width: ${boundary.right - boundary.left}px; height: ${boundary.bottom - boundary.top}px; top: "></div>`)
+
+  function plotStyle(x, y) {
+    return `top: ${y - boundary.top}px; left: ${x - boundary.left}px;`
+  }
+
+  const colors = 'maroon,red,orange,yellow,olive,green,purple,fuchsia,lime,teal,aqua,blue,navy,black'.split(',')
+
+  console.log('Visualistion Data', data)
+  $boundaryPoints = [
+    $(`<div class="boundary point top left" style="${plotStyle(boundary.left, boundary.top)}"></div>`),
+    $(`<div class="boundary point top right" style="${plotStyle(boundary.right, boundary.top)}"></div>`),
+    $(`<div class="boundary point bottom left" style="${plotStyle(boundary.left, boundary.bottom)}"></div>`),
+    $(`<div class="boundary point bottom right" style="${plotStyle(boundary.right, boundary.bottom)}"></div>`)
+  ]
+  $chart.append($boundaryPoints)
+
+  withinRegion.forEach((position, index) => {
+    const color = colors[2]
+    $chart.append(`<div class="position point" style="${plotStyle(position.x, position.y)}; background: ${color};"></div>`)
+  })
+
+  coordinates.forEach((coordinate, index) => {
+    const color = colors[index % colors.length]
+    $chart.append(`<div class="coordinate point" style="${plotStyle(coordinate.x, coordinate.y)}; background: ${color};"></div>`)
+  })
+
+  $('body').append($chart)
+})
+</script>
+<style>
+  html, body {
+    margin: 20px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    margin: 10px 0;
+  }
+  div.chart {
+    display: block;
+    position: absolute;
+    zoom: 2;
+    background: #EEE;
+    padding: 0 1px 1px 0;
+  }
+  div.point {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+  }
+  div.boundary.point {
+    background: black;
+  }
+  div.coordinate.point {
+    background: red;
+  }
+  div.position.point {
+    background: #EEF;
+  }
+</style>
+</body>
+</html>
