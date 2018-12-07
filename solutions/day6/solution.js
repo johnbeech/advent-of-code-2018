@@ -15,7 +15,7 @@ async function run () {
         })
     })
     .map(n => {
-      return { x: n[0], y: n[1] }
+      return { x: n[0], y: n[1], zone: [] }
     })
 
   await solveForFirstStar(coordinates)
@@ -31,9 +31,11 @@ async function solveForFirstStar (coordinates) {
 
   const positions = generateEmptyPositions(boundary, coordinates)
 
+  positions.forEach(position => associateNearestCoordinate(position, coordinates))
+
   await write(fromHere('visualisation.json'), JSON.stringify({ boundary, coordinates, positions }, null, 2), 'utf8')
 
-  let solution = 'UNSOLVED'
+  let solution = coordinates.sort((a, b) => a.zone.length - b.zone.length)[0].zone.length
   report('Solution 1:', solution)
 }
 
@@ -57,6 +59,21 @@ function generateEmptyPositions (boundary, coordinates) {
   positions = positions.filter(n => !coordStrings.includes(n.key))
 
   return positions
+}
+
+function associateNearestCoordinate (position, coordinates) {
+  const distances = coordinates.map(coordinate => {
+    let distance = Math.abs(position.x - coordinate.x) + Math.abs(position.y - coordinate.y)
+    return {
+      coordinate,
+      distance
+    }
+  }).sort((a, b) => a.distance - b.distance)
+  const minimumDistance = distances[0].distance
+  const nearest = distances.filter(d => d.distance === minimumDistance)
+  if (nearest.length === 1) {
+    nearest[0].coordinate.zone.push({ x: position.x, y: position.y })
+  }
 }
 
 async function solveForSecondStar (coordinates) {

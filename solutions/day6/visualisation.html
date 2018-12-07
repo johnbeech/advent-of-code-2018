@@ -17,6 +17,8 @@ $.get('visualisation.json', (data) => {
     return `top: ${y - boundary.top}px; left: ${x - boundary.left}px;`
   }
 
+  const colors = 'maroon,red,orange,yellow,olive,green,purple,fuchsia,lime,teal,aqua,blue,navy,black'.split(',')
+
   console.log('Visualistion Data', data)
   $boundaryPoints = [
     $(`<div class="boundary point top left" style="${plotStyle(boundary.left, boundary.top)}"></div>`),
@@ -24,16 +26,14 @@ $.get('visualisation.json', (data) => {
     $(`<div class="boundary point bottom left" style="${plotStyle(boundary.left, boundary.bottom)}"></div>`),
     $(`<div class="boundary point bottom right" style="${plotStyle(boundary.right, boundary.bottom)}"></div>`)
   ]
-
-  $coordinatePoints = coordinates.map(coordinate => {
-    return $(`<div class="coordinate point" style="${plotStyle(coordinate.x, coordinate.y)}"></div>`)
-  })
-
   $chart.append($boundaryPoints)
-  $chart.append($coordinatePoints)
 
-  positions.forEach(position => {
-    $chart.append(`<div class="position point" style="${plotStyle(position.x, position.y)}"></div>`)
+  $coordinatePoints = coordinates.forEach((coordinate, index) => {
+    const color = colors[index % colors.length]
+    $chart.append(`<div class="coordinate point" style="${plotStyle(coordinate.x, coordinate.y)}; background: ${color};"></div>`)
+    coordinate.zone.forEach(position => {
+      $chart.append(`<div class="position point" style="${plotStyle(position.x, position.y)}; background: ${color};"></div>`)
+    })
   })
 
   $('body').append($chart)
