@@ -13,6 +13,7 @@
   "author": "John Beech",
   "license": "UNLICENSED",
   "dependencies": {
+    "express": "^4.16.4",
     "pre-push": "*",
     "promise-path": "*",
     "standard": "*",
