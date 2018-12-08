@@ -5,14 +5,15 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
+  const numbers = input.split(' ').filter(n => n).map(n => Number.parseInt(n))
 
-  await solveForFirstStar(input)
-  await solveForSecondStar(input)
+  await solveForFirstStar(numbers)
+  await solveForSecondStar(numbers)
 }
 
-async function solveForFirstStar (input) {
+async function solveForFirstStar (numbers) {
   let solution = 'UNSOLVED'
-  report('Input:', input)
+  report('Numbers:', numbers)
   report('Solution 1:', solution)
 }
 
