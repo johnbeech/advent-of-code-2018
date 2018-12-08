@@ -54,7 +54,7 @@ async function solveForFirstStar (instructions) {
     report('Solution progress:', solution)
   }
 
-  function workOnItems() {
+  function workOnItems () {
     const startSolution = solution
     const readyToStartItems = Object.values(dependencyIndex)
       .filter(n => !n.complete && n.dependsOn.length === 0)
@@ -66,7 +66,7 @@ async function solveForFirstStar (instructions) {
     return (startSolution !== solution)
   }
 
-  function workOnItem(item) {
+  function workOnItem (item) {
     solution += item.step
     item.complete = true
     item.prevents.forEach(k => {
@@ -78,7 +78,7 @@ async function solveForFirstStar (instructions) {
   report('Solution 1:', solution)
 }
 
-function sortOnStep(a, b) {
+function sortOnStep (a, b) {
   if (a.step < b.step) {
     return -1
   }
