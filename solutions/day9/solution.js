@@ -51,7 +51,7 @@ async function solveForFirstStar (games) {
 
 function playGame (game, gameIndex) {
   const marbles = []
-  while (marbles.length < game.marbleCount) {
+  while (marbles.length <= game.marbleCount) {
     marbles.push({ value: marbles.length })
   }
 
@@ -66,7 +66,7 @@ function playGame (game, gameIndex) {
 
   let turn = 0
   let currentMarble, prevJoin, nextJoin
-  while (turn < game.marbleCount) {
+  while (turn <= game.marbleCount) {
     let player = players[turn % players.length]
     let newMarble = marbles[turn]
     if (!newMarble) {
