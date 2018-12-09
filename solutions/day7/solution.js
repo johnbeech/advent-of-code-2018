@@ -112,6 +112,7 @@ async function solveForSecondStar (instructions) {
   let wordOrder = ''
   const workers = ['W1', 'W2', 'W3', 'W4', 'W5']
   const log = []
+  log.push(workers)
 
   while (workOnItems()) {
     report('Solution progress:', wordOrder, 'after', timeTaken, 'seconds')
@@ -127,9 +128,9 @@ async function solveForSecondStar (instructions) {
         const item = workableItems[index]
         if (item) {
           workOnItem(item)
-          logLine.push(worker + ':' + item.step)
+          logLine.push(' ' + item.step)
         } else {
-          logLine.push(worker + ':' + '.')
+          logLine.push(' .')
         }
       })
       timeTaken++
