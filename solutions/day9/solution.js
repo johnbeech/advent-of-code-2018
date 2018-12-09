@@ -7,8 +7,7 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
   const games = parseGamesFromInput(input)
 
-  await solveForFirstStar(games)
-  await solveForSecondStar(games)
+  await solveForFirstAndSecondStar(games)
 }
 
 // 10 players; last marble is worth 1618 points: high score is 8317
@@ -24,9 +23,7 @@ function parseGamesFromInput (input) {
   })
 }
 
-async function solveForFirstStar (games) {
-  let solution = 'UNSOLVED'
-
+async function solveForFirstAndSecondStar (games) {
   const gameResults = games.map(playGame)
 
   await write(fromHere('game-results.json'), JSON.stringify({ games: gameResults }, null, 2), 'utf8')
@@ -46,7 +43,8 @@ async function solveForFirstStar (games) {
 
   report(gameSummaries)
 
-  report('Solution 1:', solution)
+  report('Solution 1:', gameSummaries.reverse()[1].winner.score)
+  report('Solution 2:', gameSummaries.reverse()[0].winner.score)
 }
 
 function playGame (game, gameIndex) {
@@ -116,11 +114,6 @@ function playGame (game, gameIndex) {
   }
 
   return { game, players }
-}
-
-async function solveForSecondStar (games) {
-  let solution = 'UNSOLVED'
-  report('Solution 2:', solution)
 }
 
 run()
