@@ -6,10 +6,12 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
 
-  const instructions = input.split('\n').filter(n => n).map(parseInstruction)
+  await solveForFirstStar(parseInstructions(input))
+  await solveForSecondStar(parseInstructions(input))
+}
 
-  await solveForFirstStar(instructions)
-  await solveForSecondStar(input)
+function parseInstructions (input) {
+  return input.split('\n').filter(n => n).map(parseInstruction)
 }
 
 // Step M must be finished before step Z can begin.
@@ -22,7 +24,7 @@ function parseInstruction (line) {
   }
 }
 
-async function solveForFirstStar (instructions) {
+function workOutDependencies (instructions) {
   const dependencyIndex = instructions.reduce((acc, item) => {
     const indexItem = acc[item.step] || {
       step: item.step,
@@ -45,6 +47,12 @@ async function solveForFirstStar (instructions) {
       dependencyIndex[k] = indexItem
     })
   })
+
+  return dependencyIndex
+}
+
+async function solveForFirstStar (instructions) {
+  const dependencyIndex = workOutDependencies(instructions)
 
   await write(fromHere('dependencies.json'), JSON.stringify({ dependencies: Object.values(dependencyIndex) }, null, 2), 'utf8')
 
@@ -88,9 +96,62 @@ function sortOnStep (a, b) {
   return 0
 }
 
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
-  report('Solution 2:', solution)
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+function calculateTimeCost (letter) {
+  return 60 + letters.indexOf(letter.toUpperCase()) + 1
+}
+
+async function solveForSecondStar (instructions) {
+  const dependencyIndex = workOutDependencies(instructions)
+
+  Object.values(dependencyIndex).forEach(item => {
+    item.timeRemaining = calculateTimeCost(item.step)
+  })
+
+  let timeTaken = 0
+  let wordOrder = ''
+  const workers = ['W1', 'W2', 'W3', 'W4', 'W5']
+  const log = []
+
+  while (workOnItems()) {
+    report('Solution progress:', wordOrder, 'after', timeTaken, 'seconds')
+  }
+
+  function workOnItems () {
+    const logLine = []
+    const workableItems = Object.values(dependencyIndex)
+      .filter(n => n.timeRemaining && n.dependsOn.length === 0)
+      .sort(sortOnStep)
+    if (workableItems.length) {
+      workers.forEach((worker, index) => {
+        const item = workableItems[index]
+        if (item) {
+          workOnItem(item)
+          logLine.push(worker + ':' + item.step)
+        } else {
+          logLine.push(worker + ':' + '.')
+        }
+      })
+      timeTaken++
+    }
+    log.push(logLine)
+    return (workableItems.length)
+  }
+
+  function workOnItem (item) {
+    item.timeRemaining--
+    if (item.timeRemaining === 0) {
+      wordOrder += item.step
+      item.complete = true
+      item.prevents.forEach(k => {
+        dependencyIndex[k].dependsOn = dependencyIndex[k].dependsOn.filter(n => n !== item.step)
+      })
+    }
+  }
+
+  await write(fromHere('work-report.txt'), log.map(n => n.join(' ')).join('\n'), 'utf8')
+
+  report('Solution 2:', wordOrder, 'took', timeTaken, 'seconds')
 }
 
 run()
