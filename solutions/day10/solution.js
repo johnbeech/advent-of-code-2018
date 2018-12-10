@@ -8,8 +8,7 @@ async function run () {
 
   const coordinateVelocities = parseCoordinateVelocities(input)
 
-  await solveForFirstStar(coordinateVelocities)
-  await solveForSecondStar(coordinateVelocities)
+  await solveForFirstAndSecondStar(coordinateVelocities)
 }
 
 function parseCoordinateVelocities (input) {
@@ -44,7 +43,7 @@ function findBoundary (coordinates) {
   return boundary
 }
 
-async function solveForFirstStar (coordinates) {
+async function solveForFirstAndSecondStar (coordinates) {
   let boundary = findBoundary(coordinates)
   let area
 
@@ -52,16 +51,24 @@ async function solveForFirstStar (coordinates) {
     return area1 < area2
   }
 
+  let time = 0
+
   do {
     area = boundary.area
     coordinates = updateCoordinates(coordinates)
+    time++
     boundary = findBoundary(coordinates)
   } while (stillShrinking(boundary.area, area))
 
-  await write(fromHere('visualisation.json'), JSON.stringify({ coordinates, boundary }, null, 2), 'utf8')
+  coordinates = updateCoordinates(coordinates, -1)
+  boundary = findBoundary(coordinates)
+  time--
+
+  await write(fromHere('visualisation.json'), JSON.stringify({ coordinates, boundary, timeInSeconds: time }, null, 2), 'utf8')
 
   report('Input:', coordinates, boundary)
   report('Solution 1:', 'Open http://localhost:8080/solutions/day10/visualisation.html')
+  report('Solution 2:', time)
 }
 
 function updateCoordinates (coordinates, dt = 1) {
@@ -73,11 +80,6 @@ function updateCoordinates (coordinates, dt = 1) {
       vy: n.vy
     }
   })
-}
-
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
-  report('Solution 2:', solution)
 }
 
 run()
