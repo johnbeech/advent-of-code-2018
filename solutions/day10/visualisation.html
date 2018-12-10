@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualisation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Visualisation</h1>
+<script>
+const colors = 'navy,black'.split(',')
+
+function updateCoordinates (coordinates, dt = 1) {
+  return coordinates.map(n => {
+    return {
+      x: n.x + n.vx * dt,
+      y: n.y + n.vy * dt,
+      vx: n.vx,
+      vy: n.vy
+    }
+  })
+}
+
+function findBoundary (coordinates) {
+  const boundary = coordinates.reduce((acc, item) => {
+    acc.top = acc.top !== undefined ? Math.min(item.y, acc.top) : item.y
+    acc.left = acc.left !== undefined ? Math.min(item.x, acc.left) : item.x
+    acc.right = acc.right !== undefined ? Math.max(item.x, acc.right) : item.x
+    acc.bottom = acc.bottom !== undefined ? Math.max(item.y, acc.bottom) : item.y
+    return acc
+  }, {})
+  boundary.size = {
+    height: Math.abs(boundary.bottom - boundary.top),
+    width: Math.abs(boundary.right - boundary.left)
+  }
+  boundary.area = boundary.size.width * boundary.size.height
+  return boundary
+}
+
+$.get('visualisation.json', (data) => {
+  let { boundary, coordinates } = data
+  console.log('Visualistion Data', data)
+
+  $buttonForward = $('<button>+1 second</button>')
+  $buttonForward.on('click', () => {
+    coordinates = updateCoordinates(coordinates, 1)
+    boundary = findBoundary(coordinates)
+    updateChart(boundary, coordinates)
+  })
+
+  $buttonBack = $('<button>-1 second</button>')
+  $buttonBack.on('click', () => {
+    coordinates = updateCoordinates(coordinates, -1)
+    boundary = findBoundary(coordinates)
+    updateChart(boundary, coordinates)
+  })
+
+  $chart = $(`<div class="chart" style="width: ${boundary.right - boundary.left}px; height: ${boundary.bottom - boundary.top}px; top: "></div>`)
+  $('body').append($buttonForward, $buttonBack)
+  $('body').append($chart)
+
+  function updateChart(boundary, coordinates) {
+    function plotStyle(x, y) {
+      return `top: ${y - boundary.top}px; left: ${x - boundary.left}px;`
+    }
+
+    $chart.html('')
+    $boundaryPoints = [
+      $(`<div class="boundary point top left" style="${plotStyle(boundary.left, boundary.top)}"></div>`),
+      $(`<div class="boundary point top right" style="${plotStyle(boundary.right, boundary.top)}"></div>`),
+      $(`<div class="boundary point bottom left" style="${plotStyle(boundary.left, boundary.bottom)}"></div>`),
+      $(`<div class="boundary point bottom right" style="${plotStyle(boundary.right, boundary.bottom)}"></div>`)
+    ]
+    $chart.append($boundaryPoints)
+
+    $coordinatePoints = coordinates.forEach((coordinate, index) => {
+      const color = colors[index % colors.length]
+      $chart.append(`<div class="coordinate point" style="${plotStyle(coordinate.x, coordinate.y)}; background: ${color};"></div>`)
+    })
+  }
+
+  updateChart(boundary, coordinates)
+})
+</script>
+<style>
+  html, body {
+    margin: 20px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    margin: 10px 0;
+  }
+  div.chart {
+    display: block;
+    position: absolute;
+    zoom: 2.0;
+    background: #EEE;
+    padding: 0 1px 1px 0;
+  }
+  div.point {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+  }
+  div.boundary.point {
+    background: black;
+  }
+  div.coordinate.point {
+    background: red;
+  }
+  div.position.point {
+    background: #EEF;
+  }
+</style>
+</body>
+</html>
