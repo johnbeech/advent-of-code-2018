@@ -1,0 +1,47 @@
+[
+  {
+    "actual": {
+      "x": 21,
+      "y": 53,
+      "rackId": 31,
+      "power": 4,
+      "total": 29
+    },
+    "expected": {
+      "x": "x",
+      "y": "y",
+      "total": "?"
+    },
+    "serial": 6548
+  },
+  {
+    "actual": {
+      "x": 21,
+      "y": 61,
+      "rackId": 31,
+      "power": 4,
+      "total": 30
+    },
+    "expected": {
+      "x": 21,
+      "y": 61,
+      "total": 30
+    },
+    "serial": 42
+  },
+  {
+    "actual": {
+      "x": 33,
+      "y": 45,
+      "rackId": 43,
+      "power": 4,
+      "total": 29
+    },
+    "expected": {
+      "x": 33,
+      "y": 45,
+      "total": 29
+    },
+    "serial": 18
+  }
+]

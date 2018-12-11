@@ -1,5 +1,5 @@
 const path = require('path')
-const { read, position } = require('promise-path')
+const { read, write, position } = require('promise-path')
 const fromHere = position(__dirname)
 const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
@@ -12,15 +12,15 @@ async function run () {
 }
 
 // Grid serial #18 : 33,45 total power of 29
-const inputLineRegex = /Grid serial #(\d+) : ([x\d]+),([y\d]+) total power of ([?\d+])/
+const inputLineRegex = /Grid serial #(\d+) : ([x\d]+),([y\d]+) total power of ([?\d]+)/
 function parseInputLine (line) {
   const matches = line.match(inputLineRegex)
   return {
-    serial: matches[1],
+    serial: Number.parseInt(matches[1]),
     expected: {
-      x: matches[2],
-      y: matches[3],
-      power: matches[4]
+      x: Number.parseInt(matches[2]) || 'x',
+      y: Number.parseInt(matches[3]) || 'y',
+      total: Number.parseInt(matches[4]) || '?'
     }
   }
 }
@@ -30,17 +30,77 @@ async function solveForFirstStar (grids) {
 
   const solution = results.reverse()[0].actual
 
+  await write(fromHere('power-grids.json'), JSON.stringify(results, null, 2), 'utf8')
+
   report('Grids:', grids)
-  report('Solution 1:', solution.x, solution.y)
+  report('Solution 1:', `${solution.x},${solution.y}`)
 }
 
 function solvePowerGrid (grid) {
+  const cells = createGridCells(grid.serial)
+
+  const actual = cells.sort((a, b) => {
+    return b.total - a.total
+  })[0]
+
   return {
-    actual: {
-      x: 0,
-      y: 0
-    }
+    actual,
+    expected: grid.expected,
+    serial: grid.serial
   }
+}
+
+function createGridCells (serial) {
+  const cells = []
+  let x, y
+  // create cells
+  while (cells.length < 90000) {
+    x = (cells.length % 300) + 1
+    y = Math.floor(cells.length / 300) + 1
+    cells.push(calculateGridCell(serial, x, y))
+  }
+  // count power totals
+  cells.forEach(calculateCellTotalPower)
+
+  return cells
+}
+
+function calculateGridCell (serial, x, y) {
+  // Find the fuel cell's rack ID, which is its X coordinate plus 10.
+  let rackId = x + 10
+  // Begin with a power level of the rack ID times the Y coordinate.
+  let power = rackId * y
+  // Increase the power level by the value of the grid serial number (your puzzle input).
+  power = power + serial
+  // Set the power level to itself multiplied by the rack ID.
+  power = power * rackId
+  // Keep only the hundreds digit of the power level (so 12345 becomes 3; numbers with no hundreds digit become 0).
+  power = Number.parseInt((power + '').split('').reverse('')[2]) || 0
+  // Subtract 5 from the power level.
+  power = power - 5
+  return {
+    x, y, rackId, power
+  }
+}
+
+const cellOffsets = [
+  { x: 0, y: 0 },
+  { x: 1, y: 0 },
+  { x: 2, y: 0 },
+  { x: 0, y: 1 },
+  { x: 1, y: 1 },
+  { x: 2, y: 1 },
+  { x: 0, y: 2 },
+  { x: 1, y: 2 },
+  { x: 2, y: 2 }
+]
+function calculateCellTotalPower (cell, index, cells) {
+  cell.total = cellOffsets.reduce((acc, offset) => {
+    const xo = (cell.x + offset.x) - 1
+    const yo = (cell.y + offset.y) - 1
+    const co = cells[yo * 300 + xo] || { xo, yo, power: -5 }
+    return acc + co.power
+  }, 0)
 }
 
 async function solveForSecondStar (input) {
