@@ -7,8 +7,7 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
   const grids = input.split('\n').filter(n => n).map(parseInputLine)
 
-  await solveForFirstStar(grids)
-  await solveForSecondStar(grids)
+  await solveForFirstAndSecondStar(grids)
 }
 
 // Grid serial #18 : 33,45 total power of 29
@@ -25,7 +24,7 @@ function parseInputLine (line) {
   }
 }
 
-async function solveForFirstStar (grids) {
+async function solveForFirstAndSecondStar (grids) {
   const results = grids.map(solvePowerGrid)
 
   const solution = results.reverse()[0].actual
@@ -43,10 +42,15 @@ function solvePowerGrid (grid) {
     return b.total - a.total
   })[0]
 
+  const largestCell = cells.sort((a, b) => {
+    return b.largestPowerSquare.powerLevel - a.largestPowerSquare.powerLevel
+  })[0]
+
   return {
     actual,
     expected: grid.expected,
-    serial: grid.serial
+    serial: grid.serial,
+    largestPowerSquare: largestCell.largestPowerSquare
   }
 }
 
@@ -61,6 +65,7 @@ function createGridCells (serial) {
   }
   // count power totals
   cells.forEach(calculateCellTotalPower)
+  cells.forEach(calculateMaximumPower)
 
   return cells
 }
@@ -83,18 +88,8 @@ function calculateGridCell (serial, x, y) {
   }
 }
 
-const cellOffsets = [
-  { x: 0, y: 0 },
-  { x: 1, y: 0 },
-  { x: 2, y: 0 },
-  { x: 0, y: 1 },
-  { x: 1, y: 1 },
-  { x: 2, y: 1 },
-  { x: 0, y: 2 },
-  { x: 1, y: 2 },
-  { x: 2, y: 2 }
-]
 function calculateCellTotalPower (cell, index, cells) {
+  const cellOffsets = generateCellOffsets(3)
   cell.total = cellOffsets.reduce((acc, offset) => {
     const xo = (cell.x + offset.x) - 1
     const yo = (cell.y + offset.y) - 1
@@ -103,9 +98,53 @@ function calculateCellTotalPower (cell, index, cells) {
   }, 0)
 }
 
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
-  report('Solution 2:', solution)
+const cellOffsetCache = {}
+function generateCellOffsets (size) {
+  let offsets = cellOffsetCache[size]
+  if (offsets) {
+    return offsets
+  }
+  offsets = []
+  for (let j = 0; j < size; j++) {
+    for (let i = 0; i < size; i++) {
+      offsets.push({ x: i, y: j })
+    }
+  }
+  cellOffsetCache[size] = offsets
+
+  return offsets
+}
+
+function calculateMaximumPower (cell, index, cells) {
+  const maxSize = Math.min(301 - cell.x, 301 - cell.y)
+  const solutions = []
+  while (solutions.length < maxSize) {
+    let size = solutions.length + 1
+    let cellOffsets = generateCellOffsets(size)
+    let powerLevel = cellOffsets.reduce((acc, offset) => {
+      const xo = (cell.x + offset.x) - 1
+      const yo = (cell.y + offset.y) - 1
+      const co = cells[yo * 300 + xo] || { xo, yo, power: -5 }
+      return acc + co.power
+    }, 0)
+    solutions.push({ size, powerLevel })
+  }
+  const largest = solutions.sort((a, b) => {
+    return b.powerLevel - a.powerLevel
+  })[0]
+
+  if (!largest) {
+    report('No largest', solutions, 'for', cell)
+  } else {
+    report('Solution', 'for', `${cell.x},${cell.y},${largest.size}`, 'power level:', largest.powerLevel)
+  }
+
+  cell.largestPowerSquare = {
+    size: largest.size,
+    powerLevel: largest.powerLevel,
+    x: cell.x,
+    y: cell.y
+  }
 }
 
 run()
