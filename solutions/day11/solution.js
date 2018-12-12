@@ -27,12 +27,14 @@ function parseInputLine (line) {
 async function solveForFirstAndSecondStar (grids) {
   const results = grids.map(solvePowerGrid)
 
-  const solution = results.reverse()[0].actual
+  const solution1 = results.reverse()[0].actual
+  const solution2 = results.reverse()[0].largestPowerSquare
 
   await write(fromHere('power-grids.json'), JSON.stringify(results, null, 2), 'utf8')
 
   report('Grids:', grids)
-  report('Solution 1:', `${solution.x},${solution.y}`)
+  report('Solution 1:', `${solution1.x},${solution1.y}`)
+  report('Solution 1:', `${solution2.x},${solution2.y},${solution2.size}`)
 }
 
 function solvePowerGrid (grid) {
