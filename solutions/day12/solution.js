@@ -5,14 +5,35 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
+  const problem = parseInput(input)
 
-  await solveForFirstStar(input)
+  await solveForFirstStar(problem)
   await solveForSecondStar(input)
 }
+function parseInput (input) {
+  const lines = input.split('\n').filter(n => n)
+  const initialState = lines.shift().split(':')[1].trim()
+  const patterns = lines.map(parsePatternLine)
 
-async function solveForFirstStar (input) {
+  return {
+    initialState,
+    patterns
+  }
+}
+
+// ..### => .
+const patternLineRegex = /([.#]{5}) => ([#.])/
+function parsePatternLine (line) {
+  const matches = line.match(patternLineRegex)
+  return {
+    key: matches[1],
+    value: matches[2]
+  }
+}
+
+async function solveForFirstStar (problem) {
   let solution = 'UNSOLVED'
-  report('Input:', input)
+  report('Problem:', problem)
   report('Solution 1:', solution)
 }
 
