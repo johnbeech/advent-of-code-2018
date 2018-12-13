@@ -7,11 +7,10 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8'))
 
   const railway = parseRailway(input)
-
   await write(fromHere('railyway.json'), JSON.stringify(railway, null, 2), 'utf8')
 
-  await solveForFirstStar(railway)
-  await solveForSecondStar(input)
+  await solveForFirstStar(parseRailway(input))
+  await solveForSecondStar(parseRailway(input))
 }
 
 const cartToTrackMap = {
@@ -55,6 +54,9 @@ function isCart (symbol) {
 }
 
 function moveCart (cart, railway) {
+  if (cart.symbol === 'X') {
+    return
+  }
   const nx = cart.x + cartDirectionMap[cart.symbol].x
   const ny = cart.y + cartDirectionMap[cart.symbol].y
 
@@ -76,15 +78,17 @@ function checkForCollisions (cart, railway) {
     if (cart === otherCart) {
       return acc || false
     }
-    const collided = (cart.x === otherCart.x && cart.y === otherCart.y)
+    const collided = (cart.x === otherCart.x && cart.y === otherCart.y && cart.symbol !== 'X' && otherCart.symbol !== 'X')
     if (collided) {
       cart.symbol = 'X'
       otherCart.symbol = 'X'
-      railway.collisions.push({
+      const collision = {
         x: cart.x,
         y: cart.y,
         carts: [cart, otherCart]
-      })
+      }
+      report('New collision', collision)
+      railway.collisions.push(collision, collision)
     }
     return acc || collided
   }, false)
@@ -128,9 +132,25 @@ async function solveForFirstStar (railway) {
   report('Solution 1:', solution, `${solution.x},${solution.y}`)
 }
 
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
-  report('Solution 2:', solution)
+async function solveForSecondStar (railway) {
+  const numCarts = railway.carts.length
+  while (railway.collisions.length < numCarts - 1) {
+    railway.carts.forEach(cart => moveCart(cart, railway))
+  }
+
+  const remainingCarts = railway.carts.filter(cart => cart.symbol !== 'X')
+  let solution = remainingCarts[0] || {}
+  report('Solution 2:', solution, `${solution.x},${solution.y}`, 'Remaining carts', remainingCarts.length)
+
+  await write(fromHere('part2-railway-end.txt'), renderRailway(railway), 'utf8')
+}
+
+function renderRailway (railway) {
+  const grid = JSON.parse(JSON.stringify(railway.grid))
+  railway.carts.forEach(cart => {
+    grid[cart.y][cart.x] = cart.symbol
+  })
+  return grid.map(n => n.join('')).join('\n')
 }
 
 run()
