@@ -22567,103 +22567,120 @@
       "cartId": 0,
       "x": 9,
       "y": 8,
-      "symbol": "<"
+      "symbol": "<",
+      "turnCount": 0
     },
     {
       "cartId": 1,
       "x": 48,
       "y": 9,
-      "symbol": "<"
+      "symbol": "<",
+      "turnCount": 0
     },
     {
       "cartId": 2,
       "x": 11,
       "y": 13,
-      "symbol": "^"
+      "symbol": "^",
+      "turnCount": 0
     },
     {
       "cartId": 3,
       "x": 104,
       "y": 35,
-      "symbol": "^"
+      "symbol": "^",
+      "turnCount": 0
     },
     {
       "cartId": 4,
       "x": 136,
       "y": 43,
-      "symbol": "v"
+      "symbol": "v",
+      "turnCount": 0
     },
     {
       "cartId": 5,
       "x": 38,
       "y": 55,
-      "symbol": "^"
+      "symbol": "^",
+      "turnCount": 0
     },
     {
       "cartId": 6,
       "x": 29,
       "y": 58,
-      "symbol": "v"
+      "symbol": "v",
+      "turnCount": 0
     },
     {
       "cartId": 7,
       "x": 106,
       "y": 58,
-      "symbol": "<"
+      "symbol": "<",
+      "turnCount": 0
     },
     {
       "cartId": 8,
       "x": 135,
       "y": 58,
-      "symbol": "v"
+      "symbol": "v",
+      "turnCount": 0
     },
     {
       "cartId": 9,
       "x": 42,
       "y": 66,
-      "symbol": "v"
+      "symbol": "v",
+      "turnCount": 0
     },
     {
       "cartId": 10,
       "x": 43,
       "y": 76,
-      "symbol": "<"
+      "symbol": "<",
+      "turnCount": 0
     },
     {
       "cartId": 11,
       "x": 72,
       "y": 100,
-      "symbol": ">"
+      "symbol": ">",
+      "turnCount": 0
     },
     {
       "cartId": 12,
       "x": 119,
       "y": 105,
-      "symbol": ">"
+      "symbol": ">",
+      "turnCount": 0
     },
     {
       "cartId": 13,
       "x": 129,
       "y": 115,
-      "symbol": ">"
+      "symbol": ">",
+      "turnCount": 0
     },
     {
       "cartId": 14,
       "x": 102,
       "y": 123,
-      "symbol": "<"
+      "symbol": "<",
+      "turnCount": 0
     },
     {
       "cartId": 15,
       "x": 119,
       "y": 134,
-      "symbol": ">"
+      "symbol": ">",
+      "turnCount": 0
     },
     {
       "cartId": 16,
       "x": 84,
       "y": 144,
-      "symbol": "<"
+      "symbol": "<",
+      "turnCount": 0
     }
   ],
   "collisions": []
