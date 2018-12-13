@@ -29,7 +29,7 @@ async function run () {
   await make(fromHere(`solutions/${newFolderName}`))
   await Promise.all(templateFiles.map(async (filepath) => {
     const contents = await read(filepath)
-    const filename = filepath.split(path.sep).pop()
+    const filename = path.parse(filepath).base
     const newFilePath = `solutions/${newFolderName}/${filename}`
     report('Creating:', newFilePath)
     return write(fromHere(newFilePath), contents)
