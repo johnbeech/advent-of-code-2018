@@ -132,10 +132,20 @@ async function solveForFirstStar (railway) {
   report('Solution 1:', solution, `${solution.x},${solution.y}`)
 }
 
+function sortCartByPosition (a, b) {
+  if (a.y < b.y) {
+    return -1
+  }
+  if (a.y > b.y) {
+    return 1
+  }
+  return a.x - b.x
+}
+
 async function solveForSecondStar (railway) {
   const numCarts = railway.carts.length
   while (railway.collisions.length < numCarts - 1) {
-    railway.carts.forEach(cart => moveCart(cart, railway))
+    railway.carts.sort(sortCartByPosition).forEach(cart => moveCart(cart, railway))
   }
 
   const remainingCarts = railway.carts.filter(cart => cart.symbol !== 'X')
