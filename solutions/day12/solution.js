@@ -7,8 +7,8 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
   const problem = parseInput(input)
 
-  await solveForFirstStar(problem)
-  await solveForSecondStar(input)
+  const iterations = await solveForFirstStar(problem)
+  await solveForSecondStar(iterations)
 }
 
 function parseInput (input) {
@@ -46,16 +46,24 @@ async function solveForFirstStar (problem) {
   reportPopulationState(population)
   const iterations = []
   let lastIteration = population
-  while (iterations.length < 20) {
+  while (iterations.length < 200) {
     lastIteration = advancePopulation(lastIteration, problem.patterns)
+    if (iterations.length < 20) {
+      reportPopulationState(lastIteration)
+    }
     iterations.push(lastIteration)
-    reportPopulationState(lastIteration)
   }
 
-  let solution = Object.values(lastIteration).filter(n => n.state === '#').reduce((acc, pot) => {
+  let solution = countPotScore(iterations[20 - 1])
+  report('Solution 1:', solution)
+
+  return iterations
+}
+
+function countPotScore (iteration) {
+  return Object.values(iteration).filter(n => n.state === '#').reduce((acc, pot) => {
     return acc + pot.pos
   }, 0)
-  report('Solution 1:', solution)
 }
 
 function advancePopulation (population, patterns) {
@@ -109,8 +117,19 @@ function reportPopulationState (population) {
   report(ordered.map(n => n.state).join(''))
 }
 
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
+async function solveForSecondStar (iterations) {
+  let prevScore = 0
+  iterations.forEach((iteration, n) => {
+    let score = countPotScore(iteration)
+    let prediction = 0
+    if (n > 101) {
+      prediction = 9306 + (n - 101) * 69
+    }
+    report(n, score, score - prevScore, prediction)
+    prevScore = score
+  })
+
+  let solution = 9306 + (50000000000 - 1 - 101) * 69
   report('Solution 2:', solution)
 }
 
