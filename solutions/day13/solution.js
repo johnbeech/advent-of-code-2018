@@ -7,7 +7,7 @@ async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8'))
 
   const railway = parseRailway(input)
-  await write(fromHere('railyway.json'), JSON.stringify(railway, null, 2), 'utf8')
+  await write(fromHere('railway.json'), JSON.stringify(railway, null, 2), 'utf8')
 
   await solveForFirstStar(parseRailway(input))
   await solveForSecondStar(parseRailway(input))
