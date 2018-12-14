@@ -60,11 +60,111 @@ $.get('railway.json', (data) => {
   $('body').append($buttonForward, $buttonBack)
   $('body').append($chart)
 
+  const railSymbolMap = {
+    '+': '╋',
+    '|': '┃',
+    '-': '━',
+  }
+
+  const railSymbolCornerMap = {
+    '/*': '┏',
+    '\\*': '┗',
+    '/': '┛',
+    '\\': '┓'
+  }
+
+  const railSymbolCartMap = {
+    '>': '⬗',
+    '<': '⬖',
+    '^': '⬘',
+    'v': '⬙',
+    'X': '⬥'
+  }
+
+  const cartDirectionMap = {
+    '>': { x: 1, y: 0 },
+    '<': { x: -1, y: 0 },
+    '^': { x: 0, y: -1 },
+    'v': { x: 0, y: 1 }
+  }
+
+  const cartDirectionChangeMap = {
+    '^/': '>',
+    '>/': '^',
+    'v/': '<',
+    '</': 'v',
+    '^\\': '<',
+    '>\\': 'v',
+    'v\\': '>',
+    '<\\': '^',
+    '^+': '?',
+    '>+': '?',
+    'v+': '?',
+    '<+': '?'
+  }
+
+  const cartTurnOrderMap = {
+    '^': ['<', '^', '>'],
+    '>': ['^', '>', 'v'],
+    'v': ['>', 'v', '<'],
+    '<': ['v', '<', '^']
+  }
+
+  function moveCart (cart, railway) {
+    if (cart.symbol === 'X') {
+      return
+    }
+    const nx = cart.x + cartDirectionMap[cart.symbol].x
+    const ny = cart.y + cartDirectionMap[cart.symbol].y
+
+    const newRail = railway.grid[ny][nx]
+    let newSymbol = cartDirectionChangeMap[cart.symbol + newRail] || cart.symbol
+    if (newSymbol === '?') {
+      newSymbol = cartTurnOrderMap[cart.symbol][cart.turnCount % 3]
+      cart.turnCount++
+    }
+    cart.symbol = newSymbol
+    cart.x = nx
+    cart.y = ny
+
+    checkForCollisions(cart, railway)
+  }
+
+  function checkForCollisions (cart, railway) {
+    railway.carts.reduce((acc, otherCart) => {
+      if (cart === otherCart) {
+        return acc || false
+      }
+      const collided = (cart.x === otherCart.x && cart.y === otherCart.y && cart.symbol !== 'X' && otherCart.symbol !== 'X')
+      if (collided) {
+        cart.symbol = 'X'
+        otherCart.symbol = 'X'
+        const collision = {
+          x: cart.x,
+          y: cart.y,
+          carts: [cart, otherCart]
+        }
+        railway.collisions.push(collision, collision)
+      }
+      return acc || collided
+    }, false)
+  }
+
+  function renderCell(cell, nextCell) {
+    nextCell = (nextCell === '-' || nextCell === '+') ? '*' : ''
+    return railSymbolMap[cell] || railSymbolCornerMap[cell + nextCell] || ''
+  }
+
   function createChartCells(grid) {
     $cells = []
+    const cols = Math.max(...data.grid.map(n => n.length))
     grid.forEach(row => {
-      row.forEach(cell => {
-        $cell = $(`<b>${cell}</b>`)
+      while (row.length < cols) {
+        row.push('')
+      }
+      row.forEach((cell, index) => {
+        const nextCell = (row[index + 1] || '').trim()
+        $cell = $(`<b>${renderCell(cell, nextCell)}</b>`)
         $cells.push($cell)
       })
     })
@@ -73,7 +173,51 @@ $.get('railway.json', (data) => {
 
   $cells = createChartCells(data.grid)
   $chart.append($cells)
-  $chart.width((data.grid[0].length * 10) + 'px')
+  const cols = Math.max(...data.grid.map(n => n.length))
+  console.log('Cols', cols)
+  $chart.width((cols * 10) + 'px')
+
+  function sortCartByPosition (a, b) {
+    if (a.y < b.y) {
+      return -1
+    }
+    if (a.y > b.y) {
+      return 1
+    }
+    return a.x - b.x
+  }
+
+  const cartToTrackMap = {
+    '>': '-',
+    '<': '-',
+    '^': '|',
+    'v': '|'
+  }
+
+  function resetCartCells(railway) {
+    railway.carts.forEach(cart => {
+      const $cell = $cells[(cart.y * cols) + cart.x]
+      const resetCellSymbol = renderCell(railway.grid[cart.y][cart.x], railway.grid[cart.y][cart.x + 1] || '')
+      $cell.html(resetCellSymbol)
+      $cell.removeClass('cart')
+    })
+  }
+
+  function renderCarts(railway) {
+    railway.carts.forEach(cart => {
+      const $cell = $cells[(cart.y * cols) + cart.x]
+      $cell.html(railSymbolCartMap[cart.symbol])
+      $cell.addClass('cart')
+    })
+  }
+
+  function moveCarts(railway) {
+    resetCartCells(railway)
+    railway.carts.sort(sortCartByPosition).forEach(cart => moveCart(cart, railway))
+    renderCarts(railway)
+  }
+
+  const timer = setInterval(moveCarts, 100, data)
 })
 </script>
 <style>
@@ -91,14 +235,22 @@ $.get('railway.json', (data) => {
     zoom: 1.0;
     background: #EEE;
     padding: 0 1px 1px 0;
+    line-height: 10px
   }
   div.chart > b {
     display: inline-block;
     width: 10px;
     height: 10px;
     font-weight: normal;
-    font-size: 8px;
+    font-size: 10px;
     text-align: center;
+    font-family: monospace;
+    overflow: hidden;
+    color: brown;
+  }
+  div.chart > b.cart {
+    font-size: 15px;
+    color: black;
   }
 </style>
 </body>
