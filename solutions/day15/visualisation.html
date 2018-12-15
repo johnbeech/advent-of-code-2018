@@ -15,6 +15,20 @@ $.get('cavern.json', (data) => {
   console.log('Visualistion Data', data)
   let cavern = data
   let { cells, creatures } = data
+  const floorTiles = cells.filter(cell => !cell.wall)
+  const floorTileMap = floorTiles.reduce((acc, tile) => {
+    acc[`${tile.x},${tile.y}`] = tile
+    return acc
+  }, {})
+
+  let creatureMap = {}
+  function updateCreatureMap(creatures) {
+    creatureMap = creatures.reduce((acc, creature) => {
+      acc[`${creature.x},${creature.y}`] = creature
+      return acc
+    }, {})
+  }
+  updateCreatureMap(creatures)
 
   let boundary = {
     top: 0,
@@ -71,6 +85,56 @@ $.get('cavern.json', (data) => {
     $creatures.forEach($creature => {
       $creature.css('left', ($creature.data.x * 10) + 'px')
       $creature.css('top', ($creature.data.y * 10) + 'px')
+      $creature.on('mouseover', () => displayCreatureActions($creature))
+    })
+  }
+
+  $actionTiles = []
+  function getActionTile(n) {
+    if ($actionTiles.length <= n) {
+      $actionTiles.push($(`<a></a>`))
+    }
+    return $actionTiles[n]
+  }
+
+  function tileEmpty(x, y) {
+    const key = `${x},${y}`
+    return floorTileMap[key] && !creatureMap[key]
+  }
+
+  function displayCreatureActions($creature) {
+    let creature = $creature.data
+    let actions = calculateCreatureActions(creature, cells, creatures)
+    displayActions(actions)
+  }
+
+  const adjacentDirections = [
+    {x: 0, y: -1},
+    {x: 0, y: 1},
+    {x: -1, y: 0},
+    {x: 1, y: 0}
+  ]
+
+  function calculateCreatureActions(creature, cells, creatures) {
+    let actions = adjacentDirections.map(direction => {
+      return {
+        type: 'move',
+        symbol: 'm',
+        x: creature.x + direction.x,
+        y: creature.y + direction.y
+      }
+    }).filter(action => tileEmpty(action.x, action.y))
+
+    return actions
+  }
+
+  function displayActions(actions) {
+    $actionTiles.forEach($actionTile => $actionTile.detach())
+    actions.forEach((action, index) => {
+      $actionTile = getActionTile(index)
+      $actionTile.css('left', (action.x * 10) + 'px')
+      $actionTile.css('top', (action.y * 10) + 'px')
+      $chart.append($actionTile)
     })
   }
 
@@ -131,6 +195,19 @@ $.get('cavern.json', (data) => {
   }
   div.chart > i.g {
     background: green;
+    color: black;
+  }
+  div.chart > a {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    font-style: normal;
+    font-size: 10px;
+    font-family: monospace;
+    text-align: center;
+    background: red;
     color: black;
   }
 </style>
