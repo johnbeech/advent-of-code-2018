@@ -6,13 +6,39 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
 
-  await solveForFirstStar(input)
+  await solveForFirstStar(parseCavernMap(input))
   await solveForSecondStar(input)
 }
 
-async function solveForFirstStar (input) {
+function parseCavernMap (input) {
+  const creatures = []
+  const cells = []
+  input.split('').forEach((row, j) => {
+    row.split('').forEach((cell, i) => {
+      const wall = cell === '#'
+      cells.push({
+        x: i,
+        y: j,
+        wall
+      })
+      if (!wall && cell !== '.') {
+        creatures.push({
+          type: cell,
+          x: i,
+          y: j
+        })
+      }
+    })
+  })
+  return {
+    creatures,
+    cells
+  }
+}
+
+async function solveForFirstStar (cavern) {
   let solution = 'UNSOLVED'
-  report('Input:', input)
+  report('Cavern:', cavern.creatures)
   report('Solution 1:', solution)
 }
 
