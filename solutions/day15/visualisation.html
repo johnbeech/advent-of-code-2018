@@ -86,6 +86,7 @@ $.get('cavern.json', (data) => {
       $creature.css('left', ($creature.data.x * 10) + 'px')
       $creature.css('top', ($creature.data.y * 10) + 'px')
       $creature.on('mouseover', () => displayCreatureActions($creature))
+      $creature.on('mouseout', () => displayActions([]))
     })
   }
 
@@ -125,6 +126,19 @@ $.get('cavern.json', (data) => {
       }
     }).filter(action => tileEmpty(action.x, action.y))
 
+    const enemies = creatures.filter(other => other.side !== creature.side)
+    enemies.forEach(enemy => {
+      let targetActions = adjacentDirections.map(direction => {
+        return {
+          type: 'target',
+          symbol: 't',
+          x: enemy.x + direction.x,
+          y: enemy.y + direction.y
+        }
+      }).filter(action => tileEmpty(action.x, action.y))
+      actions = actions.concat(targetActions)
+    })
+
     return actions
   }
 
@@ -134,6 +148,8 @@ $.get('cavern.json', (data) => {
       $actionTile = getActionTile(index)
       $actionTile.css('left', (action.x * 10) + 'px')
       $actionTile.css('top', (action.y * 10) + 'px')
+      $actionTile.html(action.symbol)
+      $actionTile.attr('class', action.symbol)
       $chart.append($actionTile)
     })
   }
@@ -209,6 +225,12 @@ $.get('cavern.json', (data) => {
     text-align: center;
     background: red;
     color: black;
+  }
+  div.chart > a.m {
+    background: red;
+  }
+  div.chart > a.t {
+    background: darkred;
   }
 </style>
 </body>
