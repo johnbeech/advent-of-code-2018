@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualisation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Visualisation</h1>
+<script>
+const colors = 'navy,black'.split(',')
+
+$.get('cavern.json', (data) => {
+  console.log('Visualistion Data', data)
+  let cavern = data
+  let { cells, creatures } = data
+
+  let boundary = {
+    top: 0,
+    left: 0,
+    columns: cells.reduce((acc, cell) => {
+      return Math.max(acc, cell.x)
+    }, 0) + 1,
+    rows: cells.reduce((acc, cell) => {
+      return Math.max(acc, cell.y)
+    }, 0) + 1,
+  }
+
+  $buttonForward = $('<button>+1 step</button>')
+  $buttonForward.on('click', () => {
+  })
+
+  $chart = $(`<div class="chart"></div>`)
+  $('body').append($buttonForward)
+  $('body').append($chart)
+
+  const cellTypeMap = {
+    '.': 'f',
+    '#': 'w'
+  }
+
+  $cells = []
+  cells.forEach(cell => {
+    let cellType = cell.wall ? '#' : '.'
+    let $cell = $(`<b class="${cellTypeMap[cellType]}">${cellType}</b>`)
+    $cell.data = cell
+    cell.$el = $cell
+    $cells.push($cell)
+  })
+
+  const creatureTypeMap = {
+    'E': 'e',
+    'G': 'g'
+  }
+
+  $creatures = []
+  creatures.forEach(creature => {
+    let creatureType = creatureTypeMap[creature.side]
+    let $creature = $(`<i class="${creatureType}">${creature.side}</b>`)
+    $creature.data = creature
+    creature.$el = $creature
+    $creatures.push($creature)
+  })
+
+  $chart.append($cells, $creatures)
+  $chart.width((boundary.columns * 10) + 'px')
+  console.log('Boundary', boundary)
+
+  function renderCreaturePositions($creatures) {
+    $creatures.forEach($creature => {
+      $creature.css('left', ($creature.data.x * 10) + 'px')
+      $creature.css('top', ($creature.data.y * 10) + 'px')
+    })
+  }
+
+  renderCreaturePositions($creatures)
+})
+</script>
+<style>
+  html, body {
+    margin: 20px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    margin: 10px 0;
+  }
+  div.chart {
+    display: block;
+    position: relative;
+    zoom: 2.0;
+    background: #EEE;
+    padding: 0;
+    margin: 10px;
+    line-height: 9px;
+  }
+  div.chart > b {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    font-weight: normal;
+    font-size: 10px;
+    text-align: center;
+    font-family: monospace;
+    overflow: hidden;
+    color: brown;
+  }
+  div.chart > b.w {
+    background: #333;
+    color: #666;
+  }
+  div.chart > b.f {
+    background: #999;
+    color: #666;
+  }
+  div.chart > i {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    font-style: normal;
+    font-size: 10px;
+    font-family: monospace;
+    text-align: center;
+  }
+  div.chart > i.e {
+    background: blue;
+    color: white;
+  }
+  div.chart > i.g {
+    background: green;
+    color: black;
+  }
+</style>
+</body>
+</html>

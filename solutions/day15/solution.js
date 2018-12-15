@@ -1,5 +1,5 @@
 const path = require('path')
-const { read, position } = require('promise-path')
+const { read, write, position } = require('promise-path')
 const fromHere = position(__dirname)
 const report = (...messages) => console.log(`[${require(fromHere('../../package.json')).logName} / ${__dirname.split(path.sep).pop()}]`, ...messages)
 
@@ -13,7 +13,7 @@ async function run () {
 function parseCavernMap (input) {
   const creatures = []
   const cells = []
-  input.trim().split('').forEach((row, j) => {
+  input.trim().split('\n').forEach((row, j) => {
     row.trim().split('').forEach((cell, i) => {
       const wall = cell === '#'
       cells.push({
@@ -23,7 +23,9 @@ function parseCavernMap (input) {
       })
       if (!wall && cell !== '.') {
         creatures.push({
-          type: cell,
+          side: cell,
+          hitpoints: 200,
+          attackPower: 3,
           x: i,
           y: j
         })
@@ -37,9 +39,10 @@ function parseCavernMap (input) {
 }
 
 async function solveForFirstStar (cavern) {
-  let solution = 'UNSOLVED'
-  report('Cavern:', cavern.creatures)
-  report('Solution 1:', solution)
+  await write(fromHere('cavern.json'), JSON.stringify(cavern, null, 2), 'utf8')
+
+  report('Cavern creatures:', cavern.creatures)
+  report('Solution 1:', 'See visualisation: http://localhost:8080/solutions/day15/visualisation.html')
 }
 
 async function solveForSecondStar (input) {
