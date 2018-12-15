@@ -13,8 +13,8 @@ async function run () {
 function parseCavernMap (input) {
   const creatures = []
   const cells = []
-  input.split('').forEach((row, j) => {
-    row.split('').forEach((cell, i) => {
+  input.trim().split('').forEach((row, j) => {
+    row.trim().split('').forEach((cell, i) => {
       const wall = cell === '#'
       cells.push({
         x: i,
