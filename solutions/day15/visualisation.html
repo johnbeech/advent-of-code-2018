@@ -122,14 +122,7 @@ $.get('cavern.json', (data) => {
   ]
 
   function calculateCreatureActions(creature, cells, creatures) {
-    let actions = adjacentDirections.map(direction => {
-      return {
-        type: 'move',
-        symbol: 'm',
-        x: creature.x + direction.x,
-        y: creature.y + direction.y
-      }
-    }).filter(action => tileEmpty(action.x, action.y))
+    let actions = []
 
     const enemies = creatures.filter(other => other.side !== creature.side)
     const targets = []
@@ -148,7 +141,6 @@ $.get('cavern.json', (data) => {
 
     const shortestPath = findShortestPath(creature, targets, findEmptyTiles())
 
-    console.log('Shortest path', shortestPath)
     const pathActions = shortestPath.path.map((tile, index) => {
       return {
         type: 'path',
@@ -163,8 +155,9 @@ $.get('cavern.json', (data) => {
   }
 
   function findShortestPath(start, targets, tiles) {
+    console.log('Find shortest path', start, targets, tiles)
     return targets.map(target => findPath(start, target, tiles))
-      .filter(n => n && n.path)
+      .filter(n => n && n.path && n.path.length)
       .sort((a, b) => a.path.length - b.path.length)[0] || {path:[]}
   }
 
@@ -192,7 +185,7 @@ $.get('cavern.json', (data) => {
     // #2
     do {
       // #2 A
-      let currentTile = open.sort((a, b) => a.f - b.f).pop()
+      let currentTile = open.sort((a, b) => b.f - a.f).pop()
       if (!currentTile) {
         console.log('No path found for:', start, target, open.length, closed.length)
         searching = false
@@ -226,17 +219,18 @@ $.get('cavern.json', (data) => {
               tile.parent = currentTile
               tile.g = 0
               parent = tile.parent
-              while (parent && tile.g < tiles.length) {
+              while (parent && tile.g) {
                 tile.g++
                 parent = parent.parent
               }
-              tile.h = Math.abs(tile.x - target.x) + Math.abs(tile.y - target.y)
+              tile.ro = tile.y * boundary.columns + tile.x
+              tile.h = Math.abs(tile.x - target.x) + Math.abs(tile.y - target.y) + (tile.ro / 1000)
               tile.f = tile.g + tile.h
             }
             else {
               let newg = 0
               let parent = currentTile
-              while (parent && newg < tiles.length) {
+              while (parent) {
                 newg++
                 parent = parent.parent
               }
