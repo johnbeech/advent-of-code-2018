@@ -4,7 +4,8 @@
   <title>Visualisation</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
+  <script src="jquery-2.1.1.min.js"></script>
 </head>
 <body>
 <h1>Visualisation</h1>
@@ -86,7 +87,7 @@ $.get('cavern.json', (data) => {
       $creature.css('left', ($creature.data.x * 10) + 'px')
       $creature.css('top', ($creature.data.y * 10) + 'px')
       $creature.on('mouseover', () => displayCreatureActions($creature))
-      $creature.on('mouseout', () => displayActions([]))
+      //$creature.on('mouseout', () => displayActions([]))
     })
   }
 
@@ -101,6 +102,10 @@ $.get('cavern.json', (data) => {
   function tileEmpty(x, y) {
     const key = `${x},${y}`
     return floorTileMap[key] && !creatureMap[key]
+  }
+
+  function findEmptyTiles() {
+    return floorTiles.filter(tile => tileEmpty(tile.x, tile.y))
   }
 
   function displayCreatureActions($creature) {
@@ -127,8 +132,9 @@ $.get('cavern.json', (data) => {
     }).filter(action => tileEmpty(action.x, action.y))
 
     const enemies = creatures.filter(other => other.side !== creature.side)
+    const targets = []
     enemies.forEach(enemy => {
-      let targetActions = adjacentDirections.map(direction => {
+      const spaces = adjacentDirections.map(direction => {
         return {
           type: 'target',
           symbol: 't',
@@ -136,10 +142,129 @@ $.get('cavern.json', (data) => {
           y: enemy.y + direction.y
         }
       }).filter(action => tileEmpty(action.x, action.y))
-      actions = actions.concat(targetActions)
+      spaces.forEach(space => targets.push(space))
     })
+    actions = actions.concat(targets)
+
+    const shortestPath = findShortestPath(creature, targets, findEmptyTiles())
+
+    console.log('Shortest path', shortestPath)
+    const pathActions = shortestPath.path.map((tile, index) => {
+      return {
+        type: 'path',
+        symbol: index,
+        x: tile.x,
+        y: tile.y
+      }
+    })
+    actions = actions.concat(pathActions)
 
     return actions
+  }
+
+  function findShortestPath(start, targets, tiles) {
+    return targets.map(target => findPath(start, target, tiles))
+      .filter(n => n && n.path)
+      .sort((a, b) => a.path.length - b.path.length)[0] || {path:[]}
+  }
+
+  function findPath(start, target, tiles) {
+    const adjacentDirections = [
+      {x: 0, y: -1},
+      {x: 0, y: 1},
+      {x: -1, y: 0},
+      {x: 1, y: 0}
+    ]
+    const tileMap = tiles.reduce((acc, tile) => {
+      acc[`${tile.x},${tile.y}`] = tile
+      return acc
+    }, {})
+    const findTile = (x, y) => tileMap[`${x},${y}`] || false
+
+    const path = []
+    const open = []
+    const closed = []
+
+    // #1
+    open.push(start)
+    start.open = true
+    let searching = true
+    // #2
+    do {
+      // #2 A
+      let currentTile = open.sort((a, b) => a.f - b.f).pop()
+      if (!currentTile) {
+        console.log('No path found for:', start, target, open.length, closed.length)
+        searching = false
+      }
+      else {
+        currentTile.open = false
+        // console.log('Searching', open.length, closed.length, currentTile)
+        // #2 B
+        closed.push(currentTile)
+        currentTile.closed = true
+        if (currentTile.x === target.x && currentTile.y === target.y) {
+          searching = false
+          // path found
+          path.push(currentTile)
+          parent = currentTile.parent
+          while (parent) {
+            path.unshift(parent)
+            parent = parent.parent
+          }
+        }
+        else {
+          // #2 C
+          adjacentDirections.forEach(direction => {
+            let newg, parent
+            let tile = findTile(currentTile.x + direction.x, currentTile.y + direction.y)
+            if (!tile || tile.closed) {
+              return
+            } else if(!tile.open) {
+              open.push(tile)
+              tile.open = true
+              tile.parent = currentTile
+              tile.g = 0
+              parent = tile.parent
+              while (parent && tile.g < tiles.length) {
+                tile.g++
+                parent = parent.parent
+              }
+              tile.h = Math.abs(tile.x - target.x) + Math.abs(tile.y - target.y)
+              tile.f = tile.g + tile.h
+            }
+            else {
+              let newg = 0
+              let parent = currentTile
+              while (parent && newg < tiles.length) {
+                newg++
+                parent = parent.parent
+              }
+              if (newg < tile.g) {
+                tile.parent = currentTile
+                tile.g = newg
+                tile.f = tile.g + tile.h
+              }
+            }
+          })
+        }
+      }
+    } while(searching)
+
+    tiles.forEach(tile => {
+      delete tile.open
+      delete tile.closed
+      delete tile.f
+      delete tile.h
+      delete tile.g
+      delete tile.parent
+    })
+
+    return {
+      start,
+      target,
+      path
+    }
   }
 
   function displayActions(actions) {
@@ -149,7 +274,7 @@ $.get('cavern.json', (data) => {
       $actionTile.css('left', (action.x * 10) + 'px')
       $actionTile.css('top', (action.y * 10) + 'px')
       $actionTile.html(action.symbol)
-      $actionTile.attr('class', action.symbol)
+      $actionTile.attr('class', action.type)
       $chart.append($actionTile)
     })
   }
@@ -226,11 +351,17 @@ $.get('cavern.json', (data) => {
     background: red;
     color: black;
   }
-  div.chart > a.m {
+  div.chart > a.move {
     background: red;
+    opacity: 0.7;
   }
-  div.chart > a.t {
+  div.chart > a.target {
     background: darkred;
+    opacity: 0.7;
+  }
+  div.chart > a.path {
+    background: purple;
+    opacity: 0.7;
   }
 </style>
 </body>
