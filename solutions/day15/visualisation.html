@@ -24,7 +24,7 @@ $.get('cavern.json', (data) => {
 
   let creatureMap = {}
   function updateCreatureMap(creatures) {
-    creatureMap = creatures.reduce((acc, creature) => {
+    creatureMap = creatures.filter(creature => creature.side !== 'X').reduce((acc, creature) => {
       acc[`${creature.x},${creature.y}`] = creature
       return acc
     }, {})
@@ -49,17 +49,32 @@ $.get('cavern.json', (data) => {
     let creatureActions = calculateCreatureActions(creature, cells, creatures)
     let action = creatureActions.action
     if (action.move) {
-      // console.log('Moving', creature, 'to', action, 'turn', turn, 'round', round)
       creature.x = action.move.x
       creature.y = action.move.y
     }
-    if (action.fight) {
-
+    if (action.attack) {
+      let enemy = action.attack
+      enemy.hitpoints -= creature.attackPower
+      if (enemy.hitpoints <= 0) {
+        enemy.side = 'X'
+      }
     }
     updateCreatureMap(creatures)
     turn++
 
-    if (turn % creatures.length === 0) {
+    let factions = creatures.reduce((acc, creature) => {
+      if (creature.hitpoints > 0) {
+        acc[creature.side] = true
+      }
+      return acc
+    }, {})
+    let aliveFactions = Object.keys(factions).length
+
+    if (aliveFactions <= 1) {
+      return
+    }
+
+    if (turn % creatures.length === creatures.length - 1) {
       turn = 0
       round++
       creatures = creatures.sort((a, b) => {
@@ -86,14 +101,22 @@ $.get('cavern.json', (data) => {
 
   const creatureTypeMap = {
     'E': 'e',
-    'G': 'g'
+    'G': 'g',
+    'X': 'x'
   }
 
   function renderCreaturePositions($creatures) {
     $creatures.forEach($creature => {
-      $creature.css('left', ($creature.data.x * 10) + 'px')
-      $creature.css('top', ($creature.data.y * 10) + 'px')
+      let creature = $creature.data
+      $creature.html(creature.side)
+      $creature.attr('class', creatureTypeMap[creature.side])
+      $creature.css('left', (creature.x * 10) + 'px')
+      $creature.css('top', (creature.y * 10) + 'px')
     })
+
+    let hitpoints = creatures.reduce((acc, c) => acc + Math.max(0, c.hitpoints), 0)
+    let score = hitpoints * (round - 1)
+    $score.html(`Round: ${(round - 1)}, Remaining hitpoints: ${hitpoints}, Score: ${score}`)
   }
 
   $actionTiles = []
@@ -106,7 +129,7 @@ $.get('cavern.json', (data) => {
 
   function tileEmpty(x, y) {
     const key = `${x},${y}`
-    return floorTileMap[key] && !creatureMap[key]
+    return floorTileMap[key] && (!creatureMap[key] || creatureMap[key].hitpoints <= 0)
   }
 
   function findEmptyTiles() {
@@ -128,8 +151,16 @@ $.get('cavern.json', (data) => {
 
   function calculateCreatureActions(creature, cells, creatures) {
     let actions = []
+    const action = {}
 
-    const enemies = creatures.filter(other => other.side !== creature.side)
+    if (creature.hitpoints <= 0) {
+      return {
+        actions,
+        action
+      }
+    }
+
+    const enemies = creatures.filter(other => other.side !== creature.side && other.hitpoints > 0)
     const targets = []
     enemies.forEach(enemy => {
       const spaces = adjacentDirections.map(direction => {
@@ -144,31 +175,50 @@ $.get('cavern.json', (data) => {
     })
     actions = actions.concat(targets)
 
-    const shortestPaths = adjacentDirections.map(direction => {
-      const tile = { x: creature.x + direction.x, y: creature.y + direction.y }
-      if (tileEmpty(tile.x, tile.y)) {
-        return findShortestPath(tile, targets, findEmptyTiles())
-      }
-      return false
-    }).filter(n => n && n.path && n.path.length)
-    const lengthOfShortestPath = (shortestPaths.sort((a, b) => a.path.length - b.path.length)[0] || {path: []}).path.length
-    // console.log('Shortest Paths', shortestPaths, lengthOfShortestPath)
-    const shortestPath = shortestPaths.filter(n => n.path.length === lengthOfShortestPath)[0]
+    const adjacentEnemies = adjacentDirections.reduce((acc, direction) => {
+      const adjacent = enemies.filter(enemy => enemy.x === creature.x + direction.x && enemy.y === creature.y + direction.y)
+      adjacent.forEach(adjacent => acc.push(adjacent))
+      return acc
+    }, [])
 
-    const action = {}
-    if (shortestPath) {
-      const pathActions = shortestPath.path.map((tile, index) => {
-        return {
-          type: 'path',
-          symbol: index,
-          x: tile.x,
-          y: tile.y
-        }
+    if (enemies.length === 0) {
+      // do nothing; victory!
+    }
+    else if (adjacentEnemies.length > 0) {
+      const target = adjacentEnemies[0]
+      action.attack = target
+      actions.push({
+        type: 'attack',
+        symbol: '/',
+        x: target.x,
+        y: target.y
       })
-      actions = actions.concat(pathActions)
-      action.move = {
-        x: pathActions[0].x,
-        y: pathActions[0].y
+    } else {
+      const shortestPaths = adjacentDirections.map(direction => {
+        const tile = { x: creature.x + direction.x, y: creature.y + direction.y }
+        if (tileEmpty(tile.x, tile.y)) {
+          return findShortestPath(tile, targets, findEmptyTiles())
+        }
+        return false
+      }).filter(n => n && n.path && n.path.length)
+      const lengthOfShortestPath = (shortestPaths.sort((a, b) => a.path.length - b.path.length)[0] || {path: []}).path.length
+      // console.log('Shortest Paths', shortestPaths, lengthOfShortestPath)
+      const shortestPath = shortestPaths.filter(n => n.path.length === lengthOfShortestPath)[0]
+
+      if (shortestPath) {
+        const pathActions = shortestPath.path.map((tile, index) => {
+          return {
+            type: 'path',
+            symbol: index,
+            x: tile.x,
+            y: tile.y
+          }
+        })
+        actions = actions.concat(pathActions)
+        action.move = {
+          x: pathActions[0].x,
+          y: pathActions[0].y
+        }
       }
     }
 
@@ -310,8 +360,9 @@ $.get('cavern.json', (data) => {
   })
 
   $chart = $(`<div class="chart"></div>`)
+  $score = $(`<div class="score"></div>`)
   $('body').append($buttonForward, $buttonPlay)
-  $('body').append($chart)
+  $('body').append($chart, $score)
 
   $creatures = []
   creatures.forEach(creature => {
@@ -388,6 +439,11 @@ $.get('cavern.json', (data) => {
     background: green;
     color: black;
   }
+  div.chart > i.x {
+    z-index: 15;
+    background: none;
+    color: red;
+  }
   div.chart > a {
     display: inline-block;
     position: absolute;
@@ -414,6 +470,12 @@ $.get('cavern.json', (data) => {
     background: purple;
     opacity: 0.7;
     font-size: 6px;
+  }
+  div.chart > a.attack {
+    z-index: 500;
+    background: none;
+    opacity: 1.0;
+    color: red;
   }
 </style>
 </body>
