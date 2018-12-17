@@ -52,6 +52,8 @@ $.get('cavern.json', (data) => {
       creature.x = action.move.x
       creature.y = action.move.y
     }
+    creatureActions = calculateCreatureActions(creature, [], creatures)
+    action = creatureActions.action
     if (action.attack) {
       let enemy = action.attack
       enemy.hitpoints -= creature.attackPower
@@ -71,13 +73,14 @@ $.get('cavern.json', (data) => {
     let aliveFactions = Object.keys(factions).length
 
     if (aliveFactions <= 1) {
+      clearInterval(playInterval)
       return
     }
 
-    if (turn % creatures.length === creatures.length - 1) {
+    if (turn % creatures.length === 0) {
       turn = 0
       round++
-      creatures = creatures.sort((a, b) => {
+      creatures = creatures.sort((b, a) => {
         let av = (a.y * boundary.columns) + a.x
         let bv = (b.y * boundary.columns) + b.y
         return av - bv
@@ -115,8 +118,8 @@ $.get('cavern.json', (data) => {
     })
 
     let hitpoints = creatures.reduce((acc, c) => acc + Math.max(0, c.hitpoints), 0)
-    let score = hitpoints * (round - 1)
-    $score.html(`Round: ${(round - 1)}, Remaining hitpoints: ${hitpoints}, Score: ${score}`)
+    let score = hitpoints * round
+    $score.html(`Round: ${round}, Remaining hitpoints: ${hitpoints}, Score: ${score}`)
   }
 
   $actionTiles = []
@@ -140,6 +143,8 @@ $.get('cavern.json', (data) => {
     let creature = $creature.data
     let creatureActions = calculateCreatureActions(creature, cells, creatures)
     displayActions(creatureActions.actions)
+
+    $creatureStats.html(`Creature: ${creature.side}, Hitpoints: ${creature.hitpoints}, Position: (${creature.x},${creature.y})`)
   }
 
   const adjacentDirections = [
@@ -185,7 +190,7 @@ $.get('cavern.json', (data) => {
       // do nothing; victory!
     }
     else if (adjacentEnemies.length > 0) {
-      const target = adjacentEnemies[0]
+      const target = adjacentEnemies.sort((a, b) => a.hitpoints - b.hitpoints)[0]
       action.attack = target
       actions.push({
         type: 'attack',
@@ -351,18 +356,20 @@ $.get('cavern.json', (data) => {
     renderCreaturePositions($creatures)
   })
 
+  let playInterval
   $buttonPlay = $('<button>Play</button>')
   $buttonPlay.on('click', () => {
-    setInterval(() => {
+    playInterval = setInterval(() => {
       advanceCombat()
       renderCreaturePositions($creatures)
     }, 5)
   })
 
-  $chart = $(`<div class="chart"></div>`)
-  $score = $(`<div class="score"></div>`)
+  let $chart = $(`<div class="chart"></div>`)
+  let $score = $(`<div class="score"></div>`)
+  let $creatureStats = $(`<div class="creatureStats"></div>`)
   $('body').append($buttonForward, $buttonPlay)
-  $('body').append($chart, $score)
+  $('body').append($chart, $score, $creatureStats)
 
   $creatures = []
   creatures.forEach(creature => {
