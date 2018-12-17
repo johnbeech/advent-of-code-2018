@@ -372,13 +372,14 @@ $.get('cavern.json', (data) => {
   $buttonPlay = $('<button>Play</button>')
   $buttonPlay.on('click', () => {
     playInterval = setInterval(() => {
-      let n = 0
-      while (n < creatures.length) {
-        advanceCombat()
-        n++
-      }
+      advanceCombat()
       renderCreaturePositions($creatures)
     }, 0)
+  })
+
+  $buttonStop = $('<button>Stop</button>')
+  $buttonStop.on('click', () => {
+    clearInterval(playInterval)
   })
 
   $inputExtraElfDamage = $(`<input value="0"></input>`)
@@ -391,7 +392,7 @@ $.get('cavern.json', (data) => {
   let $chart = $(`<div class="chart"></div>`)
   let $score = $(`<div class="score"></div>`)
   let $creatureStats = $(`<div class="creatureStats"></div>`)
-  $('body').append($buttonForward, $buttonPlay, $inputExtraElfDamage)
+  $('body').append($buttonForward, $buttonPlay, $buttonStop, $('<label>Extra elf damage:</label>'), $inputExtraElfDamage)
   $('body').append($chart, $score, $creatureStats)
 
   $creatures = []
