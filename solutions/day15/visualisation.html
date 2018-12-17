@@ -64,7 +64,11 @@ $.get('cavern.json', (data) => {
     if (action.attack) {
       let enemy = action.attack
       enemy.hitpoints -= creature.attackPower
+      if (creature.side === 'E') {
+        enemy.hitpoints -= extraElfDamage
+      }
       if (enemy.hitpoints <= 0) {
+        enemy.originalSide = enemy.side
         enemy.side = 'X'
       }
     }
@@ -127,7 +131,8 @@ $.get('cavern.json', (data) => {
 
     let hitpoints = creatures.reduce((acc, c) => acc + Math.max(0, c.hitpoints), 0)
     let score = hitpoints * round
-    $score.html(`Round: ${round}, Remaining hitpoints: ${hitpoints}, Score: ${score}`)
+    let deadElves = creatures.filter(c => c.originalSide === 'E').length
+    $score.html(`Round: ${round}, Remaining hitpoints: ${hitpoints}, Score: ${score}, Dead Elves: ${deadElves}`)
   }
 
   $actionTiles = []
@@ -368,15 +373,26 @@ $.get('cavern.json', (data) => {
   $buttonPlay = $('<button>Play</button>')
   $buttonPlay.on('click', () => {
     playInterval = setInterval(() => {
-      advanceCombat()
+      let n = 0
+      while (n < creatures.length) {
+        advanceCombat()
+        n++
+      }
       renderCreaturePositions($creatures)
-    }, 5)
+    }, 0)
+  })
+
+  $inputExtraElfDamage = $(`<input value="0"></input>`)
+  let extraElfDamage = 0
+  $inputExtraElfDamage.on('change', () => {
+    extraElfDamage = Number.parseInt($inputExtraElfDamage.val()) || 0
+    $inputExtraElfDamage.val(extraElfDamage)
   })
 
   let $chart = $(`<div class="chart"></div>`)
   let $score = $(`<div class="score"></div>`)
   let $creatureStats = $(`<div class="creatureStats"></div>`)
-  $('body').append($buttonForward, $buttonPlay)
+  $('body').append($buttonForward, $buttonPlay, $inputExtraElfDamage)
   $('body').append($chart, $score, $creatureStats)
 
   $creatures = []
@@ -493,7 +509,8 @@ $.get('cavern.json', (data) => {
     color: red;
   }
   .blink .current {
-    outline: none;
+    outline: 1px solid darkred;
+    outline-offset: -1px;
   }
   .current {
     outline: 1px solid red;
