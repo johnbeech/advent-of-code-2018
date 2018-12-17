@@ -12,6 +12,10 @@
 <script>
 const colors = 'navy,black'.split(',')
 
+setInterval(() => {
+  $('body').toggleClass('blink')
+}, 300)
+
 $.get('cavern.json', (data) => {
   console.log('Visualistion Data', data)
   let cavern = data
@@ -44,8 +48,11 @@ $.get('cavern.json', (data) => {
 
   let turn = 0
   let round = 0
+  let creature = {}
   function advanceCombat() {
-    const creature = creatures[turn % creatures.length]
+    creature.current = false
+    creature = creatures[turn % creatures.length]
+    creature.current = true
     let creatureActions = calculateCreatureActions(creature, cells, creatures)
     let action = creatureActions.action
     if (action.move) {
@@ -80,9 +87,9 @@ $.get('cavern.json', (data) => {
     if (turn % creatures.length === 0) {
       turn = 0
       round++
-      creatures = creatures.sort((b, a) => {
+      creatures = creatures.sort((a, b) => {
         let av = (a.y * boundary.columns) + a.x
-        let bv = (b.y * boundary.columns) + b.y
+        let bv = (b.y * boundary.columns) + b.x
         return av - bv
       })
     }
@@ -113,6 +120,7 @@ $.get('cavern.json', (data) => {
       let creature = $creature.data
       $creature.html(creature.side)
       $creature.attr('class', creatureTypeMap[creature.side])
+      creature.current ? $creature.addClass('current') : false
       $creature.css('left', (creature.x * 10) + 'px')
       $creature.css('top', (creature.y * 10) + 'px')
     })
@@ -483,6 +491,13 @@ $.get('cavern.json', (data) => {
     background: none;
     opacity: 1.0;
     color: red;
+  }
+  .blink .current {
+    outline: none;
+  }
+  .current {
+    outline: 1px solid red;
+    outline-offset: -1px;
   }
 </style>
 </body>
