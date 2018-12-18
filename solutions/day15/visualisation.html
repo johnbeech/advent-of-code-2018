@@ -48,33 +48,15 @@ $.get('cavern.json', (data) => {
   let turn = 0
   let round = 0
   let creature = {}
+  let aliveCreatures = creatures.filter(n => n.side !== 'X')
   function advanceCombat() {
+    // update current creature
     creature.current = false
-    creature = creatures[turn % creatures.length]
+    creature = aliveCreatures[turn % aliveCreatures.length]
     creature.current = true
-    let creatureActions = calculateCreatureActions(creature, cells, creatures)
-    let action = creatureActions.action
-    if (action.move) {
-      creature.x = action.move.x
-      creature.y = action.move.y
-    }
-    creatureActions = calculateCreatureActions(creature, [], creatures)
-    action = creatureActions.action
-    if (action.attack) {
-      let enemy = action.attack
-      enemy.hitpoints -= creature.attackPower
-      if (creature.side === 'E') {
-        enemy.hitpoints -= extraElfDamage
-      }
-      if (enemy.hitpoints <= 0) {
-        enemy.originalSide = enemy.side
-        enemy.side = 'X'
-      }
-    }
-    updateCreatureMap(creatures)
-    turn++
 
-    let factions = creatures.reduce((acc, creature) => {
+    // check factions to see if combat is over
+    let factions = aliveCreatures.reduce((acc, creature) => {
       if (creature.hitpoints > 0) {
         acc[creature.side] = true
       }
@@ -87,7 +69,33 @@ $.get('cavern.json', (data) => {
       return
     }
 
-    if (turn % creatures.length === 0) {
+    // check to see if the creature can move
+    let creatureActions = calculateCreatureActions(creature, cells, aliveCreatures)
+    let action = creatureActions.action
+    if (action.move) {
+      creature.x = action.move.x
+      creature.y = action.move.y
+    }
+    // check to see if the creature can attack, after moving
+    creatureActions = calculateCreatureActions(creature, [], aliveCreatures)
+    action = creatureActions.action
+    if (action.attack) {
+      let enemy = action.attack
+      enemy.hitpoints -= creature.attackPower
+      if (creature.side === 'E') {
+        enemy.hitpoints -= extraElfDamage
+      }
+      if (enemy.hitpoints <= 0) {
+        enemy.originalSide = enemy.side
+        enemy.side = 'X'
+      }
+    }
+
+    // advance the turn / round counters
+    updateCreatureMap(creatures)
+    turn++
+
+    if (turn % aliveCreatures.length === 0) {
       turn = 0
       round++
       creatures = creatures.sort((a, b) => {
@@ -95,6 +103,7 @@ $.get('cavern.json', (data) => {
         let bv = (b.y * boundary.columns) + b.x
         return av - bv
       })
+      aliveCreatures = creatures.filter(n => n.side !== 'X')
     }
   }
 
