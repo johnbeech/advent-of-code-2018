@@ -5,11 +5,12 @@ const report = (...messages) => console.log(`[${require(fromHere('../../package.
 
 async function run () {
   const input = (await read(fromHere('input.txt'), 'utf8')).trim()
+  const program = (await read(fromHere('program.txt'), 'utf8')).trim()
 
   const opCodeSamples = parseOpcodeSamples(input)
+  const programCode = parseProgram(program)
 
-  await solveForFirstStar(opCodeSamples)
-  await solveForSecondStar(input)
+  await solveForFirstAndSecondStar(opCodeSamples, programCode)
 }
 
 // Before: [1, 3, 2, 3]
@@ -57,6 +58,19 @@ function parseOpcodeSamples (input) {
   })
 
   return samples
+}
+
+function parseProgram (input) {
+  const lineRegex = /(\d+) (\d+) (\d+) (\d+)/
+  return input.split('\n').filter(n => n.trim()).map(line => {
+    const m = line.match(lineRegex)
+    return {
+      opCode: Number.parseInt(m[1]),
+      a: Number.parseInt(m[2]),
+      b: Number.parseInt(m[3]),
+      c: Number.parseInt(m[4])
+    }
+  })
 }
 
 const operations = [
@@ -127,19 +141,67 @@ const operations = [
   }
 ]
 
-async function solveForFirstStar (opCodeSamples) {
+async function solveForFirstAndSecondStar (opCodeSamples, program) {
   await write(fromHere('opcode-samples.json'), JSON.stringify(opCodeSamples, null, 2), 'utf8')
+  await write(fromHere('program.json'), JSON.stringify(program, null, 2), 'utf8')
 
   const tests = opCodeSamples.map(testSample)
   report('Ran', tests.length * operations.length, 'tests for', tests.length, 'samples.')
-  const solution = tests.filter(ops => ops.length > 2).length
 
-  report('Solution 1:', solution)
+  const operationMap = operations.reduce((acc, op) => {
+    acc[op.code] = op
+    return acc
+  }, {})
+
+  const opCodeMap = {}
+  const all = new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+  const evidence = operations.map(operation => {
+    const positives = []
+    tests.forEach(test => {
+      test.filter(n => n.operation === operation.code).map(n => n.instruction.opCode).forEach(v => positives.push(v))
+    })
+    let positiveSet = new Set(positives)
+    let negatives = new Set([...all].filter(x => !positiveSet.has(x)))
+    report('Operation', operation.code, 'Negatives:', [...negatives].join(' '), 'Pos:', [...positiveSet].join(' '))
+    return {
+      code: operation.code,
+      positives: positives,
+      excluded: negatives
+    }
+  })
+
+  const mappedEvidence = evidence.reduce((acc, evidence) => {
+    evidence.positives.forEach(code => {
+      const entry = acc[code] || {}
+      entry[evidence.code] = entry[evidence.code] || 0
+      entry[evidence.code]++
+      acc[code] = entry
+    })
+    return acc
+  }, {})
+
+  console.log(mappedEvidence)
+
+  const solution1 = tests.filter(ops => ops.length > 2).length
+  report('Solution 1:', solution1)
+
+  report('Op code map', opCodeMap, operationMap)
+
+  const registers = [0, 0, 0, 0]
+  program.forEach(instruction => {
+    const op = opCodeMap[instruction.opCode]
+    if (op) {
+      op(instruction, registers)
+    } else {
+      // report(op, instruction)
+    }
+  })
+  const solution2 = registers[0]
+  report('Solution 2:', solution2)
 }
 
 function testSample ({ before, after, instruction }) {
   const validOperations = operations.map(operation => {
-    report('Operation', instruction)
     operation.fn(instruction, before)
     const actual = before
     const expected = after
@@ -149,11 +211,6 @@ function testSample ({ before, after, instruction }) {
     return false
   }).filter(n => n)
   return validOperations
-}
-
-async function solveForSecondStar (input) {
-  let solution = 'UNSOLVED'
-  report('Solution 2:', solution)
 }
 
 run()
