@@ -229,7 +229,9 @@ $.get('cavern.json', (data) => {
       }).filter(n => n && n.path && n.path.length)
       const lengthOfShortestPath = (shortestPaths.sort((a, b) => a.path.length - b.path.length)[0] || {path: []}).path.length
       // console.log('Shortest Paths', shortestPaths, lengthOfShortestPath)
-      const shortestPath = shortestPaths.filter(n => n.path.length === lengthOfShortestPath)[0]
+      const shortestPath = shortestPaths.filter(n => n.path.length === lengthOfShortestPath).sort((a, b) => {
+        return (a.target.y * boundary.columns + a.target.x) - (b.target.y * boundary.columns + b.target.x)
+      })[0]
 
       if (shortestPath) {
         const pathActions = shortestPath.path.map((tile, index) => {
