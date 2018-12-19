@@ -28,7 +28,7 @@ function parseOpcodeSamples (input) {
   }, {
     regex: /^(\d+) (\d+) (\d+) (\d+)$/,
     action: (m) => {
-      sample.operation = {
+      sample.instruction = {
         opCode: Number.parseInt(m[1]),
         a: Number.parseInt(m[2]),
         b: Number.parseInt(m[3]),
@@ -59,13 +59,96 @@ function parseOpcodeSamples (input) {
   return samples
 }
 
-async function solveForFirstStar (opCodeSamples) {
-  let solution = 'UNSOLVED'
+const operations = [
+  {
+    name: 'Addition',
+    code: 'addr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] + reg[b] }
+  }, {
+    name: 'Addition',
+    code: 'addi',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] + b }
+  }, {
+    name: 'Multiplication',
+    code: 'mulr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] * reg[b] }
+  }, {
+    name: 'Multiplication',
+    code: 'muli',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] * b }
+  }, {
+    name: 'Bitwise AND',
+    code: 'banr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] & reg[b] }
+  }, {
+    name: 'Bitwise AND',
+    code: 'bani',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] & b }
+  }, {
+    name: 'Bitwise OR',
+    code: 'borr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] | reg[b] }
+  }, {
+    name: 'Bitwise OR',
+    code: 'bori',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] | b }
+  }, {
+    name: 'Assignment',
+    code: 'setr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] }
+  }, {
+    name: 'Assignment',
+    code: 'seti',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = a }
+  }, {
+    name: 'Greater-than Testing',
+    code: 'gtir',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = a > reg[b] ? 1 : 0 }
+  }, {
+    name: 'Greater-than Testing',
+    code: 'gtri',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] > b ? 1 : 0 }
+  }, {
+    name: 'Greater-than Testing',
+    code: 'gtrr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] > reg[b] ? 1 : 0 }
+  }, {
+    name: 'Equality Testing',
+    code: 'eqir',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = a === reg[b] ? 1 : 0 }
+  }, {
+    name: 'Equality Testing',
+    code: 'eqri',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] === b ? 1 : 0 }
+  }, {
+    name: 'Equality Testing',
+    code: 'eqrr',
+    fn: ({ opCode, a, b, c }, reg) => { reg[c] = reg[a] === reg[b] ? 1 : 0 }
+  }
+]
 
+async function solveForFirstStar (opCodeSamples) {
   await write(fromHere('opcode-samples.json'), JSON.stringify(opCodeSamples, null, 2), 'utf8')
 
-  report('Input:', opCodeSamples.length)
+  const tests = opCodeSamples.map(testSample)
+  report('Ran', tests.length * operations.length, 'tests for', tests.length, 'samples.')
+  const solution = tests.filter(ops => ops.length > 2).length
+
   report('Solution 1:', solution)
+}
+
+function testSample ({ before, after, instruction }) {
+  const validOperations = operations.map(operation => {
+    report('Operation', instruction)
+    operation.fn(instruction, before)
+    const actual = before
+    const expected = after
+    if (actual.join('') === expected.join('')) {
+      return { before, after, instruction, operation: operation.code }
+    }
+    return false
+  }).filter(n => n)
+  return validOperations
 }
 
 async function solveForSecondStar (input) {
