@@ -66,17 +66,18 @@ async function solveForFirstStar (clayScans, boundary) {
   await write(fromHere('start-state.txt'), renderCells(cells, boundary), 'utf8')
   let iteration = 0
   let cellCount = 0
-  const openCells = Object.values(cells).filter(cell => cell.open)
+  const openCells = Object.values(cells).filter(cell => cell.type === '+')
   do {
     cellCount = Object.keys(cells).length
     flood(cells, openCells, boundary)
     iteration++
-    if (iteration === 1000) {
-      await write(fromHere('end-state.txt'), renderCells(cells, boundary), 'utf8')
-      return
+    if (iteration === 46) {
+      break
     }
     report('Cell count', iteration, ':', Object.keys(cells).length, cellCount, 'Open cells:', openCells.length)
   } while (Object.keys(cells).length > cellCount)
+
+  await write(fromHere('end-state.txt'), renderCells(cells, boundary), 'utf8')
 
   report('Clay scans:', clayScans.length, 'Iterations:', iteration)
   report('Solution 1:', solution)
@@ -123,27 +124,50 @@ function flood (cells, openCells, boundary) {
     focus.push(openCells.pop())
   }
   focus.forEach(cell => {
-    if (!floodDirection(cell, downDirection)) {
-      sideDirections.forEach(direction => floodDirection(cell, direction, true))
+    if (floodDown(cell)) {
+    } else {
+      openCells.push(cell)
+      sideDirections.forEach(direction => floodSideways(cell, direction))
     }
-    cell.open = false
   })
 
-  function floodDirection (cell, direction, sideways) {
+  function floodDown (cell) {
+    const direction = downDirection
     let i = cell.x + direction.x
     let j = Math.min(cell.y + direction.y, boundary.bottom)
-    if (sideways && j === boundary.bottom) {
-      return false
-    }
-    const floodCell = cells[`${i},${j}`] || { type: '.', x: i, y: j, open: true }
-    console.log('Testing', `${i},${j}`, floodCell)
-    if (floodCell.open) {
-      floodCell.type = '+'
+    const floodCell = getCell(i, j)
+    if ((cell.type === '|' || cell.type === '+') && floodCell.type === '.') {
+      floodCell.type = '|'
       openCells.push(floodCell)
       cells[`${i},${j}`] = floodCell
       return true
     }
     return false
+  }
+
+  function floodSideways (cell, direction) {
+    let i = cell.x + direction.x
+    let j = Math.min(cell.y + direction.y, boundary.bottom)
+    if (j === boundary.bottom) {
+      return false
+    }
+    const floodCell = getCell(i, j)
+    const baseCell = getCell(i, j + 1)
+    if (floodCell.type === '.') {
+      if (baseCell.type === '#') {
+        floodCell.type = '|'
+      }
+      if (baseCell.type === '~') {
+          floodCell.type = '|'
+      }
+    }
+  }
+
+  function getCell (x, y) {
+    const key = `${x},${y}`
+    const cell = cells[key] || { type: '.', x, y }
+    cells[key] = cell
+    return cell
   }
 }
 
