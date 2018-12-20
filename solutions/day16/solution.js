@@ -181,6 +181,7 @@ async function solveForFirstAndSecondStar (opCodeSamples, program) {
   }, {})
 
   console.log(mappedEvidence)
+  await write(fromHere('opcode-evidence.json'), JSON.stringify({ operations: operations.map(n => n.code), mappedEvidence }, null, 2), 'utf8')
 
   const solution1 = tests.filter(ops => ops.length > 2).length
   report('Solution 1:', solution1)
@@ -197,7 +198,7 @@ async function solveForFirstAndSecondStar (opCodeSamples, program) {
     }
   })
   const solution2 = registers[0]
-  report('Solution 2:', solution2)
+  report('Solution 2:', solution2, registers)
 }
 
 function testSample ({ before, after, instruction }) {
