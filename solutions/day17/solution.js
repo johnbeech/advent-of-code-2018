@@ -12,7 +12,7 @@ async function run () {
   report('Boundary:', boundary, 'Clay scans:', clayScans.length)
   await write(fromHere('clay-scans.json'), JSON.stringify({ boundary, scans: clayScans }, null, 2), 'utf8')
 
-  await solveForFirstStar(input)
+  await solveForFirstStar(clayScans, boundary)
   await solveForSecondStar(input)
 }
 
@@ -53,10 +53,61 @@ function findBoundaryFrom (scans) {
   return boundary
 }
 
-async function solveForFirstStar (input) {
+async function solveForFirstStar (clayScans, boundary) {
   let solution = 'UNSOLVED'
-  report('Input:', input)
+
+  const cells = constructClayBoundary(clayScans)
+  cells[`500,0`] = {
+    type: '+',
+    x: 500,
+    y: 0,
+    open: true
+  }
+  await write(fromHere('start-state.txt'), renderCells(cells, boundary), 'utf8')
+  let iteration = 0
+  let cellCount = 0
+  do {
+    cellCount = Object.keys(cells).length
+    flood(cells)
+    iteration++
+  } while (Object.keys(cells).length > cellCount)
+
+  report('Clay scans:', clayScans.length, 'Iterations:', iteration)
   report('Solution 1:', solution)
+}
+
+function renderCells (cells, boundary) {
+  let output = ''
+  for (let j = boundary.top; j <= boundary.bottom; j++) {
+    for (let i = boundary.left; i <= boundary.right; i++) {
+      output += (cells[`${i},${j}`] || { type: '.' }).type
+    }
+    output += '\n'
+  }
+  return output
+}
+
+function constructClayBoundary (clayScans) {
+  const cells = clayScans.reduce((acc, scan) => {
+    for (let j = scan.y1; j <= scan.y2; j++) {
+      for (let i = scan.x1; i <= scan.x2; i++) {
+        let key = `${i},${j}`
+        acc[key] = {
+          type: '#',
+          x: i,
+          y: j,
+          closed: true
+        }
+      }
+    }
+    return acc
+  }, {})
+
+  return cells
+}
+
+function flood (cells) {
+  //
 }
 
 async function solveForSecondStar (input) {
