@@ -66,10 +66,16 @@ async function solveForFirstStar (clayScans, boundary) {
   await write(fromHere('start-state.txt'), renderCells(cells, boundary), 'utf8')
   let iteration = 0
   let cellCount = 0
+  const openCells = Object.values(cells).filter(cell => cell.open)
   do {
     cellCount = Object.keys(cells).length
-    flood(cells)
+    flood(cells, openCells, boundary)
     iteration++
+    if (iteration === 1000) {
+      await write(fromHere('end-state.txt'), renderCells(cells, boundary), 'utf8')
+      return
+    }
+    report('Cell count', iteration, ':', Object.keys(cells).length, cellCount, 'Open cells:', openCells.length)
   } while (Object.keys(cells).length > cellCount)
 
   report('Clay scans:', clayScans.length, 'Iterations:', iteration)
@@ -96,7 +102,7 @@ function constructClayBoundary (clayScans) {
           type: '#',
           x: i,
           y: j,
-          closed: true
+          open: false
         }
       }
     }
@@ -106,8 +112,39 @@ function constructClayBoundary (clayScans) {
   return cells
 }
 
-function flood (cells) {
-  //
+const downDirection = { x: 0, y: 1 }
+const sideDirections = [
+  { x: -1, y: 0 },
+  { x: 1, y: 0 }
+]
+function flood (cells, openCells, boundary) {
+  const focus = []
+  while (openCells.length > 0) {
+    focus.push(openCells.pop())
+  }
+  focus.forEach(cell => {
+    if (!floodDirection(cell, downDirection)) {
+      sideDirections.forEach(direction => floodDirection(cell, direction, true))
+    }
+    cell.open = false
+  })
+
+  function floodDirection (cell, direction, sideways) {
+    let i = cell.x + direction.x
+    let j = Math.min(cell.y + direction.y, boundary.bottom)
+    if (sideways && j === boundary.bottom) {
+      return false
+    }
+    const floodCell = cells[`${i},${j}`] || { type: '.', x: i, y: j, open: true }
+    console.log('Testing', `${i},${j}`, floodCell)
+    if (floodCell.open) {
+      floodCell.type = '+'
+      openCells.push(floodCell)
+      cells[`${i},${j}`] = floodCell
+      return true
+    }
+    return false
+  }
 }
 
 async function solveForSecondStar (input) {
