@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualisation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Visualisation</h1>
+<script>
+const colors = 'navy,black'.split(',')
+
+$.get('opcode-evidence.json', (data) => {
+  let evidence = data.mappedEvidence
+  let operations = data.operations
+  console.log('Visualistion Data', data)
+
+  $chart = $(`<div class="chart"></div>`)
+  $('body').append($chart)
+
+  function makeCells($chart) {
+    let grid = []
+    while (grid.length < 16) {
+      const j = grid.length
+      const row = []
+      const $row = $(`<row></row>`)
+      while (row.length < 16) {
+        const i = row.length
+        const val = i
+        const cell = {
+          x: i,
+          y: j,
+          val,
+          $el: $(`<cell><t>${val}</t></cell>`)
+        }
+        cell.$el.data = cell
+        row.push(cell)
+        $row.append(cell.$el)
+        $row.on('mouseover', () => {
+          highlightInformation(j, $row)
+        })
+        $chart.append($row)
+      }
+      $row.width((row.length / 4 * 40) + 'px')
+      $row.height((row.length / 4 * 40) + 'px')
+      grid.push(row)
+    }
+    $chart.width((grid.length * 40) + 'px')
+    return grid
+  }
+
+  function makeOperationSummaries(operations) {
+    $summary = $(`<summary></summary>`)
+    $summary.data = operations.map(operation => {
+      $operation = $(`<operation><heading>${operation}</heading></operation>`)
+      $options = $(`<options></options>`)
+      $operation.append($options)
+      $summary.append($operation)
+      return {
+        operation,
+        $operation,
+        $options,
+        options: []
+      }
+    })
+    return $summary
+  }
+
+  const grid = makeCells($chart)
+  const $operationSummary = makeOperationSummaries(operations)
+  $('body').append($operationSummary)
+
+  function highlightInformation(offset, $row) {
+    $operationSummary.data.forEach(entry => {
+      entry.$operation.removeClass('highlighted')
+    })
+    let entry = $operationSummary.data[offset]
+    entry.$operation.addClass('highlighted')
+  }
+
+  function populateCells(grid, evidence) {
+    grid.forEach((row, j) => {
+      const opSummary = $operationSummary.data[j]
+      row.forEach((cell, i) => {
+        const sampleCount = evidence[i][opSummary.operation] || false
+        if (sampleCount) {
+          cell.$el.html(`<n sample-count="${sampleCount}">${i}</n>`)
+        }
+        else {
+          cell.$el.html(`<t>${i}</t>`)
+        }
+      })
+    })
+  }
+
+  populateCells(grid, evidence)
+
+})
+</script>
+<style>
+  html, body {
+    margin: 20px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    margin: 10px 0;
+  }
+  div.chart {
+    display: inline-block;
+    zoom: 1.0;
+    background: #EEE;
+    padding: 0 1px 1px 0;
+    line-height: 0;
+  }
+  div.chart > row {
+    display: inline-block;
+    outline: 2px solid #666;
+    outline-offset: -1px;
+    overflow: hidden;
+    line-height: 0;
+  }
+  div.chart > row:hover {
+    background: #FDC;
+  }
+  div.chart > row > cell {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    flex-grow: 1;
+    cursor: default;
+  }
+  div.chart > row > cell > t {
+    display: inline-block;
+    font-size: 12px;
+    font-family: 'Lucida Console', monospace;
+    color: #DDD;
+  }
+  div.chart > row > cell > n {
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Lucida Console', monospace;
+    color: #333;
+  }
+  div.chart > row > cell:hover {
+    outline: 2px solid rgba(255,0,0,0.1);
+    outline-offset: -1px;
+  }
+  summary {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 10px;
+    padding: 10px;
+    border: 4px solid #CCC;
+  }
+  operation {
+    display: block;
+  }
+  heading {
+    display: block;
+    font-weight: bold;
+  }
+  operation.highlighted {
+    color: red;
+  }
+</style>
+</body>
+</html>

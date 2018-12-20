@@ -1,0 +1,180 @@
+{
+  "operations": [
+    "addr",
+    "addi",
+    "mulr",
+    "muli",
+    "banr",
+    "bani",
+    "borr",
+    "bori",
+    "setr",
+    "seti",
+    "gtir",
+    "gtri",
+    "gtrr",
+    "eqir",
+    "eqri",
+    "eqrr"
+  ],
+  "mappedEvidence": {
+    "0": {
+      "addi": 1,
+      "mulr": 40,
+      "borr": 2,
+      "bori": 1,
+      "setr": 1
+    },
+    "1": {
+      "addr": 58,
+      "addi": 16,
+      "mulr": 16,
+      "borr": 43,
+      "bori": 16,
+      "setr": 16,
+      "seti": 58,
+      "eqir": 43,
+      "eqri": 42
+    },
+    "2": {
+      "addr": 58,
+      "addi": 58,
+      "mulr": 13,
+      "borr": 43,
+      "bori": 43,
+      "setr": 43,
+      "seti": 58,
+      "gtir": 45,
+      "gtri": 58,
+      "gtrr": 45,
+      "eqri": 15
+    },
+    "3": {
+      "seti": 53,
+      "gtrr": 14,
+      "eqir": 14,
+      "eqrr": 24
+    },
+    "4": {
+      "seti": 48,
+      "gtri": 35,
+      "gtrr": 35,
+      "eqir": 10,
+      "eqri": 7
+    },
+    "5": {
+      "mulr": 28,
+      "muli": 42,
+      "banr": 11,
+      "bani": 11,
+      "borr": 39,
+      "bori": 53,
+      "setr": 11
+    },
+    "6": {
+      "mulr": 22,
+      "banr": 9,
+      "borr": 39,
+      "bori": 17,
+      "setr": 17
+    },
+    "7": {
+      "addr": 57,
+      "muli": 44,
+      "banr": 11,
+      "bani": 44,
+      "borr": 44,
+      "bori": 57,
+      "setr": 57,
+      "gtir": 30,
+      "gtrr": 44,
+      "eqir": 16,
+      "eqri": 48,
+      "eqrr": 20
+    },
+    "8": {
+      "addr": 55,
+      "addi": 39,
+      "mulr": 18,
+      "muli": 24,
+      "borr": 17,
+      "bori": 33,
+      "setr": 6,
+      "eqir": 1,
+      "eqrr": 1
+    },
+    "9": {
+      "addr": 42,
+      "addi": 42,
+      "mulr": 42,
+      "muli": 42,
+      "banr": 42,
+      "bani": 42,
+      "borr": 42,
+      "bori": 42,
+      "setr": 42,
+      "seti": 42,
+      "gtir": 42,
+      "gtri": 42,
+      "gtrr": 42,
+      "eqri": 14
+    },
+    "10": {
+      "addr": 17,
+      "addi": 13,
+      "borr": 18,
+      "bori": 17,
+      "setr": 7,
+      "seti": 32,
+      "gtri": 11,
+      "gtrr": 11,
+      "eqir": 42,
+      "eqri": 3,
+      "eqrr": 13
+    },
+    "11": {
+      "banr": 5,
+      "bani": 5,
+      "seti": 41,
+      "gtir": 41,
+      "gtri": 41,
+      "gtrr": 34,
+      "eqir": 41,
+      "eqri": 41,
+      "eqrr": 41
+    },
+    "12": {
+      "addi": 28,
+      "mulr": 28,
+      "borr": 30,
+      "bori": 40,
+      "setr": 12
+    },
+    "13": {
+      "bani": 9,
+      "borr": 9,
+      "bori": 9,
+      "setr": 9,
+      "seti": 49,
+      "gtri": 32,
+      "gtrr": 3,
+      "eqir": 3,
+      "eqri": 5,
+      "eqrr": 38
+    },
+    "14": {
+      "addr": 27,
+      "addi": 35,
+      "mulr": 18,
+      "borr": 26,
+      "bori": 40,
+      "setr": 5,
+      "seti": 46
+    },
+    "15": {
+      "borr": 44,
+      "bori": 57,
+      "setr": 14
+    }
+  }
+}
