@@ -71,11 +71,11 @@ async function solveForFirstStar (clayScans, boundary) {
     cellCount = Object.keys(cells).length
     flood(cells, openCells, boundary)
     iteration++
-    if (iteration === 46) {
+    if (iteration === 150) {
       break
     }
     report('Cell count', iteration, ':', Object.keys(cells).length, cellCount, 'Open cells:', openCells.length)
-  } while (Object.keys(cells).length > cellCount)
+  } while (openCells.length > 0)
 
   await write(fromHere('end-state.txt'), renderCells(cells, boundary), 'utf8')
 
@@ -126,7 +126,7 @@ function flood (cells, openCells, boundary) {
   focus.forEach(cell => {
     if (floodDown(cell)) {
     } else {
-      openCells.push(cell)
+      addOpenCell(cell)
       sideDirections.forEach(direction => floodSideways(cell, direction))
     }
   })
@@ -138,7 +138,7 @@ function flood (cells, openCells, boundary) {
     const floodCell = getCell(i, j)
     if ((cell.type === '|' || cell.type === '+') && floodCell.type === '.') {
       floodCell.type = '|'
-      openCells.push(floodCell)
+      addOpenCell(floodCell)
       cells[`${i},${j}`] = floodCell
       return true
     }
@@ -152,14 +152,55 @@ function flood (cells, openCells, boundary) {
       return false
     }
     const floodCell = getCell(i, j)
-    const baseCell = getCell(i, j + 1)
-    if (floodCell.type === '.') {
-      if (baseCell.type === '#') {
-        floodCell.type = '|'
+    const feedCell = getCell(i, j - 1)
+    if (floodCell.type !== '#') {
+      const left = edgeSearch(cell, -1, 100)
+      const right = edgeSearch(cell, 1, 100)
+      if (left && right) {
+        left.forEach(cell => {
+          cell.type = '~'
+        })
+        right.forEach(cell => {
+          cell.type = '~'
+        })
+      } else if (left) {
+        left.forEach(cell => {
+          cell.type = '|'
+          addOpenCell(cell)
+        })
+      } else if (right) {
+        right.forEach(cell => {
+          cell.type = '|'
+          addOpenCell(cell)
+        })
       }
-      if (baseCell.type === '~') {
-          floodCell.type = '|'
+      if (left || right) {
+        cell.type = '|'
+        addOpenCell(feedCell)
       }
+    }
+  }
+
+  function edgeSearch (cell, xDirection, limit) {
+    let finds = []
+    let next, below
+    while (finds.length < limit) {
+      next = getCell(cell.x + (xDirection * (finds.length + 1)), cell.y)
+      below = getCell(cell.x + (xDirection * (finds.length + 1)), cell.y + 1)
+      if (below.type === '.' || below.type === '|') {
+        return false
+      }
+      if (next.type === '#') {
+        return finds
+      }
+      finds.push(next)
+    }
+    return false
+  }
+
+  function addOpenCell (cell) {
+    if (openCells.indexOf(cell) === -1) {
+      openCells.push(cell)
     }
   }
 
